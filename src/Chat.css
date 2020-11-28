@@ -1,0 +1,8 @@
+.Chat {
+    height: 100vh;
+    width: 20vw;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
