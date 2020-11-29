@@ -2,6 +2,7 @@ import './Chat.css';
 import React, {FC, useEffect, useRef} from 'react'
 import SimpleBar from "simplebar-react";
 import 'simplebar/dist/simplebar.min.css';
+import {colors} from "./colors";
 
 type ChatProps = {
     chatMessages: {
@@ -20,6 +21,7 @@ type ChatProps = {
         }
     }
 }
+
 
 const Chat: FC<ChatProps> = ({chatMessages}) => {
     const messagesEndRef = useRef(null)
@@ -40,7 +42,7 @@ const Chat: FC<ChatProps> = ({chatMessages}) => {
 
     const formatMessage = (message) => {
         return <>
-            <span style={{color: message.message.user_color}}>{message.commenter.display_name + ": "}</span>
+            <span className="commenter" style={{color: colors[Math.abs(message.commenter.display_name.hashCode()) % colors.length]}}>{message.commenter.display_name + ": "}</span>
             {message.message.fragments.map(formatFragment)}
         </>
     }
