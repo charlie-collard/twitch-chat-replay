@@ -1,8 +1,8 @@
 .App {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+    background-color: rgb(24, 24, 27);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
