@@ -4,7 +4,14 @@ import SimpleBar from "simplebar-react";
 import 'simplebar/dist/simplebar.min.css';
 
 type ChatProps = {
-    chatMessages: String[]
+    chatMessages: {
+        commenter: {
+            display_name: string
+        },
+        message: {
+            body: string
+        }
+    }
 }
 
 const Chat: FC<ChatProps> = ({chatMessages}) => {
@@ -12,7 +19,7 @@ const Chat: FC<ChatProps> = ({chatMessages}) => {
     const simpleBarRef = useRef()
 
     const scrollToBottom = () => {
-        messagesEndRef.current.scrollIntoView({behavior: "auto"})
+        messagesEndRef.current.scrollIntoView({behavior: "smooth"})
         simpleBarRef.current.recalculate()
     }
 
@@ -22,7 +29,7 @@ const Chat: FC<ChatProps> = ({chatMessages}) => {
         <div className="Chat">
             <SimpleBar forceVisible="y" autoHide={false} ref={simpleBarRef}>
                 {chatMessages.map(message => (
-                    <p className="chatMessage">{message}</p>
+                    <p className="chatMessage">{message.commenter.display_name + ": " + message.message.body}</p>
                 ))}
                 <div ref={messagesEndRef}/>
             </SimpleBar>
