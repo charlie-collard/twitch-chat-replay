@@ -32,7 +32,7 @@ const Chat: FC<ChatProps> = ({chatMessages}) => {
     const simpleBarRef = useRef()
 
     const scrollToBottom = () => {
-        messagesEndRef.current.scrollIntoView({behavior: "smooth"})
+        messagesEndRef.current.scrollIntoView({behavior: "auto"})
         simpleBarRef.current.recalculate()
     }
 
