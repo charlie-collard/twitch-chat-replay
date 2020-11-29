@@ -4,24 +4,28 @@ import SimpleBar from "simplebar-react";
 import 'simplebar/dist/simplebar.min.css';
 import {colors} from "./colors";
 
-type ChatProps = {
-    chatMessages: {
-        commenter: {
-            display_name: string
-        },
-        message: {
-            body: string,
-            user_color: string,
-            fragments: {
-                text: string,
-                emoticon: {
-                    emoticon_id: string
-                }
-            }[]
-        }
+
+type Fragment = {
+    text: string,
+    emoticon: {
+        emoticon_id: string
     }
 }
 
+type ChatMessage = {
+    commenter: {
+        display_name: string
+    },
+    message: {
+        body: string,
+        user_color: string,
+        fragments: Fragment[]
+    }
+}
+
+type ChatProps = {
+    chatMessages: ChatMessage[]
+}
 
 const Chat: FC<ChatProps> = ({chatMessages}) => {
     const messagesEndRef = useRef(null)
@@ -40,9 +44,14 @@ const Chat: FC<ChatProps> = ({chatMessages}) => {
         return <span>{fragment.text}</span>
     }
 
+    const getColor = function (message) {
+        let colorHash = Math.abs(message.commenter.display_name.hashCode());
+        return colors[colorHash % colors.length];
+    };
+
     const formatMessage = (message) => {
         return <>
-            <span className="commenter" style={{color: colors[Math.abs(message.commenter.display_name.hashCode()) % colors.length]}}>{message.commenter.display_name + ": "}</span>
+            <span className="commenter" style={{color: getColor(message)}}>{message.commenter.display_name + ": "}</span>
             {message.message.fragments.map(formatFragment)}
         </>
     }
