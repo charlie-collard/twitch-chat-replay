@@ -1,10 +1,21 @@
 import './Video.css';
+import YouTube from "react-youtube";
+import {FC} from "react";
 
-function Video() {
-    return (
-        <iframe className="Video" src="https://www.youtube.com/embed/VJKSLTZP-Ts">
-        </iframe>
-    );
+type VideoProps = {
+    onPlay: Function,
+    onPause: Function,
 }
 
-export default Video;
+export const Video: FC<VideoProps> = ({onPlay, onPause}) => {
+    return (
+        <YouTube
+            videoId="VJKSLTZP-Ts"
+            className="Video"
+            opts={{playerVars: {autoplay: 1}}}
+            onPlay={onPlay}
+            onPause={onPause}
+        >
+        </YouTube>
+    );
+}
