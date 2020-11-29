@@ -1,5 +1,7 @@
 import './Chat.css';
 import React, {FC, useEffect, useRef} from 'react'
+import SimpleBar from "simplebar-react";
+import 'simplebar/dist/simplebar.min.css';
 
 type ChatProps = {
     chatMessages: String[]
@@ -7,22 +9,24 @@ type ChatProps = {
 
 const Chat: FC<ChatProps> = ({chatMessages}) => {
     const messagesEndRef = useRef(null)
+    const simpleBarRef = useRef()
 
     const scrollToBottom = () => {
         messagesEndRef.current.scrollIntoView({behavior: "auto"})
+        simpleBarRef.current.recalculate()
     }
 
     useEffect(scrollToBottom, [chatMessages])
 
     return (
-        <>
-            <div className="Chat">
+        <div className="Chat">
+            <SimpleBar forceVisible="y" autoHide={false} ref={simpleBarRef}>
                 {chatMessages.map(message => (
-                    <p>{message}</p>
+                    <p className="chatMessage">{message}</p>
                 ))}
-                <div ref={messagesEndRef} />
-            </div>
-        </>
+                <div ref={messagesEndRef}/>
+            </SimpleBar>
+        </div>
     );
 }
 

@@ -7,9 +7,15 @@
     overflow: scroll;
 }
 
-.Chat * {
+.chatMessage {
     padding-left: 5px;
     padding-bottom: 5px;
     margin-bottom: 5px;
     margin-top: 5px;
+}
+
+.simplebar-scrollbar {
+
+    background-color: red;
+    visibility: visible;
 }
