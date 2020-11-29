@@ -2,7 +2,7 @@ import './App.css';
 import {Video} from "./Video";
 import Chat from "./Chat";
 import {useState, useEffect} from "react";
-import data from "./json/815671308.json"
+import data from "./json/815671308.json";
 
 const comments = data.comments.sort((a, b) => new Date(a.created_at) - new Date(b.created_at))
 const firstCommentTime = new Date(comments[0].created_at)
@@ -52,6 +52,7 @@ function App() {
             <Video
                 onPlay={onPlay}
                 onPause={onPause}
+                videoId={window.location.search.split("=")[1]}
             />
             <Chat chatMessages={chatMessages}/>
         </div>

@@ -5,14 +5,15 @@ import {FC} from "react";
 type VideoProps = {
     onPlay: Function,
     onPause: Function,
+    videoId: string,
 }
 
-export const Video: FC<VideoProps> = ({onPlay, onPause}) => {
+export const Video: FC<VideoProps> = ({onPlay, onPause, videoId}) => {
     return (
         <YouTube
-            videoId="VJKSLTZP-Ts"
             className="Video"
             opts={{playerVars: {autoplay: 1}}}
+            videoId={videoId}
             onPlay={onPlay}
             onPause={onPause}
         >
