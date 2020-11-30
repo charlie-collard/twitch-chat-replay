@@ -10,7 +10,7 @@ const firstCommentTime = new Date(comments[0].created_at)
 function App() {
     const [chatMessages, setChatMessages] = useState([]);
     const [startTime, setStartTime] = useState(new Date());
-    const [chatEnabled, setChatEnabled] = useState(true)
+    const [chatEnabled, setChatEnabled] = useState(false)
     const [i, setI] = useState(0);
 
     const findCommentIndexForTimestamp = (timestamp) => {
