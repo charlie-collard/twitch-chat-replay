@@ -45,6 +45,10 @@ function App() {
         setChatEnabled(false)
     }
 
+    const onPlaybackRateChange = (event) => {
+        console.log(event.data)
+    }
+
     useEffect(() => {
         const timer = setTimeout(updateChatMessages, 1000);
         return () => clearTimeout(timer);
@@ -53,9 +57,10 @@ function App() {
     return (
         <div className="App">
             <Video
+                videoId={window.location.search.split("=")[1]}
                 onPlay={onPlay}
                 onPause={onPause}
-                videoId={window.location.search.split("=")[1]}
+                onPlaybackRateChange={onPlaybackRateChange}
             />
             <Chat chatMessages={chatMessages}/>
         </div>
