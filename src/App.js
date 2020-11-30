@@ -13,6 +13,24 @@ function App() {
     const [chatEnabled, setChatEnabled] = useState(true)
     const [i, setI] = useState(0);
 
+    const findCommentIndexForTimestamp = (timestamp) => {
+        let left = 0;
+        let right = comments.length;
+        let middle = 0;
+        while (left !== right) {
+            middle = left + Math.floor((right - left) / 2)
+            const commentCreated = new Date(comments[middle].created_at)
+            if ((commentCreated - timestamp) > 0) {
+                right = middle
+            } else if((commentCreated - timestamp) < 0) {
+                left = middle + 1
+            } else {
+                return middle
+            }
+        }
+        return left
+    }
+
     const updateChatMessages = () => {
         if (!chatEnabled) {
             return;
@@ -20,7 +38,7 @@ function App() {
         const currentTime = new Date()
         var messagesToAdd = []
         var j = i
-        while ((currentTime - startTime) > (new Date(comments[j].created_at) - firstCommentTime)) {
+        while (j < comments.length && (currentTime - startTime) > (new Date(comments[j].created_at) - firstCommentTime)) {
             messagesToAdd = messagesToAdd.concat(comments[j])
             j += 1
         }
@@ -34,7 +52,9 @@ function App() {
 
     const onPlay = (event) => {
         setChatEnabled(true)
-        setI(0)
+        const offsetTime = new Date(firstCommentTime)
+        offsetTime.setSeconds(offsetTime.getSeconds() + event.target.getMediaReferenceTime())
+        setI(Math.max(0, findCommentIndexForTimestamp(offsetTime)-35))
         const startTime = new Date();
         startTime.setSeconds(startTime.getSeconds() - event.target.getMediaReferenceTime())
         setStartTime(startTime)
@@ -50,7 +70,7 @@ function App() {
     }
 
     useEffect(() => {
-        const timer = setTimeout(updateChatMessages, 1000);
+        const timer = setTimeout(updateChatMessages, 500);
         return () => clearTimeout(timer);
     })
 
