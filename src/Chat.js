@@ -13,6 +13,7 @@ type Fragment = {
 }
 
 type ChatMessage = {
+    _id: string,
     commenter: {
         display_name: string
     },
@@ -36,12 +37,17 @@ const Chat: FC<ChatProps> = ({chatMessages}) => {
         simpleBarRef.current.recalculate()
     }
 
-    const formatFragment = (fragment) => {
+    const formatFragment = (fragment, i) => {
         if (fragment.emoticon) {
             const emoticonId = fragment.emoticon.emoticon_id
-            return <img alt={fragment.text} className="emoticon" src={"https://static-cdn.jtvnw.net/emoticons/v1/" + emoticonId + "/1.0"}/>
+            return <img
+                key={fragment.text + i.toString()}
+                alt={fragment.text}
+                className="emoticon"
+                src={"https://static-cdn.jtvnw.net/emoticons/v1/" + emoticonId + "/1.0"}
+            />
         }
-        return <span>{fragment.text}</span>
+        return <span key={fragment.text + i.toString()}>{fragment.text}</span>
     }
 
     const getColor = function (message) {
@@ -62,9 +68,9 @@ const Chat: FC<ChatProps> = ({chatMessages}) => {
         <div className="Chat">
             <SimpleBar forceVisible="y" autoHide={false} ref={simpleBarRef}>
                 {chatMessages.map(message => (
-                    <p className="chatMessage">{formatMessage(message)}</p>
+                    <p key={message._id} className="chatMessage">{formatMessage(message)}</p>
                 ))}
-                <div ref={messagesEndRef}/>
+                <div key={"messagesEnd"} ref={messagesEndRef}/>
             </SimpleBar>
         </div>
     );
