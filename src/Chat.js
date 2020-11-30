@@ -14,6 +14,7 @@ type Fragment = {
 
 type ChatMessage = {
     _id: string,
+    content_offset_seconds: number,
     commenter: {
         display_name: string
     },
@@ -37,6 +38,13 @@ const Chat: FC<ChatProps> = ({chatMessages}) => {
         simpleBarRef.current.recalculate()
     }
 
+    const formatTimestamp = (content_offset) => {
+        const hours = Math.floor(content_offset / 3600).toString().padStart(2, "0");
+        const minutes = Math.floor((content_offset / 60) % 60).toString().padStart(2, "0");
+        const seconds = Math.floor(content_offset % 60).toString().padStart(2, "0");
+        return `${hours}:${minutes}:${seconds} `
+    }
+
     const formatFragment = (fragment, i) => {
         if (fragment.emoticon) {
             const emoticonId = fragment.emoticon.emoticon_id
@@ -57,6 +65,7 @@ const Chat: FC<ChatProps> = ({chatMessages}) => {
 
     const formatMessage = (message) => {
         return <>
+            <span>{formatTimestamp(message.content_offset_seconds)}</span>
             <span className="commenter" style={{color: getColor(message)}}>{message.commenter.display_name + ": "}</span>
             {message.message.fragments.map(formatFragment)}
         </>
