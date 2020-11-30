@@ -39,7 +39,7 @@ const Chat: FC<ChatProps> = ({chatMessages}) => {
     const formatFragment = (fragment) => {
         if (fragment.emoticon) {
             const emoticonId = fragment.emoticon.emoticon_id
-            return <img alt="emote" className="emoticon" src={"https://static-cdn.jtvnw.net/emoticons/v1/" + emoticonId + "/1.0"}/>
+            return <img alt={fragment.text} className="emoticon" src={"https://static-cdn.jtvnw.net/emoticons/v1/" + emoticonId + "/1.0"}/>
         }
         return <span>{fragment.text}</span>
     }

@@ -2,7 +2,7 @@ import './App.css';
 import {Video} from "./Video";
 import Chat from "./Chat";
 import {useState, useEffect} from "react";
-import data from "./json/815671308.json";
+import data from "./json/66523331.json";
 
 const comments = data.comments.sort((a, b) => new Date(a.created_at) - new Date(b.created_at))
 const firstCommentTime = new Date(comments[0].created_at)
@@ -14,10 +14,13 @@ function App() {
     const [i, setI] = useState(0);
 
     const updateChatMessages = () => {
+        if (!chatEnabled) {
+            return;
+        }
         const currentTime = new Date()
         var messagesToAdd = []
         var j = i
-        while (chatEnabled && (currentTime - startTime) > (new Date(comments[j].created_at) - firstCommentTime)) {
+        while ((currentTime - startTime) > (new Date(comments[j].created_at) - firstCommentTime)) {
             messagesToAdd = messagesToAdd.concat(comments[j])
             j += 1
         }
