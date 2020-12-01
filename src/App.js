@@ -1,13 +1,13 @@
 import './App.css';
 import {Video} from "./Video";
 import Chat from "./Chat";
-import {useState, useEffect} from "react";
-import data from "./json/66523331.json";
+import {useEffect, useState} from "react";
 
-const comments = data.comments.sort((a, b) => new Date(a.created_at) - new Date(b.created_at))
-const firstCommentTime = new Date(comments[0].created_at)
+// import data from "./json/summaries.json";
 
 function App() {
+    const [messages, setMessages] = useState(null);
+    const [firstMessageTime, setFirstMessageTime] = useState(null);
     const [messagesToRender, setMessagesToRender] = useState([]);
     const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
     const [startTime, setStartTime] = useState(new Date());
@@ -15,14 +15,14 @@ function App() {
 
     const findCommentIndexForTimestamp = (timestamp) => {
         let left = 0;
-        let right = comments.length;
+        let right = messages.length;
         let middle = 0;
         while (left !== right) {
             middle = left + Math.floor((right - left) / 2)
-            const commentCreated = new Date(comments[middle].created_at)
+            const commentCreated = new Date(messages[middle].created_at)
             if ((commentCreated - timestamp) > 0) {
                 right = middle
-            } else if((commentCreated - timestamp) < 0) {
+            } else if ((commentCreated - timestamp) < 0) {
                 left = middle + 1
             } else {
                 return middle
@@ -38,8 +38,8 @@ function App() {
         const currentTime = new Date()
         let messagesToAdd = [];
         let i = currentMessageIndex;
-        while (i < comments.length && (currentTime - startTime) > (new Date(comments[i].created_at) - firstCommentTime)) {
-            messagesToAdd = messagesToAdd.concat(comments[i])
+        while (i < messages.length && (currentTime - startTime) > (new Date(messages[i].created_at) - firstMessageTime)) {
+            messagesToAdd = messagesToAdd.concat(messages[i])
             i += 1
         }
         setCurrentMessageIndex(i)
@@ -52,9 +52,9 @@ function App() {
 
     const onPlay = (event) => {
         setChatEnabled(true)
-        const offsetTime = new Date(firstCommentTime)
+        const offsetTime = new Date(firstMessageTime)
         offsetTime.setSeconds(offsetTime.getSeconds() + event.target.getMediaReferenceTime())
-        setCurrentMessageIndex(Math.max(0, findCommentIndexForTimestamp(offsetTime)-35))
+        setCurrentMessageIndex(Math.max(0, findCommentIndexForTimestamp(offsetTime) - 35))
         const startTime = new Date();
         startTime.setSeconds(startTime.getSeconds() - event.target.getMediaReferenceTime())
         setStartTime(startTime)
@@ -70,8 +70,26 @@ function App() {
     }
 
     useEffect(() => {
-        const timer = setTimeout(updateChatMessages, 500);
-        return () => clearTimeout(timer);
+        if (messages) {
+            const timer = setTimeout(updateChatMessages, 500);
+            return () => clearTimeout(timer);
+        }
+    })
+
+    useEffect(() => {
+        if (!messages) {
+            fetch("/content/66523331.json")
+                .then((response) => {
+                    response.json().then(m => {
+                            const sortedMessages = m.comments.sort((a, b) => new Date(a.created_at) - new Date(b.created_at))
+                            setMessages(sortedMessages)
+                            setFirstMessageTime(new Date(sortedMessages[0].created_at))
+                        }
+                    )
+                }).catch(reason => {
+                console.log("Fetching comments failed: " + reason)
+            });
+        }
     })
 
     return (
