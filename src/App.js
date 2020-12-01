@@ -2,8 +2,8 @@ import './App.css';
 import {Video} from "./Video";
 import Chat from "./Chat";
 import {useEffect, useState} from "react";
-
-// import data from "./json/summaries.json";
+import {getQueryParam} from "./utils";
+import summaries from "./json/summaries.json";
 
 function App() {
     const [messages, setMessages] = useState(null);
@@ -32,7 +32,7 @@ function App() {
     }
 
     const updateChatMessages = () => {
-        if (!chatEnabled) {
+        if (!chatEnabled || !messages) {
             return;
         }
         const currentTime = new Date()
@@ -52,6 +52,9 @@ function App() {
 
     const onPlay = (event) => {
         setChatEnabled(true)
+        if (!messages) {
+            return;
+        }
         const offsetTime = new Date(firstMessageTime)
         offsetTime.setSeconds(offsetTime.getSeconds() + event.target.getMediaReferenceTime())
         setCurrentMessageIndex(Math.max(0, findCommentIndexForTimestamp(offsetTime) - 35))
@@ -77,8 +80,8 @@ function App() {
     })
 
     useEffect(() => {
-        if (!messages) {
-            fetch("/content/66523331.json")
+        if (!messages && getQueryParam("twitchId")) {
+            fetch("/content/" + getQueryParam("twitchId") + ".json")
                 .then((response) => {
                     response.json().then(m => {
                             const sortedMessages = m.comments.sort((a, b) => new Date(a.created_at) - new Date(b.created_at))
@@ -95,7 +98,7 @@ function App() {
     return (
         <div className="App">
             <Video
-                videoId={window.location.search.split("=")[1]}
+                videoId={getQueryParam("youtubeId")}
                 onPlay={onPlay}
                 onPause={onPause}
                 onPlaybackRateChange={onPlaybackRateChange}
