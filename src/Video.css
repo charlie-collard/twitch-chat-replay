@@ -1,5 +1,33 @@
-.Video {
+.video {
+    width: 100vh;
+    height: 85vw;
+    border: none;
+}
+
+.player {
     height: 100vh;
     width: 85vw;
     border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.urlInputForm {
+    border-radius: 25px;
+    width: 50vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    color: white;
+}
+
+.urlInputForm input {
+    margin-left: 20px;
+    font-size: 1em;
+    border-radius: 15px;
+    margin-bottom: 20px;
 }
