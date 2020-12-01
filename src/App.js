@@ -8,10 +8,10 @@ const comments = data.comments.sort((a, b) => new Date(a.created_at) - new Date(
 const firstCommentTime = new Date(comments[0].created_at)
 
 function App() {
-    const [chatMessages, setChatMessages] = useState([]);
+    const [messagesToRender, setMessagesToRender] = useState([]);
+    const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
     const [startTime, setStartTime] = useState(new Date());
     const [chatEnabled, setChatEnabled] = useState(false)
-    const [i, setI] = useState(0);
 
     const findCommentIndexForTimestamp = (timestamp) => {
         let left = 0;
@@ -36,29 +36,29 @@ function App() {
             return;
         }
         const currentTime = new Date()
-        var messagesToAdd = []
-        var j = i
-        while (j < comments.length && (currentTime - startTime) > (new Date(comments[j].created_at) - firstCommentTime)) {
-            messagesToAdd = messagesToAdd.concat(comments[j])
-            j += 1
+        let messagesToAdd = [];
+        let i = currentMessageIndex;
+        while (i < comments.length && (currentTime - startTime) > (new Date(comments[i].created_at) - firstCommentTime)) {
+            messagesToAdd = messagesToAdd.concat(comments[i])
+            i += 1
         }
-        setI(j)
+        setCurrentMessageIndex(i)
 
-        const newChatMessages = chatMessages.concat(messagesToAdd)
+        const newChatMessages = messagesToRender.concat(messagesToAdd)
         const start = Math.max(newChatMessages.length - 100, 0)
         const end = newChatMessages.length
-        setChatMessages(newChatMessages.slice(start, end));
+        setMessagesToRender(newChatMessages.slice(start, end));
     }
 
     const onPlay = (event) => {
         setChatEnabled(true)
         const offsetTime = new Date(firstCommentTime)
         offsetTime.setSeconds(offsetTime.getSeconds() + event.target.getMediaReferenceTime())
-        setI(Math.max(0, findCommentIndexForTimestamp(offsetTime)-35))
+        setCurrentMessageIndex(Math.max(0, findCommentIndexForTimestamp(offsetTime)-35))
         const startTime = new Date();
         startTime.setSeconds(startTime.getSeconds() - event.target.getMediaReferenceTime())
         setStartTime(startTime)
-        setChatMessages([])
+        setMessagesToRender([])
     }
 
     const onPause = () => {
@@ -82,7 +82,7 @@ function App() {
                 onPause={onPause}
                 onPlaybackRateChange={onPlaybackRateChange}
             />
-            <Chat chatMessages={chatMessages}/>
+            <Chat chatMessages={messagesToRender}/>
         </div>
     );
 }
