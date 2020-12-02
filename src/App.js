@@ -3,7 +3,7 @@ import {Video} from "./Video";
 import Chat from "./Chat";
 import {useEffect, useState} from "react";
 import {getQueryParam} from "./utils";
-import summaries from "./json/summaries.json";
+import ChatSelector from "./ChatSelector";
 
 function App() {
     const [messages, setMessages] = useState(null);
@@ -103,7 +103,8 @@ function App() {
                 onPause={onPause}
                 onPlaybackRateChange={onPlaybackRateChange}
             />
-            <Chat chatMessages={messagesToRender}/>
+            {messages && <Chat chatMessages={messagesToRender}/>}
+            {!messages && <ChatSelector onSelect={() => console.log("hi")}/>}
         </div>
     );
 }
