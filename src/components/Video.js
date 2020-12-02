@@ -1,7 +1,7 @@
 import './Video.css';
 import YouTube from "react-youtube";
 import {FC} from "react";
-import {setQueryParam} from "./utils";
+import {setQueryParam} from "../utils/queryParams";
 
 const youtubeRegex = /.*v=([a-zA-Z0-9_-]{11})&?/
 

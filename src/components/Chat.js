@@ -2,7 +2,7 @@ import './Chat.css';
 import React, {FC, useEffect, useRef} from 'react'
 import SimpleBar from "simplebar-react";
 import 'simplebar/dist/simplebar.min.css';
-import {colors} from "./colors";
+import {colors} from "../utils/colors";
 
 
 type Fragment = {
