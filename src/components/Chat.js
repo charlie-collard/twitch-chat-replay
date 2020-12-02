@@ -21,7 +21,10 @@ type ChatMessage = {
     message: {
         body: string,
         user_color: string,
-        fragments: Fragment[]
+        fragments: Fragment[],
+        user_badges: {
+            _id: string
+        }[],
     }
 }
 
@@ -30,6 +33,9 @@ type ChatProps = {
 }
 
 const Chat: FC<ChatProps> = ({chatMessages}) => {
+    const moderatorUrl = "https://static-cdn.jtvnw.net/badges/v1/3267646d-33f0-4b17-b3df-f923a41db1d0/1";
+    const subscriberUrl = "https://static-cdn.jtvnw.net/badges/v1/5571b5a7-51ae-4ee4-a1b6-a25975c95dd7/1";
+
     const messagesEndRef = useRef(null)
     const simpleBarRef = useRef()
 
@@ -39,10 +45,10 @@ const Chat: FC<ChatProps> = ({chatMessages}) => {
     }
 
     const formatTimestamp = (content_offset) => {
-        const hours = Math.floor(content_offset / 3600).toString().padStart(2, "0");
-        const minutes = Math.floor((content_offset / 60) % 60).toString().padStart(2, "0");
+        const hours = Math.floor(content_offset / 3600) === 0 ? "" : Math.floor(content_offset / 3600) + ":";
+        const minutes = Math.floor((content_offset / 60) % 60).toString();
         const seconds = Math.floor(content_offset % 60).toString().padStart(2, "0");
-        return `${hours}:${minutes}:${seconds} `
+        return `${hours}${minutes}:${seconds} `
     }
 
     const formatFragment = (fragment, i) => {
@@ -63,9 +69,16 @@ const Chat: FC<ChatProps> = ({chatMessages}) => {
         return colors[colorHash % colors.length];
     };
 
+    const hasBadge = function (message, badgeId) {
+        const badges = message.message.user_badges;
+        return badges && badges.some((badge) => badge._id === badgeId)
+    }
+
     const formatMessage = (message) => {
         return <>
             <span>{formatTimestamp(message.content_offset_seconds)}</span>
+            {hasBadge(message, "moderator") && <><img alt="moderator" src={moderatorUrl} className="emoticon"/><span> </span></>}
+            {hasBadge(message, "subscriber") && <><img alt="subscriber" src={subscriberUrl} className="emoticon"/><span> </span></>}
             <span className="commenter" style={{color: getColor(message)}}>{message.commenter.display_name + ": "}</span>
             {message.message.fragments.map(formatFragment)}
         </>
