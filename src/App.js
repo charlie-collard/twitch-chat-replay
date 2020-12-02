@@ -72,6 +72,10 @@ function App() {
         console.log(event.data)
     }
 
+    const onSelect = (summary) => {
+        window.location.search += "&twitchId=" + summary.id
+    }
+
     useEffect(() => {
         if (messages) {
             const timer = setTimeout(updateChatMessages, 500);
@@ -104,7 +108,7 @@ function App() {
                 onPlaybackRateChange={onPlaybackRateChange}
             />
             {messages && <Chat chatMessages={messagesToRender}/>}
-            {!messages && <ChatSelector onSelect={() => console.log("hi")}/>}
+            {!messages && <ChatSelector onSelect={onSelect}/>}
         </div>
     );
 }
