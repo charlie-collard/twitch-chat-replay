@@ -39,7 +39,6 @@ function App() {
         let messagesToAdd = [];
         let i = currentMessageIndex;
         while (i < messages.length && (currentTime - startTime) / 1000 > (messages[i].content_offset_seconds)) {
-            console.log((currentTime - startTime) / 1000, messages[i].content_offset_seconds)
             messagesToAdd = messagesToAdd.concat(messages[i])
             i += 1
         }
@@ -70,7 +69,6 @@ function App() {
     }
 
     const onPlaybackRateChange = (event) => {
-        console.log(event.data)
     }
 
     const onSelect = (summary) => {
