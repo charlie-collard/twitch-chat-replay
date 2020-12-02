@@ -8,3 +8,7 @@ export const getQueryParam = (key) => {
     }
     return null
 }
+
+export const setQueryParam = (key, value) => {
+    window.location.search = window.location.search.split("&").concat(key + "=" + value).join("&")
+}

@@ -2,7 +2,7 @@ import './App.css';
 import {Video} from "./Video";
 import Chat from "./Chat";
 import {useEffect, useState} from "react";
-import {getQueryParam} from "./utils";
+import {getQueryParam, setQueryParam} from "./utils";
 import ChatSelector from "./ChatSelector";
 
 function App() {
@@ -13,16 +13,16 @@ function App() {
     const [startTime, setStartTime] = useState(new Date());
     const [chatEnabled, setChatEnabled] = useState(false)
 
-    const findCommentIndexForTimestamp = (timestamp) => {
+    const findCommentIndexForOffset = (offset) => {
         let left = 0;
         let right = messages.length;
         let middle = 0;
         while (left !== right) {
             middle = left + Math.floor((right - left) / 2)
-            const commentCreated = new Date(messages[middle].created_at)
-            if ((commentCreated - timestamp) > 0) {
+            const commentCreated = messages[middle].content_offset_seconds
+            if ((commentCreated - offset) > 0) {
                 right = middle
-            } else if ((commentCreated - timestamp) < 0) {
+            } else if ((commentCreated - offset) < 0) {
                 left = middle + 1
             } else {
                 return middle
@@ -38,7 +38,8 @@ function App() {
         const currentTime = new Date()
         let messagesToAdd = [];
         let i = currentMessageIndex;
-        while (i < messages.length && (currentTime - startTime) > (new Date(messages[i].created_at) - firstMessageTime)) {
+        while (i < messages.length && (currentTime - startTime)/1000 > (messages[i].content_offset_seconds)) {
+            console.log((currentTime - startTime)/1000, messages[i].content_offset_seconds)
             messagesToAdd = messagesToAdd.concat(messages[i])
             i += 1
         }
@@ -57,7 +58,7 @@ function App() {
         }
         const offsetTime = new Date(firstMessageTime)
         offsetTime.setSeconds(offsetTime.getSeconds() + event.target.getMediaReferenceTime())
-        setCurrentMessageIndex(Math.max(0, findCommentIndexForTimestamp(offsetTime) - 35))
+        setCurrentMessageIndex(Math.max(0, findCommentIndexForOffset(event.target.getMediaReferenceTime()) - 35))
         const startTime = new Date();
         startTime.setSeconds(startTime.getSeconds() - event.target.getMediaReferenceTime())
         setStartTime(startTime)
@@ -73,7 +74,7 @@ function App() {
     }
 
     const onSelect = (summary) => {
-        window.location.search += "&twitchId=" + summary.id
+        setQueryParam("twitchId", summary.id)
     }
 
     useEffect(() => {
@@ -94,6 +95,8 @@ function App() {
                         }
                     )
                 }).catch(reason => {
+                console.log("Converting comments to json failed: " + reason)
+            }).catch(reason => {
                 console.log("Fetching comments failed: " + reason)
             });
         }

@@ -1,6 +1,7 @@
 import './Video.css';
 import YouTube from "react-youtube";
 import {FC} from "react";
+import {setQueryParam} from "./utils";
 
 const youtubeRegex = /.*v=([a-zA-Z0-9_-]{11})&?/
 
@@ -16,7 +17,7 @@ export const Video: FC<VideoProps> = ({videoId, onPlay, onPause, onPlaybackRateC
         event.preventDefault();
         const entered = event.target.youtubeId.value;
         if (entered && youtubeRegex.test(entered)) {
-            window.location.search += "youtubeId=" + youtubeRegex.exec(entered)[1];
+            setQueryParam("youtubeId", youtubeRegex.exec(entered)[1])
         }
     }
 
