@@ -10,5 +10,10 @@ export const getQueryParam = (key) => {
 }
 
 export const setQueryParam = (key, value) => {
-    window.location.search = window.location.search.split("&").concat(key + "=" + value).join("&")
+    const formattedParam = key + "=" + value;
+    if (window.location.search) {
+        window.location.search = window.location.search.split("&").concat(formattedParam).join("&")
+    } else {
+        window.location.search = formattedParam
+    }
 }

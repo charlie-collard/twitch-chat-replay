@@ -2,8 +2,8 @@ import './App.css';
 import {Video} from "./Video";
 import Chat from "./Chat";
 import {useEffect, useState} from "react";
-import {getQueryParam, setQueryParam} from "./utils";
 import ChatSelector from "./ChatSelector";
+import {getQueryParam, setQueryParam} from "../utils/queryParams";
 
 function App() {
     const [messages, setMessages] = useState(null);
@@ -38,8 +38,8 @@ function App() {
         const currentTime = new Date()
         let messagesToAdd = [];
         let i = currentMessageIndex;
-        while (i < messages.length && (currentTime - startTime)/1000 > (messages[i].content_offset_seconds)) {
-            console.log((currentTime - startTime)/1000, messages[i].content_offset_seconds)
+        while (i < messages.length && (currentTime - startTime) / 1000 > (messages[i].content_offset_seconds)) {
+            console.log((currentTime - startTime) / 1000, messages[i].content_offset_seconds)
             messagesToAdd = messagesToAdd.concat(messages[i])
             i += 1
         }
@@ -93,12 +93,13 @@ function App() {
                             setMessages(sortedMessages)
                             setFirstMessageTime(new Date(sortedMessages[0].created_at))
                         }
-                    )
+                    ).catch(reason => {
+                        console.log("Converting comments to json failed: " + reason)
+                    })
                 }).catch(reason => {
-                console.log("Converting comments to json failed: " + reason)
-            }).catch(reason => {
-                console.log("Fetching comments failed: " + reason)
-            });
+                    console.log("Fetching comments failed: " + reason)
+                }
+            );
         }
     })
 

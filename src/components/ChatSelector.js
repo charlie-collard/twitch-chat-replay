@@ -1,6 +1,6 @@
 import './ChatSelector.css';
 import React, {FC, useState} from 'react'
-import summaries from "./json/summaries.json";
+import summaries from "../json/summaries.json";
 
 type ChatSelectorProps = {
     onSelect: Function
