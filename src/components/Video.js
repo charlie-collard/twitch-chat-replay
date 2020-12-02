@@ -24,16 +24,15 @@ export const Video: FC<VideoProps> = ({videoId, onPlay, onPause, onPlaybackRateC
     const getVideoBody = () => {
         if (videoId) {
             return <YouTube
-                className="player"
+                containerClassName="video"
                 opts={{playerVars: {autoplay: 1}}}
                 videoId={videoId}
                 onPlay={onPlay}
                 onPause={onPause}
                 onPlaybackRateChange={onPlaybackRateChange}
-            >
-            </YouTube>
+            />
         }
-        return <form className="urlInputForm" onSubmit={setVideoId}>
+        return <form className="url-input-form" onSubmit={setVideoId}>
             <label>
                 Youtube URL:
                 <input type="text" name="youtubeId"/>
@@ -43,8 +42,6 @@ export const Video: FC<VideoProps> = ({videoId, onPlay, onPause, onPlaybackRateC
     }
 
     return (
-        <div className="player">
-            {getVideoBody()}
-        </div>
+        <>{getVideoBody()}</>
     );
 }

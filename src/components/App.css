@@ -6,3 +6,30 @@
     align-items: center;
 }
 
+.chat-container {
+    height: 100vh;
+    min-width: 350px;
+    max-width: 350px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    font-size: 13.8125px;
+    font-family: "Inter", "Roobert", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+}
+
+.player-container {
+    height: 100vh;
+    flex-grow: 100;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.player-container iframe {
+    width: 100%;
+    height: 100%;
+}
+

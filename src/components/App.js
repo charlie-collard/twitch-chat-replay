@@ -103,14 +103,18 @@ function App() {
 
     return (
         <div className="App">
-            <Video
-                videoId={getQueryParam("youtubeId")}
-                onPlay={onPlay}
-                onPause={onPause}
-                onPlaybackRateChange={onPlaybackRateChange}
-            />
-            {messages && <Chat chatMessages={messagesToRender}/>}
-            {!messages && <ChatSelector onSelect={onSelect}/>}
+            <div className="player-container">
+                <Video
+                    videoId={getQueryParam("youtubeId")}
+                    onPlay={onPlay}
+                    onPause={onPause}
+                    onPlaybackRateChange={onPlaybackRateChange}
+                />
+            </div>
+            <div className="chat-container">
+                {messages && <Chat chatMessages={messagesToRender}/>}
+                {!messages && <ChatSelector onSelect={onSelect}/>}
+            </div>
         </div>
     );
 }

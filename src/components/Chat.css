@@ -1,15 +1,3 @@
-.Chat {
-    height: 100vh;
-    width: 15vw;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    overflow: scroll;
-    font-size: 13.8125px;
-    font-family: "Inter", "Roobert", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 400;
-}
-
 .commenter {
     font-weight: 700;
 }

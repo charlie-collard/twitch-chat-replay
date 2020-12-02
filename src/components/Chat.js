@@ -87,7 +87,7 @@ const Chat: FC<ChatProps> = ({chatMessages}) => {
     useEffect(scrollToBottom, [chatMessages])
 
     return (
-        <div className="Chat">
+        <div>
             <SimpleBar forceVisible="y" autoHide={false} ref={simpleBarRef}>
                 {chatMessages.map(message => (
                     <p key={message._id} className="chatMessage">{formatMessage(message)}</p>
