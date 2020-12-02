@@ -17,7 +17,7 @@ const ChatSelector: FC<ChatSelectorProps> = ({onSelect}) => {
 
     const getButtonText = function (summary) {
         return <>
-            <p>{summary.title}</p>
+            <p className="chat-selection-button-title">{summary.title}</p>
             <p>{summary.created_at.slice(0, 10)}</p>
             <p>{summary.duration}</p>
         </>
@@ -40,7 +40,7 @@ const ChatSelector: FC<ChatSelectorProps> = ({onSelect}) => {
                     defaultValue="Search Here!"
                     onClick={clearSearch}
                     onChange={updateFilter}
-                    className="selector"
+                    className="chat-search-box"
                 />
             </form>
             <div className="chat-selector">
