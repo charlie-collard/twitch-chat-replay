@@ -49,7 +49,7 @@ const ChatSelector: FC<ChatSelectorProps> = ({onSelect}) => {
                         <button
                             key={summary.id}
                             className="chat-selection-button"
-                            onClick={onSelect(summary)}
+                            onClick={() => onSelect(summary)}
                         >
                             {getButtonText(summary)}
                         </button>
