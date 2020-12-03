@@ -12,6 +12,7 @@ function App() {
     const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
     const [startTime, setStartTime] = useState(new Date());
     const [chatEnabled, setChatEnabled] = useState(false)
+    const [dirtyChat, setDirtyChat] = useState(false)
 
     const findCommentIndexForOffset = (offset) => {
         let left = 0;
@@ -44,10 +45,12 @@ function App() {
         }
         setCurrentMessageIndex(i)
 
-        const newChatMessages = messagesToRender.concat(messagesToAdd)
+        const isDirty = dirtyChat
+        const newChatMessages = isDirty ? messagesToAdd : messagesToRender.concat(messagesToAdd)
         const start = Math.max(newChatMessages.length - 100, 0)
         const end = newChatMessages.length
         setMessagesToRender(newChatMessages.slice(start, end));
+        if (isDirty) {setDirtyChat(false)}
     }
 
     const onPlay = (event) => {
@@ -55,11 +58,11 @@ function App() {
         if (!messages) {
             return;
         }
-        setCurrentMessageIndex(Math.max(0, findCommentIndexForOffset(event.target.getMediaReferenceTime()) - 35))
+        setCurrentMessageIndex(Math.max(0, findCommentIndexForOffset(event.target.getMediaReferenceTime()) - 100))
         const startTime = new Date();
         startTime.setSeconds(startTime.getSeconds() - event.target.getMediaReferenceTime())
         setStartTime(startTime)
-        setMessagesToRender([])
+        setDirtyChat(true)
     }
 
     const onPause = () => {
