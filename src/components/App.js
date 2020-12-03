@@ -7,7 +7,6 @@ import {getQueryParam, setQueryParam} from "../utils/queryParams";
 
 function App() {
     const [messages, setMessages] = useState(null);
-    const [firstMessageTime, setFirstMessageTime] = useState(null);
     const [messagesToRender, setMessagesToRender] = useState([]);
     const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
     const [startTime, setStartTime] = useState(new Date());
@@ -55,8 +54,6 @@ function App() {
         if (!messages) {
             return;
         }
-        const offsetTime = new Date(firstMessageTime)
-        offsetTime.setSeconds(offsetTime.getSeconds() + event.target.getMediaReferenceTime())
         setCurrentMessageIndex(Math.max(0, findCommentIndexForOffset(event.target.getMediaReferenceTime()) - 35))
         const startTime = new Date();
         startTime.setSeconds(startTime.getSeconds() - event.target.getMediaReferenceTime())
@@ -71,8 +68,14 @@ function App() {
     const onPlaybackRateChange = (event) => {
     }
 
-    const onSelect = (summary) => {
+    const onSelectKnownJson = (summary) => {
         setQueryParam("twitchId", summary.id)
+    }
+
+    const onUploadCustomJson = (json) => {
+        console.log(json)
+        const sortedMessages = json.comments.sort((a, b) => new Date(a.created_at) - new Date(b.created_at))
+        setMessages(sortedMessages)
     }
 
     useEffect(() => {
@@ -89,7 +92,6 @@ function App() {
                     response.json().then(m => {
                             const sortedMessages = m.comments.sort((a, b) => new Date(a.created_at) - new Date(b.created_at))
                             setMessages(sortedMessages)
-                            setFirstMessageTime(new Date(sortedMessages[0].created_at))
                         }
                     ).catch(reason => {
                         console.log("Converting comments to json failed: " + reason)
@@ -113,7 +115,7 @@ function App() {
             </div>
             <div className="chat-container">
                 {messages && <Chat chatMessages={messagesToRender}/>}
-                {!messages && <ChatSelector onSelect={onSelect}/>}
+                {!messages && <ChatSelector onSelectKnownJson={onSelectKnownJson} onUploadCustomJson={onUploadCustomJson}/>}
             </div>
         </div>
     );

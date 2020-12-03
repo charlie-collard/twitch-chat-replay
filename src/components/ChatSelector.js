@@ -3,10 +3,11 @@ import React, {FC, useState} from 'react'
 import summaries from "../json/summaries.json";
 
 type ChatSelectorProps = {
-    onSelect: Function
+    onSelectKnownJson: Function,
+    onUploadCustomJson: Function
 }
 
-const ChatSelector: FC<ChatSelectorProps> = ({onSelect}) => {
+const ChatSelector: FC<ChatSelectorProps> = ({onSelectKnownJson, onUploadCustomJson}) => {
     const [currentFilter, setCurrentFilter] = useState("")
 
     const filterFunction = function (summary) {
@@ -28,16 +29,41 @@ const ChatSelector: FC<ChatSelectorProps> = ({onSelect}) => {
     };
 
     const clearSearch = function (event) {
-        if (event.target.value === "Search Here!") {
+        if (event.target.value === "Search for NL vods here!") {
             event.target.value = ""
         }
     };
 
+    const uploadCustomFile = function (event) {
+        const file = event.target.files[0]
+        new Promise(((resolve, reject) => {
+            const reader = new FileReader()
+            reader.onload = () => resolve(reader.result)
+            reader.onerror = (error) => reject(error)
+            reader.readAsText(file)
+        }))
+            .then((result) => onUploadCustomJson(JSON.parse(result)))
+            .catch((error) => console.log(error))
+    }
+
     return (
         <>
-            <form>
+            <form className="search-form">
+                <button
+                    className="seen-upload-chat-file-button"
+                    onClick={(event) => {event.preventDefault(); document.getElementById("uploadChatFile").click()}}
+                >
+                    Upload chat file...
+                </button>
                 <input
-                    defaultValue="Search Here!"
+                    type="file"
+                    id="uploadChatFile"
+                    className="hidden-upload-chat-file-button"
+                    onChange={uploadCustomFile}
+                />
+                <p>---OR---</p>
+                <input
+                    defaultValue="Search for NL vods here!"
                     onClick={clearSearch}
                     onChange={updateFilter}
                     className="chat-search-box"
@@ -49,7 +75,7 @@ const ChatSelector: FC<ChatSelectorProps> = ({onSelect}) => {
                         <button
                             key={summary.id}
                             className="chat-selection-button"
-                            onClick={() => onSelect(summary)}
+                            onClick={() => onSelectKnownJson(summary)}
                         >
                             {getButtonText(summary)}
                         </button>
