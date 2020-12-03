@@ -7,6 +7,7 @@ import {getQueryParam, setQueryParam} from "../utils/queryParams";
 
 function App() {
     const [messages, setMessages] = useState(null);
+    const [videoId, setVideoId] = useState(null)
     const [messagesToRender, setMessagesToRender] = useState([]);
     const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
     const [startTime, setStartTime] = useState(new Date());
@@ -70,6 +71,7 @@ function App() {
 
     const onSelectKnownJson = (summary) => {
         setQueryParam("twitchId", summary.id)
+        fetchKnownJson(summary.id)
     }
 
     const onUploadCustomJson = (json) => {
@@ -77,6 +79,26 @@ function App() {
         const sortedMessages = json.comments.sort((a, b) => new Date(a.created_at) - new Date(b.created_at))
         setMessages(sortedMessages)
     }
+
+    const onSelectVideo = (youtubeId) => {
+        setVideoId(youtubeId)
+    }
+
+    const fetchKnownJson = function (twitchId) {
+        fetch("/content/" + twitchId + ".json")
+            .then((response) => {
+                response.json().then(m => {
+                        const sortedMessages = m.comments.sort((a, b) => new Date(a.created_at) - new Date(b.created_at))
+                        setMessages(sortedMessages)
+                    }
+                ).catch(reason => {
+                    console.log("Converting comments to json failed: " + reason)
+                })
+            }).catch(reason => {
+                console.log("Fetching comments failed: " + reason)
+            }
+        );
+    };
 
     useEffect(() => {
         if (messages) {
@@ -87,27 +109,22 @@ function App() {
 
     useEffect(() => {
         if (!messages && getQueryParam("twitchId")) {
-            fetch("/content/" + getQueryParam("twitchId") + ".json")
-                .then((response) => {
-                    response.json().then(m => {
-                            const sortedMessages = m.comments.sort((a, b) => new Date(a.created_at) - new Date(b.created_at))
-                            setMessages(sortedMessages)
-                        }
-                    ).catch(reason => {
-                        console.log("Converting comments to json failed: " + reason)
-                    })
-                }).catch(reason => {
-                    console.log("Fetching comments failed: " + reason)
-                }
-            );
+            fetchKnownJson(getQueryParam("twitchId"));
         }
-    })
+    }, [messages])
+
+    useEffect(() => {
+        if (!videoId && getQueryParam("youtubeId")) {
+            setVideoId(getQueryParam("youtubeId"))
+        }
+    }, [videoId])
 
     return (
         <div className="App">
             <div className="player-container">
                 <Video
-                    videoId={getQueryParam("youtubeId")}
+                    videoId={videoId}
+                    onSelectVideo={onSelectVideo}
                     onPlay={onPlay}
                     onPause={onPause}
                     onPlaybackRateChange={onPlaybackRateChange}
