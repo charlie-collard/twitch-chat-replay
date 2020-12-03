@@ -7,17 +7,20 @@ const youtubeRegex = /.*v=([a-zA-Z0-9_-]{11})&?/
 
 type VideoProps = {
     videoId: string,
+    onSelectVideo: Function,
     onPlay: Function,
     onPause: Function,
     onPlaybackRateChange: Function,
 }
 
-export const Video: FC<VideoProps> = ({videoId, onPlay, onPause, onPlaybackRateChange}) => {
+export const Video: FC<VideoProps> = ({videoId, onSelectVideo, onPlay, onPause, onPlaybackRateChange}) => {
     const setVideoId = (event) => {
         event.preventDefault();
         const entered = event.target.youtubeId.value;
         if (entered && youtubeRegex.test(entered)) {
-            setQueryParam("youtubeId", youtubeRegex.exec(entered)[1])
+            const youtubeId = youtubeRegex.exec(entered)[1];
+            setQueryParam("youtubeId", youtubeId)
+            onSelectVideo(youtubeId)
         }
     }
 
@@ -37,7 +40,7 @@ export const Video: FC<VideoProps> = ({videoId, onPlay, onPause, onPlaybackRateC
                 Youtube URL:
                 <input type="text" name="youtubeId"/>
             </label>
-            <input type="submit" value="Submit"/>
+            <input type="submit" value="Submit" />
         </form>
     }
 
