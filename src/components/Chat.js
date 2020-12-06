@@ -60,7 +60,7 @@ const Chat: FC<ChatProps> = ({chatMessages}) => {
                 key={(i.toString() + fragment.text).hashCode()}
                 alt={fragment.text}
                 className="emoticon"
-                src={"https://static-cdn.jtvnw.net/emoticons/v1/" + emoticonId + "/1.0"}
+                src={`https://static-cdn.jtvnw.net/emoticons/v1/${emoticonId}/1.0`}
             />
         }
         const words = fragment.text.split(" ")
@@ -71,7 +71,7 @@ const Chat: FC<ChatProps> = ({chatMessages}) => {
                         <img
                             alt={word}
                             className="emoticon"
-                            src={"https://cdn.betterttv.net/emote/" + bttvMapper[word] + "/1x"}
+                            src={`https://cdn.betterttv.net/emote/${bttvMapper[word]}/1x`}
                         />
                         <span> </span>
                     </span>
