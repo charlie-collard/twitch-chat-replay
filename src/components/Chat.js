@@ -33,6 +33,7 @@ type ChatProps = {
 }
 
 const Chat: FC<ChatProps> = ({chatMessages}) => {
+    const twitchStaffUrl = "https://static-cdn.jtvnw.net/badges/v1/d97c37bd-a6f5-4c38-8f57-4e4bef88af34/1"
     const moderatorUrl = "https://static-cdn.jtvnw.net/badges/v1/3267646d-33f0-4b17-b3df-f923a41db1d0/1";
     const subscriberUrl = "https://static-cdn.jtvnw.net/badges/v1/5571b5a7-51ae-4ee4-a1b6-a25975c95dd7/1";
 
@@ -94,6 +95,7 @@ const Chat: FC<ChatProps> = ({chatMessages}) => {
     const formatMessage = (message) => {
         return <>
             <span>{formatTimestamp(message.content_offset_seconds)}</span>
+            {hasBadge(message, "staff") && <><img alt="twitch-staff" src={twitchStaffUrl} className="badge"/><span> </span></>}
             {hasBadge(message, "moderator") && <><img alt="moderator" src={moderatorUrl} className="badge"/><span> </span></>}
             {hasBadge(message, "subscriber") && <><img alt="subscriber" src={subscriberUrl} className="badge"/><span> </span></>}
             <span className="commenter" style={{color: getColor(message)}}>{message.commenter.display_name + ": "}</span>
