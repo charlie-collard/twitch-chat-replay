@@ -1,26 +1,26 @@
-import './App.css';
-import {Video} from "./Video";
-import Chat from "./Chat";
-import {useEffect, useState} from "react";
-import ChatSelector from "./ChatSelector";
-import {getQueryParam, setQueryParam} from "../utils/queryParams";
-import YouTube from "react-youtube";
+import './App.css'
+import {Video} from "./Video"
+import Chat from "./Chat"
+import {useEffect, useState} from "react"
+import ChatSelector from "./ChatSelector"
+import {getQueryParam, setQueryParam} from "../utils/queryParams"
+import YouTube from "react-youtube"
 
 function App() {
-    const [messages, setMessages] = useState(null);
+    const [messages, setMessages] = useState(null)
     const [videoId, setVideoId] = useState(null)
-    const [messagesToRender, setMessagesToRender] = useState([]);
-    const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
-    const [mediaStartTime, setMediaStartTime] = useState(new Date());
+    const [messagesToRender, setMessagesToRender] = useState([])
+    const [currentMessageIndex, setCurrentMessageIndex] = useState(0)
+    const [mediaStartTime, setMediaStartTime] = useState(new Date())
     const [chatEnabled, setChatEnabled] = useState(false)
     const [dirtyChat, setDirtyChat] = useState(false)
     const [playbackRate, setPlaybackRate] = useState(1)
     const [lastPlayEventTime, setLastPlayEventTime] = useState(new Date())
 
     const findCommentIndexForOffset = (offset) => {
-        let left = 0;
-        let right = messages.length;
-        let middle = 0;
+        let left = 0
+        let right = messages.length
+        let middle = 0
         while (left !== right) {
             middle = left + Math.floor((right - left) / 2)
             const commentTime = messages[middle].content_offset_seconds
@@ -37,12 +37,12 @@ function App() {
 
     const updateChatMessages = () => {
         if (!chatEnabled || !messages) {
-            return;
+            return
         }
         const currentTime = new Date()
         currentTime.setSeconds(currentTime.getSeconds() + (currentTime - lastPlayEventTime) * (playbackRate - 1)/1000)
-        let messagesToAdd = [];
-        let i = currentMessageIndex;
+        let messagesToAdd = []
+        let i = currentMessageIndex
         while (i < messages.length && (currentTime - mediaStartTime) / 1000 >= (messages[i].content_offset_seconds)) {
             messagesToAdd = messagesToAdd.concat(messages[i])
             i += 1
@@ -53,16 +53,16 @@ function App() {
         const newChatMessages = isDirty ? messagesToAdd : messagesToRender.concat(messagesToAdd)
         const start = Math.max(newChatMessages.length - 100, 0)
         const end = newChatMessages.length
-        setMessagesToRender(newChatMessages.slice(start, end));
+        setMessagesToRender(newChatMessages.slice(start, end))
         if (isDirty) {setDirtyChat(false)}
     }
 
     const resetChat = (event) => {
         if (!messages) {
-            return;
+            return
         }
         setCurrentMessageIndex(Math.max(0, findCommentIndexForOffset(event.target.getMediaReferenceTime()) - 100))
-        const startTime = new Date();
+        const startTime = new Date()
         startTime.setSeconds(startTime.getSeconds() - event.target.getMediaReferenceTime())
         setMediaStartTime(startTime)
         setDirtyChat(true)
@@ -121,19 +121,19 @@ function App() {
             }).catch(reason => {
                 console.log("Fetching comments failed: " + reason)
             }
-        );
-    };
+        )
+    }
 
     useEffect(() => {
         if (messages) {
-            const timer = setTimeout(updateChatMessages, 500);
-            return () => clearTimeout(timer);
+            const timer = setTimeout(updateChatMessages, 500)
+            return () => clearTimeout(timer)
         }
     })
 
     useEffect(() => {
         if (!messages && getQueryParam("twitchId")) {
-            fetchKnownJson(getQueryParam("twitchId"));
+            fetchKnownJson(getQueryParam("twitchId"))
         }
     }, [messages])
 
@@ -158,7 +158,7 @@ function App() {
                 {!messages && <ChatSelector onSelectKnownJson={onSelectKnownJson} onUploadCustomJson={onUploadCustomJson}/>}
             </div>
         </div>
-    );
+    )
 }
 
-export default App;
+export default App
