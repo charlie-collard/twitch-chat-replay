@@ -48,7 +48,7 @@ const Chat: FC<ChatProps> = ({chatMessages}) => {
 
     const formatTimestamp = (content_offset) => {
         const hours = Math.floor(content_offset / 3600) === 0 ? "" : Math.floor(content_offset / 3600) + ":";
-        const minutes = Math.floor((content_offset / 60) % 60).toString();
+        const minutes = Math.floor((content_offset / 60) % 60).toString().padStart(hours ? 2 : 1, "0");
         const seconds = Math.floor(content_offset % 60).toString().padStart(2, "0");
         return `${hours}${minutes}:${seconds} `
     }
