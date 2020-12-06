@@ -43,7 +43,7 @@ function App() {
         currentTime.setSeconds(currentTime.getSeconds() + (currentTime - lastPlayEventTime) * (playbackRate - 1)/1000)
         let messagesToAdd = []
         let i = currentMessageIndex
-        while (i < messages.length && (currentTime - mediaStartTime) / 1000 >= (messages[i].content_offset_seconds)) {
+        while (i < messages.length && Math.ceil((currentTime - mediaStartTime) / 1000) >= (messages[i].content_offset_seconds)) {
             messagesToAdd = messagesToAdd.concat(messages[i])
             i += 1
         }
