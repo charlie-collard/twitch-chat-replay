@@ -1,8 +1,8 @@
-import './Chat.css';
+import './Chat.css'
 import React, {FC, useState, useEffect, useRef} from 'react'
-import SimpleBar from "simplebar-react";
-import 'simplebar/dist/simplebar.min.css';
-import {colors} from "../utils/colors";
+import SimpleBar from "simplebar-react"
+import 'simplebar/dist/simplebar.min.css'
+import {colors} from "../utils/colors"
 
 
 type Fragment = {
@@ -34,8 +34,8 @@ type ChatProps = {
 
 const Chat: FC<ChatProps> = ({chatMessages}) => {
     const twitchStaffUrl = "https://static-cdn.jtvnw.net/badges/v1/d97c37bd-a6f5-4c38-8f57-4e4bef88af34/1"
-    const moderatorUrl = "https://static-cdn.jtvnw.net/badges/v1/3267646d-33f0-4b17-b3df-f923a41db1d0/1";
-    const subscriberUrl = "https://static-cdn.jtvnw.net/badges/v1/5571b5a7-51ae-4ee4-a1b6-a25975c95dd7/1";
+    const moderatorUrl = "https://static-cdn.jtvnw.net/badges/v1/3267646d-33f0-4b17-b3df-f923a41db1d0/1"
+    const subscriberUrl = "https://static-cdn.jtvnw.net/badges/v1/5571b5a7-51ae-4ee4-a1b6-a25975c95dd7/1"
 
     const [bttvMapper, setBttvMapper] = useState(null)
 
@@ -48,9 +48,9 @@ const Chat: FC<ChatProps> = ({chatMessages}) => {
     }
 
     const formatTimestamp = (content_offset) => {
-        const hours = Math.floor(content_offset / 3600) === 0 ? "" : Math.floor(content_offset / 3600) + ":";
-        const minutes = Math.floor((content_offset / 60) % 60).toString().padStart(hours ? 2 : 1, "0");
-        const seconds = Math.floor(content_offset % 60).toString().padStart(2, "0");
+        const hours = Math.floor(content_offset / 3600) === 0 ? "" : Math.floor(content_offset / 3600) + ":"
+        const minutes = Math.floor((content_offset / 60) % 60).toString().padStart(hours ? 2 : 1, "0")
+        const seconds = Math.floor(content_offset % 60).toString().padStart(2, "0")
         return `${hours}${minutes}:${seconds} `
     }
 
@@ -83,12 +83,12 @@ const Chat: FC<ChatProps> = ({chatMessages}) => {
     }
 
     const getColor = function (message) {
-        let colorHash = Math.abs(message.commenter.display_name.hashCode());
-        return colors[colorHash % colors.length];
-    };
+        let colorHash = Math.abs(message.commenter.display_name.hashCode())
+        return colors[colorHash % colors.length]
+    }
 
     const hasBadge = function (message, badgeId) {
-        const badges = message.message.user_badges;
+        const badges = message.message.user_badges
         return badges && badges.some((badge) => badge._id === badgeId)
     }
 
@@ -112,14 +112,14 @@ const Chat: FC<ChatProps> = ({chatMessages}) => {
                     return json
                 })
             })
-    };
+    }
 
     useEffect(() => {
         if (!bttvMapper) {
             const allDone = Promise.all([
                 fetchBttvEmotes("https://api.betterttv.net/3/cached/emotes/global"),
                 fetchBttvEmotes("https://api.betterttv.net/3/cached/users/twitch/14371185")
-            ]);
+            ])
             allDone.then(([globalEmotes, nlEmotes]) => {
                 const allEmotes = globalEmotes.concat(nlEmotes.sharedEmotes)
                 const resultMap = {}
@@ -140,7 +140,7 @@ const Chat: FC<ChatProps> = ({chatMessages}) => {
                 <div key={"messagesEnd"} ref={messagesEndRef}/>
             </SimpleBar>
         </div>
-    );
+    )
 }
 
-export default Chat;
+export default Chat

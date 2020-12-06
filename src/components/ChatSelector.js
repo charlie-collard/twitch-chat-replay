@@ -1,6 +1,6 @@
-import './ChatSelector.css';
+import './ChatSelector.css'
 import React, {FC, useState} from 'react'
-import summaries from "../json/summaries.json";
+import summaries from "../json/summaries.json"
 
 type ChatSelectorProps = {
     onSelectKnownJson: Function,
@@ -14,7 +14,7 @@ const ChatSelector: FC<ChatSelectorProps> = ({onSelectKnownJson, onUploadCustomJ
         const videoTitle = summary.title.toLowerCase()
         const parts = currentFilter.toLowerCase().split(" ")
         return parts.every((part) => videoTitle.includes(part))
-    };
+    }
 
     const getButtonText = function (summary) {
         return <>
@@ -22,17 +22,17 @@ const ChatSelector: FC<ChatSelectorProps> = ({onSelectKnownJson, onUploadCustomJ
             <p>{summary.created_at.slice(0, 10)}</p>
             <p>{summary.duration}</p>
         </>
-    };
+    }
 
     const updateFilter = function (event) {
-        setCurrentFilter(event.target.value);
-    };
+        setCurrentFilter(event.target.value)
+    }
 
     const clearSearch = function (event) {
         if (event.target.value === "Search for NL vods here!") {
             event.target.value = ""
         }
-    };
+    }
 
     const uploadCustomFile = function (event) {
         const file = event.target.files[0]
@@ -82,7 +82,7 @@ const ChatSelector: FC<ChatSelectorProps> = ({onSelectKnownJson, onUploadCustomJ
                     )}
             </div>
         </>
-    );
+    )
 }
 
-export default ChatSelector;
+export default ChatSelector

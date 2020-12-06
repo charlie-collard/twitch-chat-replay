@@ -1,7 +1,7 @@
-import './Video.css';
-import YouTube from "react-youtube";
-import {FC} from "react";
-import {setQueryParam} from "../utils/queryParams";
+import './Video.css'
+import YouTube from "react-youtube"
+import {FC} from "react"
+import {setQueryParam} from "../utils/queryParams"
 
 const youtubeRegex = /.*v=([a-zA-Z0-9_-]{11})&?/
 
@@ -14,10 +14,10 @@ type VideoProps = {
 
 export const Video: FC<VideoProps> = ({videoId, onSelectVideo, onPlaybackRateChange, onStateChange}) => {
     const setVideoId = (event) => {
-        event.preventDefault();
-        const entered = event.target.youtubeId.value;
+        event.preventDefault()
+        const entered = event.target.youtubeId.value
         if (entered && youtubeRegex.test(entered)) {
-            const youtubeId = youtubeRegex.exec(entered)[1];
+            const youtubeId = youtubeRegex.exec(entered)[1]
             setQueryParam("youtubeId", youtubeId)
             onSelectVideo(youtubeId)
         }
@@ -44,5 +44,5 @@ export const Video: FC<VideoProps> = ({videoId, onSelectVideo, onPlaybackRateCha
 
     return (
         <>{getVideoBody()}</>
-    );
+    )
 }
