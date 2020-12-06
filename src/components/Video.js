@@ -8,12 +8,11 @@ const youtubeRegex = /.*v=([a-zA-Z0-9_-]{11})&?/
 type VideoProps = {
     videoId: string,
     onSelectVideo: Function,
-    onPlay: Function,
-    onPause: Function,
     onPlaybackRateChange: Function,
+    onStateChange: Function,
 }
 
-export const Video: FC<VideoProps> = ({videoId, onSelectVideo, onPlay, onPause, onPlaybackRateChange}) => {
+export const Video: FC<VideoProps> = ({videoId, onSelectVideo, onPlaybackRateChange, onStateChange}) => {
     const setVideoId = (event) => {
         event.preventDefault();
         const entered = event.target.youtubeId.value;
@@ -30,9 +29,8 @@ export const Video: FC<VideoProps> = ({videoId, onSelectVideo, onPlay, onPause, 
                 containerClassName="video"
                 opts={{playerVars: {autoplay: 1}}}
                 videoId={videoId}
-                onPlay={onPlay}
-                onPause={onPause}
                 onPlaybackRateChange={onPlaybackRateChange}
+                onStateChange={onStateChange}
             />
         }
         return <form className="url-input-form" onSubmit={setVideoId}>

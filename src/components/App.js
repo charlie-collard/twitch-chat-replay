@@ -4,15 +4,18 @@ import Chat from "./Chat";
 import {useEffect, useState} from "react";
 import ChatSelector from "./ChatSelector";
 import {getQueryParam, setQueryParam} from "../utils/queryParams";
+import YouTube from "react-youtube";
 
 function App() {
     const [messages, setMessages] = useState(null);
     const [videoId, setVideoId] = useState(null)
     const [messagesToRender, setMessagesToRender] = useState([]);
     const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
-    const [startTime, setStartTime] = useState(new Date());
+    const [mediaStartTime, setMediaStartTime] = useState(new Date());
     const [chatEnabled, setChatEnabled] = useState(false)
     const [dirtyChat, setDirtyChat] = useState(false)
+    const [playbackRate, setPlaybackRate] = useState(1)
+    const [lastPlayEventTime, setLastPlayEventTime] = useState(new Date())
 
     const findCommentIndexForOffset = (offset) => {
         let left = 0;
@@ -20,10 +23,10 @@ function App() {
         let middle = 0;
         while (left !== right) {
             middle = left + Math.floor((right - left) / 2)
-            const commentCreated = messages[middle].content_offset_seconds
-            if ((commentCreated - offset) > 0) {
+            const commentTime = messages[middle].content_offset_seconds
+            if ((commentTime - offset) > 0) {
                 right = middle
-            } else if ((commentCreated - offset) < 0) {
+            } else if ((commentTime - offset) < 0) {
                 left = middle + 1
             } else {
                 return middle
@@ -37,9 +40,10 @@ function App() {
             return;
         }
         const currentTime = new Date()
+        currentTime.setSeconds(currentTime.getSeconds() + (currentTime - lastPlayEventTime) * (playbackRate - 1)/1000)
         let messagesToAdd = [];
         let i = currentMessageIndex;
-        while (i < messages.length && (currentTime - startTime) / 1000 > (messages[i].content_offset_seconds)) {
+        while (i < messages.length && (currentTime - mediaStartTime) / 1000 >= (messages[i].content_offset_seconds)) {
             messagesToAdd = messagesToAdd.concat(messages[i])
             i += 1
         }
@@ -53,23 +57,41 @@ function App() {
         if (isDirty) {setDirtyChat(false)}
     }
 
-    const onPlay = (event) => {
-        setChatEnabled(true)
+    const resetChat = (event) => {
         if (!messages) {
             return;
         }
         setCurrentMessageIndex(Math.max(0, findCommentIndexForOffset(event.target.getMediaReferenceTime()) - 100))
         const startTime = new Date();
         startTime.setSeconds(startTime.getSeconds() - event.target.getMediaReferenceTime())
-        setStartTime(startTime)
+        setMediaStartTime(startTime)
         setDirtyChat(true)
+        setLastPlayEventTime(new Date())
     }
 
-    const onPause = () => {
+    const onPlay = (event) => {
+        setChatEnabled(true)
+        resetChat(event)
+    }
+
+    const onPause = (event) => {
         setChatEnabled(false)
     }
 
+    const onStateChange = (event) => {
+        if (event.data === YouTube.PlayerState.BUFFERING
+            || event.data === YouTube.PlayerState.PAUSED
+        ) {
+            onPause(event)
+        }
+        if (event.data === YouTube.PlayerState.PLAYING) {
+            onPlay(event)
+        }
+    }
+
     const onPlaybackRateChange = (event) => {
+        setPlaybackRate(event.data)
+        resetChat(event)
     }
 
     const onSelectKnownJson = (summary) => {
@@ -78,7 +100,6 @@ function App() {
     }
 
     const onUploadCustomJson = (json) => {
-        console.log(json)
         const sortedMessages = json.comments.sort((a, b) => new Date(a.created_at) - new Date(b.created_at))
         setMessages(sortedMessages)
     }
@@ -128,9 +149,8 @@ function App() {
                 <Video
                     videoId={videoId}
                     onSelectVideo={onSelectVideo}
-                    onPlay={onPlay}
-                    onPause={onPause}
                     onPlaybackRateChange={onPlaybackRateChange}
+                    onStateChange={onStateChange}
                 />
             </div>
             <div className="chat-container">
