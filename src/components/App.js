@@ -16,6 +16,7 @@ function App() {
     const [dirtyChat, setDirtyChat] = useState(false)
     const [playbackRate, setPlaybackRate] = useState(1)
     const [lastPlayEventTime, setLastPlayEventTime] = useState(new Date())
+    const [chatDelay, setChatDelay] = useState(0)
 
     const findCommentIndexForOffset = (offset) => {
         let left = 0
@@ -43,7 +44,7 @@ function App() {
         currentTime.setSeconds(currentTime.getSeconds() + (currentTime - lastPlayEventTime) * (playbackRate - 1)/1000)
         let messagesToAdd = []
         let i = currentMessageIndex
-        while (i < messages.length && Math.ceil((currentTime - mediaStartTime) / 1000) >= (messages[i].content_offset_seconds)) {
+        while (i < messages.length && Math.ceil((currentTime - mediaStartTime) / 1000) >= (messages[i].content_offset_seconds + chatDelay)) {
             messagesToAdd = messagesToAdd.concat(messages[i])
             i += 1
         }
@@ -61,7 +62,7 @@ function App() {
         if (!messages) {
             return
         }
-        setCurrentMessageIndex(Math.max(0, findCommentIndexForOffset(event.target.getMediaReferenceTime()) - 100))
+        setCurrentMessageIndex(Math.max(0, findCommentIndexForOffset(event.target.getMediaReferenceTime() - chatDelay) - 100))
         const startTime = new Date()
         startTime.setSeconds(startTime.getSeconds() - event.target.getMediaReferenceTime())
         setMediaStartTime(startTime)
@@ -142,6 +143,12 @@ function App() {
             setVideoId(getQueryParam("youtubeId"))
         }
     }, [videoId])
+
+    useEffect(() => {
+        if (!chatDelay && getQueryParam("delay")) {
+            setChatDelay(parseFloat(getQueryParam("delay")))
+        }
+    }, [chatDelay])
 
     return (
         <div className="App">
