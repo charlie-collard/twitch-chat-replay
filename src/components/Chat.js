@@ -126,6 +126,7 @@ const Chat: FC<ChatProps> = ({chatMessages}) => {
                 allEmotes.forEach((emote) => {
                     resultMap[emote.code] = emote.id
                 })
+                resultMap["LUL"] = resultMap["LuL"]
                 setBttvMapper(resultMap)
             })
         }
