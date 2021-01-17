@@ -82,8 +82,8 @@ const Chat: FC<ChatProps> = ({chatMessages}) => {
         </span>
     }
 
-    const getColor = function (message) {
-        let colorHash = Math.abs(message.commenter.display_name.hashCode())
+    const getColor = function (commenterName) {
+        let colorHash = Math.abs(commenterName.hashCode())
         return colors[colorHash % colors.length]
     }
 
@@ -93,12 +93,14 @@ const Chat: FC<ChatProps> = ({chatMessages}) => {
     }
 
     const formatMessage = (message) => {
+        // There are null commenter names in 873550274.json - twitch was having issues at the time
+        const commenterName = message.commenter?.display_name || "UNKNOWN"
         return <>
             <span>{formatTimestamp(message.content_offset_seconds)}</span>
             {hasBadge(message, "staff") && <><img alt="twitch-staff" src={twitchStaffUrl} className="badge"/><span> </span></>}
             {hasBadge(message, "moderator") && <><img alt="moderator" src={moderatorUrl} className="badge"/><span> </span></>}
             {hasBadge(message, "subscriber") && <><img alt="subscriber" src={subscriberUrl} className="badge"/><span> </span></>}
-            <span className="commenter" style={{color: getColor(message)}}>{message.commenter.display_name + ": "}</span>
+            <span className="commenter" style={{color: getColor(commenterName)}}>{commenterName + ": "}</span>
             {message.message.fragments.map(formatFragment)}
         </>
     }
