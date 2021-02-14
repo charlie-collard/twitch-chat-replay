@@ -1,6 +1,5 @@
 import './ChatSelector.css'
-import React, {FC, useState} from 'react'
-import summaries from "../json/summaries.json"
+import React, {FC, useState, useEffect} from 'react'
 
 type ChatSelectorProps = {
     onSelectKnownJson: Function,
@@ -9,6 +8,25 @@ type ChatSelectorProps = {
 
 const ChatSelector: FC<ChatSelectorProps> = ({onSelectKnownJson, onUploadCustomJson}) => {
     const [currentFilter, setCurrentFilter] = useState("")
+    const [summaries, setSummaries] = useState()
+
+    useEffect(() => {
+        if (!summaries) {
+            fetch("/content/summaries.json")
+                .then((response) => {
+                    response.json().then(s => {
+                            const sortedSummaries = s.sort((a, b) => new Date(a.created_at) - new Date(b.created_at))
+                            setSummaries(sortedSummaries)
+                        }
+                    ).catch(reason => {
+                        console.log("Converting summaries to json failed: " + reason)
+                    })
+                }).catch(reason => {
+                console.log("Fetching summaries failed: " + reason)
+                }
+            )
+        }
+    })
 
     const filterFunction = function (summary) {
         const videoTitle = summary.title.toLowerCase()
@@ -69,18 +87,20 @@ const ChatSelector: FC<ChatSelectorProps> = ({onSelectKnownJson, onUploadCustomJ
                     className="chat-search-box"
                 />
             </form>
-            <div className="chat-selector">
-                {summaries.filter(filterFunction)
-                    .map((summary) =>
-                        <button
-                            key={summary.id}
-                            className="chat-selection-button"
-                            onClick={() => onSelectKnownJson(summary)}
-                        >
-                            {getButtonText(summary)}
-                        </button>
-                    )}
-            </div>
+            {summaries &&
+                <div className="chat-selector">
+                    {summaries.filter(filterFunction)
+                        .map((summary) =>
+                            <button
+                                key={summary.id}
+                                className="chat-selection-button"
+                                onClick={() => onSelectKnownJson(summary)}
+                            >
+                                {getButtonText(summary)}
+                            </button>
+                        )}
+                </div>
+            }
         </>
     )
 }
