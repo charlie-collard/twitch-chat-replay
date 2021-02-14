@@ -14,11 +14,8 @@ const ChatSelector: FC<ChatSelectorProps> = ({onSelectKnownJson, onUploadCustomJ
         if (!summaries) {
             fetch("/content/summaries.json")
                 .then((response) => {
-                    response.json().then(s => {
-                            const sortedSummaries = s.sort((a, b) => new Date(a.created_at) - new Date(b.created_at))
-                            setSummaries(sortedSummaries)
-                        }
-                    ).catch(reason => {
+                    response.json().then(s => setSummaries(s))
+                    .catch(reason => {
                         console.log("Converting summaries to json failed: " + reason)
                     })
                 }).catch(reason => {
