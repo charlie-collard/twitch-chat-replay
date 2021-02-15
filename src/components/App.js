@@ -110,7 +110,7 @@ function App() {
     }
 
     const fetchKnownJson = function (twitchId) {
-        fetch("/content/" + twitchId + ".json")
+        fetch("/content/videos/" + twitchId + ".json")
             .then((response) => {
                 response.json().then(m => {
                         const sortedMessages = m.comments.sort((a, b) => new Date(a.created_at) - new Date(b.created_at))
