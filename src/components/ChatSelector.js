@@ -12,7 +12,7 @@ const ChatSelector: FC<ChatSelectorProps> = ({onSelectKnownJson, onUploadCustomJ
 
     useEffect(() => {
         if (!summaries) {
-            fetch("/content/summaries.json")
+            fetch("/content/vod-summaries.json")
                 .then((response) => {
                     response.json().then(s => setSummaries(s))
                     .catch(reason => {
