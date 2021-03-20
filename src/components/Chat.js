@@ -21,7 +21,8 @@ type ChatMessage = {
         user_color: string,
         fragments: Fragment[],
         user_badges: {
-            _id: string
+            _id: string,
+            version: string
         }[],
     }
 }
@@ -31,6 +32,8 @@ type ChatProps = {
 }
 
 const Chat: FC<ChatProps> = ({chatMessages}) => {
+    const predictionBlueUrl = "https://static-cdn.jtvnw.net/badges/v1/e33d8b46-f63b-4e67-996d-4a7dcec0ad33/1"
+    const predictionPinkUrl = "https://static-cdn.jtvnw.net/badges/v1/4b76d5f2-91cc-4400-adf2-908a1e6cfd1e/1"
     const twitchStaffUrl = "https://static-cdn.jtvnw.net/badges/v1/d97c37bd-a6f5-4c38-8f57-4e4bef88af34/1"
     const moderatorUrl = "https://static-cdn.jtvnw.net/badges/v1/3267646d-33f0-4b17-b3df-f923a41db1d0/1"
     const subscriberUrl = "https://static-cdn.jtvnw.net/badges/v1/5571b5a7-51ae-4ee4-a1b6-a25975c95dd7/1"
@@ -83,9 +86,11 @@ const Chat: FC<ChatProps> = ({chatMessages}) => {
         return colors[colorHash % colors.length]
     }
 
-    const hasBadge = function (message, badgeId) {
+    const hasBadge = function (message, badgeId, badgeVersion) {
         const badges = message.message.user_badges
-        return badges && badges.some((badge) => badge._id === badgeId)
+        return badges && badges.some((badge) =>
+            badge._id === badgeId && (!badgeVersion || badge.version === badgeVersion)
+        )
     }
 
     const formatMessage = (message) => {
@@ -93,6 +98,8 @@ const Chat: FC<ChatProps> = ({chatMessages}) => {
         const commenterName = message.commenter?.display_name || "UNKNOWN"
         return <>
             <span>{formatTimestamp(message.content_offset_seconds)}</span>
+            {hasBadge(message, "predictions", "blue-1") && <><img alt="prediction-blue-1" src={predictionBlueUrl} className="badge"/><span> </span></>}
+            {hasBadge(message, "predictions", "pink-2") && <><img alt="prediction-pink-2" src={predictionPinkUrl} className="badge"/><span> </span></>}
             {hasBadge(message, "staff") && <><img alt="twitch-staff" src={twitchStaffUrl} className="badge"/><span> </span></>}
             {hasBadge(message, "moderator") && <><img alt="moderator" src={moderatorUrl} className="badge"/><span> </span></>}
             {hasBadge(message, "subscriber") && <><img alt="subscriber" src={subscriberUrl} className="badge"/><span> </span></>}
