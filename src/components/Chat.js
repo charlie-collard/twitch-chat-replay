@@ -1,7 +1,5 @@
 import './Chat.css'
 import React, {FC, useState, useEffect, useRef} from 'react'
-import SimpleBar from "simplebar-react"
-import 'simplebar/dist/simplebar.min.css'
 import {colors} from "../utils/colors"
 
 
@@ -40,11 +38,9 @@ const Chat: FC<ChatProps> = ({chatMessages}) => {
     const [bttvMapper, setBttvMapper] = useState(null)
 
     const messagesEndRef = useRef(null)
-    const simpleBarRef = useRef()
 
     const scrollToBottom = () => {
         messagesEndRef.current.scrollIntoView({behavior: "auto"})
-        simpleBarRef.current.recalculate()
     }
 
     const formatTimestamp = (content_offset) => {
@@ -136,12 +132,10 @@ const Chat: FC<ChatProps> = ({chatMessages}) => {
 
     return (
         <div>
-            <SimpleBar forceVisible="y" autoHide={false} ref={simpleBarRef}>
-                {chatMessages.map(message => (
-                    <p key={message._id} className="chatMessage">{formatMessage(message)}</p>
-                ))}
-                <div key={"messagesEnd"} ref={messagesEndRef}/>
-            </SimpleBar>
+            {chatMessages.map(message => (
+                <p key={message._id} className="chatMessage">{formatMessage(message)}</p>
+            ))}
+            <div key={"messagesEnd"} ref={messagesEndRef}/>
         </div>
     )
 }
