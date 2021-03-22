@@ -6,6 +6,8 @@ type ChatSelectorProps = {
     onUploadCustomJson: Function
 }
 
+const SEARCH_PROMPT = "Search for NL videos here!";
+
 const ChatSelector: FC<ChatSelectorProps> = ({onSelectKnownJson, onUploadCustomJson}) => {
     const [currentFilter, setCurrentFilter] = useState("")
     const [summaries, setSummaries] = useState()
@@ -44,7 +46,7 @@ const ChatSelector: FC<ChatSelectorProps> = ({onSelectKnownJson, onUploadCustomJ
     }
 
     const clearSearch = function (event) {
-        if (event.target.value === "Search for NL vods here!") {
+        if (event.target.value === SEARCH_PROMPT) {
             event.target.value = ""
         }
     }
@@ -78,7 +80,7 @@ const ChatSelector: FC<ChatSelectorProps> = ({onSelectKnownJson, onUploadCustomJ
                 />
                 <p>---OR---</p>
                 <input
-                    defaultValue="Search for NL vods here!"
+                    defaultValue={SEARCH_PROMPT}
                     onClick={clearSearch}
                     onChange={updateFilter}
                     className="chat-search-box"
