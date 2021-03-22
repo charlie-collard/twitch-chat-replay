@@ -6,7 +6,7 @@ type ChatSelectorProps = {
     onUploadCustomJson: Function
 }
 
-const SEARCH_PROMPT = "Search for NL videos here!";
+const SEARCH_PROMPT = "Search for NL vods here!";
 
 const ChatSelector: FC<ChatSelectorProps> = ({onSelectKnownJson, onUploadCustomJson}) => {
     const [currentFilter, setCurrentFilter] = useState("")
