@@ -1,0 +1,28 @@
+name: Push to dockerhub
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  IMAGE_NAME: chacoll/twitch-chat-replay:latest
+
+jobs:
+  push:
+
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14.15.0
+        
+      - run: |
+          npm install
+          npm run build
+          docker build . --tag $IMAGE_NAME
+          docker login --username chacoll --password "${{ secrets.DOCKER_HUB_PASSWORD }}"
+          docker push $IMAGE_NAME
