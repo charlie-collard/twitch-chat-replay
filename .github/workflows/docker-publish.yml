@@ -10,7 +10,6 @@ env:
 
 jobs:
   push:
-
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
 
@@ -20,9 +19,13 @@ jobs:
         with:
           node-version: 14.15.0
         
-      - run: |
+      - name: Build image
+        run: |
           npm install
           npm run build
           docker build . --tag $IMAGE_NAME
+
+      - name: Push to DockerHub
+        run: |
           docker login --username chacoll --password "${{ secrets.DOCKER_HUB_PASSWORD }}"
           docker push $IMAGE_NAME
