@@ -8,8 +8,11 @@
 
 .chat-search-box {
     margin-top: 2px;
+    padding-bottom: 2px;
+    padding-top: 2px;
     font-size: 1em;
     text-align: center;
+    width: 50%;
 }
 
 .search-form {
@@ -32,8 +35,21 @@
     flex-direction: column;
 }
 
+.chat-selection-button {
+    background-color: white;
+    font-size: 0.9em;
+}
+
 .chat-selection-button:nth-child(1) {
     margin-top: 120px;
+}
+
+.chat-selection-button:hover {
+    background-color: lightgrey;
+}
+
+.chat-selection-button:active {
+    background-color: white;
 }
 
 .chat-selection-button-title {
