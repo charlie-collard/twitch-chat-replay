@@ -96,6 +96,8 @@ const Chat: FC<ChatProps> = ({chatMessages}) => {
     const formatMessage = (message) => {
         // There are null commenter names in 873550274.json - twitch was having issues at the time
         const commenterName = message.commenter?.display_name || "UNKNOWN"
+        // There are messages without fragments in 1075023215.json - no idea why. Emotes won't work properly for those messages.
+        const fragments = message.message?.fragments || [{text: message.message.body}]
         return <>
             <span>{formatTimestamp(message.content_offset_seconds)}</span>
             {hasBadge(message, "predictions", "blue-1") && <><img alt="prediction-blue-1" src={predictionBlueUrl} className="badge"/><span> </span></>}
@@ -104,7 +106,7 @@ const Chat: FC<ChatProps> = ({chatMessages}) => {
             {hasBadge(message, "moderator") && <><img alt="moderator" src={moderatorUrl} className="badge"/><span> </span></>}
             {hasBadge(message, "subscriber") && <><img alt="subscriber" src={subscriberUrl} className="badge"/><span> </span></>}
             <span className="commenter" style={{color: getColor(commenterName)}}>{commenterName + ": "}</span>
-            {message.message.fragments.map(formatFragment)}
+            {fragments.map(formatFragment)}
         </>
     }
 
