@@ -6,39 +6,6 @@ import ChatSelector from "./ChatSelector"
 import {getQueryParam, setQueryParam} from "../utils/queryParams"
 import YouTube from "react-youtube"
 
-function useKeyPress(targetKey) {
-    // State for keeping track of whether key is pressed
-    const [keyPressed, setKeyPressed] = useState(false);
-
-    // Add event listeners
-    useEffect(() => {
-            // If pressed key is our target key then set to true
-            function downHandler({key}) {
-                if (key === targetKey) {
-                    setKeyPressed(true);
-                }
-            }
-
-            // If released key is our target key then set to false
-            const upHandler = ({key}) => {
-                if (key === targetKey) {
-                    setKeyPressed(false);
-                }
-            };
-            window.addEventListener("keydown", downHandler);
-            window.addEventListener("keyup", upHandler);
-
-            // Remove event listeners on cleanup
-            return () => {
-                window.removeEventListener("keydown", downHandler);
-                window.removeEventListener("keyup", upHandler);
-            };
-        },
-        [targetKey]
-    );
-    return keyPressed;
-}
-
 function App() {
     const [messages, setMessages] = useState(null)
     const [videoId, setVideoId] = useState(null)
@@ -52,9 +19,6 @@ function App() {
     const [chatDelay, setChatDelay] = useState(0)
     const [videoPlayer, setVideoPlayer] = useState(null)
     const [funnyMoments, setFunnyMoments] = useState([])
-
-    const pPressed = useKeyPress("p")
-    const nPressed = useKeyPress("n")
 
     const findCommentIndexForOffset = (offset) => {
         let left = 0
@@ -179,9 +143,8 @@ function App() {
         fetch("/content/funny-moments/" + twitchId + ".json")
             .then(response => {
                 response.json().then(funnyMoments => {
-                        setFunnyMoments(funnyMoments.sort())
-                    }
-                ).catch(reason => {
+                    setFunnyMoments(funnyMoments.sort((a, b) => a-b))
+                }).catch(reason => {
                     console.log("Converting funny moments to json failed: " + reason)
                 })
             }).catch(reason => {
@@ -215,23 +178,29 @@ function App() {
     }, [chatDelay])
 
     useEffect(() => {
-        const seekToNextFunnyMoment = (direction) => {
+        const seekToFunnyMoment = (direction) => {
+            if (!videoPlayer || !funnyMoments) {
+                return
+            }
             const currentTime = videoPlayer.getCurrentTime()
             const validMoments = funnyMoments.filter((timestamp) =>
                 direction === "n" ? timestamp > currentTime : timestamp < currentTime - 5
             )
+            console.log(validMoments)
             if (validMoments.length > 0) {
                 const index = direction === "n" ? 0 : validMoments.length - 1
                 videoPlayer.seekTo(validMoments[index], true)
             }
         }
 
-        videoPlayer &&
-        (
-            (nPressed && seekToNextFunnyMoment("n"))
-            || (pPressed && seekToNextFunnyMoment("p"))
-        )
-    })
+        const listenerFunction = ({key, repeat}) => {
+            if (!repeat && (key === "n" || key === "p")) {
+                seekToFunnyMoment(key)
+            }
+        }
+        window.addEventListener("keydown", listenerFunction)
+        return () => window.removeEventListener("keydown", listenerFunction)
+    }, [videoPlayer, funnyMoments])
 
     return (
         <div className="App">
