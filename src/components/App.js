@@ -1,7 +1,7 @@
 import './App.css'
 import {Video} from "./Video"
 import Chat from "./Chat"
-import {useEffect, useState} from "react"
+import {useEffect, useState, useCallback} from "react"
 import ChatSelector from "./ChatSelector"
 import {getQueryParam, setQueryParam} from "../utils/queryParams"
 import YouTube from "react-youtube"
@@ -10,13 +10,13 @@ function useKeyPress(targetKey) {
     // State for keeping track of whether key is pressed
     const [keyPressed, setKeyPressed] = useState(false)
     // If pressed key is our target key then set to true
-    const downHandler = ({ key }) => {
+    const downHandler = ({key}) => {
         if (key === targetKey) {
             setKeyPressed(true)
         }
     }
     // If released key is our target key then set to false
-    const upHandler = ({ key }) => {
+    const upHandler = ({key}) => {
         if (key === targetKey) {
             setKeyPressed(false)
         }
@@ -46,7 +46,7 @@ function App() {
     const [lastPlayEventTime, setLastPlayEventTime] = useState(new Date())
     const [chatDelay, setChatDelay] = useState(0)
     const [videoPlayer, setVideoPlayer] = useState(null)
-    const [funnyMoments, setFunnyMoments] = useState([635, 2615])
+    const [funnyMoments, setFunnyMoments] = useState([])
 
     const pPressed = useKeyPress("p")
     const nPressed = useKeyPress("n")
@@ -74,7 +74,7 @@ function App() {
             return
         }
         const currentTime = new Date()
-        currentTime.setSeconds(currentTime.getSeconds() + (currentTime - lastPlayEventTime) * (playbackRate - 1)/1000)
+        currentTime.setSeconds(currentTime.getSeconds() + (currentTime - lastPlayEventTime) * (playbackRate - 1) / 1000)
         let messagesToAdd = []
         let i = currentMessageIndex
         while (i < messages.length && Math.ceil((currentTime - mediaStartTime) / 1000) >= (messages[i].content_offset_seconds + chatDelay)) {
@@ -88,16 +88,19 @@ function App() {
         const start = Math.max(newChatMessages.length - 100, 0)
         const end = newChatMessages.length
         setMessagesToRender(newChatMessages.slice(start, end))
-        if (isDirty) {setDirtyChat(false)}
+        if (isDirty) {
+            setDirtyChat(false)
+        }
     }
 
-    const resetChat = (event) => {
-        if (!messages) {
+    const resetChat = () => {
+        if (!messages || !videoPlayer) {
             return
         }
-        setCurrentMessageIndex(Math.max(0, findCommentIndexForOffset(event.target.getMediaReferenceTime() - chatDelay) - 100))
+        const currentTime = videoPlayer.getCurrentTime();
+        setCurrentMessageIndex(Math.max(0, findCommentIndexForOffset(currentTime - chatDelay) - 100))
         const startTime = new Date()
-        startTime.setSeconds(startTime.getSeconds() - event.target.getMediaReferenceTime())
+        startTime.setSeconds(startTime.getSeconds() - currentTime)
         setMediaStartTime(startTime)
         setDirtyChat(true)
         setLastPlayEventTime(new Date())
@@ -109,7 +112,7 @@ function App() {
 
     const onPlay = (event) => {
         setChatEnabled(true)
-        resetChat(event)
+        resetChat()
     }
 
     const onPause = (event) => {
@@ -129,12 +132,12 @@ function App() {
 
     const onPlaybackRateChange = (event) => {
         setPlaybackRate(event.data)
-        resetChat(event)
+        resetChat()
     }
 
     const onSelectKnownJson = (summary) => {
         setQueryParam("twitchId", summary.id)
-        fetchKnownJson(summary.id)
+        fetchDataForVideo(summary.id)
     }
 
     const onUploadCustomJson = (json) => {
@@ -146,9 +149,14 @@ function App() {
         setVideoId(youtubeId)
     }
 
-    const fetchKnownJson = function (twitchId) {
+    const fetchDataForVideo = useCallback((twitchId) => {
+        fetchVideoJson(twitchId)
+        fetchFunnyMomentJson(twitchId)
+    }, [])
+
+    const fetchVideoJson = (twitchId) => {
         fetch("/content/videos/" + twitchId + ".json")
-            .then((response) => {
+            .then(response => {
                 response.json().then(m => {
                         const sortedMessages = m.comments.sort((a, b) => new Date(a.created_at) - new Date(b.created_at))
                         setMessages(sortedMessages)
@@ -162,6 +170,20 @@ function App() {
         )
     }
 
+    const fetchFunnyMomentJson = function (twitchId) {
+        fetch("/content/funny-moments/" + twitchId + ".json")
+            .then(response => {
+                response.json().then(funnyMoments => {
+                        setFunnyMoments(funnyMoments.sort())
+                    }
+                ).catch(reason => {
+                    console.log("Converting funny moments to json failed: " + reason)
+                })
+            }).catch(reason => {
+                console.log("Fetching funny moments failed: " + reason)
+        })
+    }
+
     useEffect(() => {
         if (messages) {
             const timer = setTimeout(updateChatMessages, 500)
@@ -171,9 +193,9 @@ function App() {
 
     useEffect(() => {
         if (!messages && getQueryParam("twitchId")) {
-            fetchKnownJson(getQueryParam("twitchId"))
+            fetchDataForVideo(getQueryParam("twitchId"))
         }
-    }, [messages])
+    }, [fetchDataForVideo, messages])
 
     useEffect(() => {
         if (!videoId && getQueryParam("youtubeId")) {
@@ -194,7 +216,8 @@ function App() {
                 direction === "n" ? timestamp > currentTime : timestamp < currentTime - 5
             )
             if (validMoments.length > 0) {
-                videoPlayer.seekTo(validMoments[0], true)
+                const index = direction === "n" ? 0 : validMoments.length - 1
+                videoPlayer.seekTo(validMoments[index], true)
             }
         }
 
