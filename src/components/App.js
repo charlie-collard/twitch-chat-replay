@@ -6,6 +6,34 @@ import ChatSelector from "./ChatSelector"
 import {getQueryParam, setQueryParam} from "../utils/queryParams"
 import YouTube from "react-youtube"
 
+function useKeyPress(targetKey) {
+    // State for keeping track of whether key is pressed
+    const [keyPressed, setKeyPressed] = useState(false)
+    // If pressed key is our target key then set to true
+    const downHandler = ({ key }) => {
+        if (key === targetKey) {
+            setKeyPressed(true)
+        }
+    }
+    // If released key is our target key then set to false
+    const upHandler = ({ key }) => {
+        if (key === targetKey) {
+            setKeyPressed(false)
+        }
+    }
+    // Add event listeners
+    useEffect(() => {
+        window.addEventListener("keydown", downHandler)
+        window.addEventListener("keyup", upHandler)
+        // Remove event listeners on cleanup
+        return () => {
+            window.removeEventListener("keydown", downHandler)
+            window.removeEventListener("keyup", upHandler)
+        }
+    }, []) // Empty array ensures that effect is only run on mount and unmount
+    return keyPressed
+}
+
 function App() {
     const [messages, setMessages] = useState(null)
     const [videoId, setVideoId] = useState(null)
@@ -17,6 +45,11 @@ function App() {
     const [playbackRate, setPlaybackRate] = useState(1)
     const [lastPlayEventTime, setLastPlayEventTime] = useState(new Date())
     const [chatDelay, setChatDelay] = useState(0)
+    const [videoPlayer, setVideoPlayer] = useState(null)
+    const [funnyMoments, setFunnyMoments] = useState([635, 2615])
+
+    const pPressed = useKeyPress("p")
+    const nPressed = useKeyPress("n")
 
     const findCommentIndexForOffset = (offset) => {
         let left = 0
@@ -68,6 +101,10 @@ function App() {
         setMediaStartTime(startTime)
         setDirtyChat(true)
         setLastPlayEventTime(new Date())
+    }
+
+    const onReady = (event) => {
+        setVideoPlayer(event.target)
     }
 
     const onPlay = (event) => {
@@ -150,6 +187,24 @@ function App() {
         }
     }, [chatDelay])
 
+    useEffect(() => {
+        const seekToNextFunnyMoment = (direction) => {
+            const currentTime = videoPlayer.getCurrentTime()
+            const validMoments = funnyMoments.filter((timestamp) =>
+                direction === "n" ? timestamp > currentTime : timestamp < currentTime - 5
+            )
+            if (validMoments.length > 0) {
+                videoPlayer.seekTo(validMoments[0], true)
+            }
+        }
+
+        videoPlayer &&
+        (
+            (nPressed && seekToNextFunnyMoment("n"))
+            || (pPressed && seekToNextFunnyMoment("p"))
+        )
+    })
+
     return (
         <div className="App">
             <div className="player-container">
@@ -158,6 +213,7 @@ function App() {
                     onSelectVideo={onSelectVideo}
                     onPlaybackRateChange={onPlaybackRateChange}
                     onStateChange={onStateChange}
+                    onReady={onReady}
                 />
             </div>
             <div className="chat-container">
