@@ -186,7 +186,6 @@ function App() {
             const validMoments = funnyMoments.filter((timestamp) =>
                 direction === "n" ? timestamp > currentTime : timestamp < currentTime - 5
             )
-            console.log(validMoments)
             if (validMoments.length > 0) {
                 const index = direction === "n" ? 0 : validMoments.length - 1
                 videoPlayer.seekTo(validMoments[index], true)
