@@ -1,37 +1,42 @@
 import './App.css'
 import {Video} from "./Video"
 import Chat from "./Chat"
-import {useEffect, useState, useCallback} from "react"
+import {useCallback, useEffect, useState} from "react"
 import ChatSelector from "./ChatSelector"
 import {getQueryParam, setQueryParam} from "../utils/queryParams"
 import YouTube from "react-youtube"
 
 function useKeyPress(targetKey) {
     // State for keeping track of whether key is pressed
-    const [keyPressed, setKeyPressed] = useState(false)
-    // If pressed key is our target key then set to true
-    const downHandler = ({key}) => {
-        if (key === targetKey) {
-            setKeyPressed(true)
-        }
-    }
-    // If released key is our target key then set to false
-    const upHandler = ({key}) => {
-        if (key === targetKey) {
-            setKeyPressed(false)
-        }
-    }
+    const [keyPressed, setKeyPressed] = useState(false);
+
     // Add event listeners
     useEffect(() => {
-        window.addEventListener("keydown", downHandler)
-        window.addEventListener("keyup", upHandler)
-        // Remove event listeners on cleanup
-        return () => {
-            window.removeEventListener("keydown", downHandler)
-            window.removeEventListener("keyup", upHandler)
-        }
-    }, []) // Empty array ensures that effect is only run on mount and unmount
-    return keyPressed
+            // If pressed key is our target key then set to true
+            function downHandler({key}) {
+                if (key === targetKey) {
+                    setKeyPressed(true);
+                }
+            }
+
+            // If released key is our target key then set to false
+            const upHandler = ({key}) => {
+                if (key === targetKey) {
+                    setKeyPressed(false);
+                }
+            };
+            window.addEventListener("keydown", downHandler);
+            window.addEventListener("keyup", upHandler);
+
+            // Remove event listeners on cleanup
+            return () => {
+                window.removeEventListener("keydown", downHandler);
+                window.removeEventListener("keyup", upHandler);
+            };
+        },
+        [targetKey]
+    );
+    return keyPressed;
 }
 
 function App() {
@@ -180,7 +185,7 @@ function App() {
                     console.log("Converting funny moments to json failed: " + reason)
                 })
             }).catch(reason => {
-                console.log("Fetching funny moments failed: " + reason)
+            console.log("Fetching funny moments failed: " + reason)
         })
     }
 
