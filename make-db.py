@@ -79,7 +79,7 @@ insert into comments (
 );
 """
 
-con = sqlite3.connect("twitch-chat-replay.db")
+con = sqlite3.connect("nl-chat.db")
 
 con.execute(ENABLE_FOREIGN_KEYS)
 con.execute(CREATE_COMMENTERS_TABLE)
