@@ -25,4 +25,5 @@ yarn-error.log*
 .eslintcache
 public/content
 
-nl-chat.db
+# Ignore produced database files
+*.db
