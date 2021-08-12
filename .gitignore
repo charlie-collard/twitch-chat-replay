@@ -27,3 +27,5 @@ public/content
 
 # Ignore produced database files
 *.db
+
+sky-videos/

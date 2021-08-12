@@ -126,8 +126,8 @@ def convert_comment(comment, commenterID):
         "badges": json.dumps(comment["message"].get("user_badges") or []),
         "isAction": comment["message"].get("is_action") or False,
         "color": comment["message"].get("user_color"),
-        "source": comment["message"].get("source"),
-        "state": comment["message"].get("state"),
+        "source": comment.get("source"),
+        "state": comment.get("state"),
         "createdAt": comment["created_at"],
         "updatedAt": comment["updated_at"],
     }
@@ -138,7 +138,7 @@ with sqlite3.connect("nl-chat.db") as con:
     con.execute(CREATE_COMMENTERS_TABLE)
     con.execute(CREATE_COMMENTS_TABLE)
     cur = con.cursor()
-    for filename in sorted(list(glob.glob("sky-videos/*.json.gz")), key=lambda x: int(x[x.find("/")+1:x.find(".")])):
+    for filename in sorted(list(glob.glob("sky-videos/*.json.gz")), key=lambda x: -int(x[x.find("/")+1:x.find(".")])):
         print(filename)
         with gzip.open(filename) as f:
             data = json.load(f)
