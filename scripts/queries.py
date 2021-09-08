@@ -4,6 +4,7 @@ CREATE_COMMENTS_COMMENTER_ID_INDEX = "create index if not exists idx_comments_co
 
 CREATE_COMMENTS_CONTENT_ID_INDEX = "create index if not exists idx_comments_content_id on comments (contentID);"
 
+CREATE_COMMENTERS_TWITCH_ID_INDEX = "create index if not exists idx_commenters_twitch_id on commenters (twitchID);"
 
 CREATE_COMMENTERS_TABLE = """
 create table if not exists commenters (
@@ -123,7 +124,7 @@ insert into content (
     :type,
     :durationSeconds,
     datetime(:createdAt),
-    datetime(:publishedAt)
+    coalesce(datetime(:publishedAt), datetime(:createdAt))
 );
 """
 
