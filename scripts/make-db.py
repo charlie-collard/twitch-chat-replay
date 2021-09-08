@@ -68,15 +68,18 @@ with sqlite3.connect("nl-chat.db") as con:
     con.execute(CREATE_COMMENTERS_TABLE)
     con.execute(CREATE_CONTENT_TABLE)
     con.execute(CREATE_COMMENTS_TABLE)
+    con.execute(CREATE_COMMENTS_COMMENTER_ID_INDEX)
+    con.execute(CREATE_COMMENTS_CONTENT_ID_INDEX)
+    con.execute(CREATE_COMMENTERS_TWITCH_ID_INDEX)
     cur = con.cursor()
     cur.execute("select twitchID from content;")
     content_in_db = set(map(lambda x: x[0], cur.fetchall()))
     content_on_filesystem = set(map(lambda x: re.match(r"sky-videos/(\d+)\.json\.gz", x).groups()[0], glob.glob("sky-videos/*.gz")))
-    to_download = sorted(list(content_on_filesystem - content_in_db), key=lambda x: -int(x))
-    print(f"Downloading {len(to_download)} files...")
-    for i, filename in enumerate(to_download):
+    files = sorted(list(content_on_filesystem - content_in_db), key=lambda x: -int(x))
+    print(f"Inserting {len(files)} chat files...")
+    for i, filename in enumerate(files):
         filename = f"sky-videos/{filename}.json.gz"
-        print(f"{i*100/len(to_download):.2f}%", filename)
+        print(f"{i*100/len(files):.2f}%", filename)
         with gzip.open(filename) as f:
             data = json.load(f)
         cur.execute(INSERT_CONTENT, convert_content(data["video"]))
@@ -87,9 +90,4 @@ with sqlite3.connect("nl-chat.db") as con:
                 cur.execute("select id from commenters where twitchID = :twitchID;", commenter)
                 (commenter_id,) = cur.fetchone()
                 cur.execute(INSERT_COMMENT, convert_comment(comment, commenter_id, content_id))
-            if not (j % 5000): # Memory limits
-                con.commit()
         con.commit()
-
-    con.execute(CREATE_COMMENTS_COMMENTER_ID_INDEX)
-    con.execute(CREATE_COMMENTS_CONTENT_ID_INDEX)
