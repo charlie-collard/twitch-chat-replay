@@ -1,4 +1,4 @@
-FROM nginx:1.21.1-alpine
+FROM nginx:1.21.3-alpine
 COPY nginx/nginx.conf /etc/nginx/nginx.conf
 COPY nginx/mime-types.conf /etc/nginx/mime-types.conf
 COPY nginx/security-headers.conf /etc/nginx/security-headers.conf
