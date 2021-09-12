@@ -89,8 +89,8 @@ on conflict (twitchID) do update set
     bio=:bio,
     logo=:logo,
     type=:type,
-    updatedAt=:updatedAt
-where :updatedAt > updatedAt;
+    updatedAt=datetime(:updatedAt)
+where datetime(:updatedAt) > updatedAt;
 """
 
 
