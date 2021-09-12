@@ -27,5 +27,6 @@ public/content
 
 # Ignore produced database files
 *.db
+*.db-journal
 
 sky-videos/
