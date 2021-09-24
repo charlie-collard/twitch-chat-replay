@@ -1,11 +1,12 @@
 from queries import *
 
-import sqlite3
-import json
-import gzip
+from datetime import datetime
 import glob
-import sys
+import gzip
+import json
 import re
+import sqlite3
+import sys
 
 
 def duration_seconds(durationText):
@@ -63,15 +64,12 @@ def convert_comment(comment, commenterID, contentID):
         "updatedAt": comment["updated_at"],
     }
 
-with sqlite3.connect("nl-chat.db") as con:
-    con.execute(ENABLE_FOREIGN_KEYS)
-    con.execute(CREATE_COMMENTERS_TABLE)
-    con.execute(CREATE_CONTENT_TABLE)
-    con.execute(CREATE_COMMENTS_TABLE)
-    con.execute(CREATE_COMMENTS_COMMENTER_ID_INDEX)
-    con.execute(CREATE_COMMENTS_CONTENT_ID_INDEX)
-    con.execute(CREATE_COMMENTERS_TWITCH_ID_INDEX)
-    cur = con.cursor()
+with sqlite3.connect("nl-chat.db") as connection:
+    connection.execute(ENABLE_FOREIGN_KEYS)
+    for create_table in TABLES:
+        connection.execute(create_table)
+
+    cur = connection.cursor()
     cur.execute("select twitchID from content;")
     content_in_db = set(map(lambda x: x[0], cur.fetchall()))
     content_on_filesystem = set(map(lambda x: re.match(r"sky-videos/(\d+)\.json\.gz", x).groups()[0], glob.glob("sky-videos/*.gz")))
@@ -79,7 +77,7 @@ with sqlite3.connect("nl-chat.db") as con:
     print(f"Inserting {len(files)} chat files...")
     for i, filename in enumerate(files):
         filename = f"sky-videos/{filename}.json.gz"
-        print(f"{i*100/len(files):.2f}%", filename)
+        print(f"{i*100/len(files):5.2f}%", filename)
         with gzip.open(filename) as f:
             data = json.load(f)
         cur.execute(INSERT_CONTENT, convert_content(data["video"]))
@@ -90,4 +88,8 @@ with sqlite3.connect("nl-chat.db") as con:
                 cur.execute("select id from commenters where twitchID = :twitchID;", commenter)
                 (commenter_id,) = cur.fetchone()
                 cur.execute(INSERT_COMMENT, convert_comment(comment, commenter_id, content_id))
-        con.commit()
+        connection.commit()
+    for create_index in INDEXES:
+        connection.execute(create_index)
+    for create_view in VIEWS:
+        connection.execute(create_view)
