@@ -127,7 +127,7 @@ function App() {
         fetch("/content/videos/" + twitchId + ".json")
             .then(response => {
                 response.json().then(m => {
-                        const sortedMessages = m.comments.sort((a, b) => new Date(a.created_at) - new Date(b.created_at))
+                        const sortedMessages = m.comments.sort((a, b) => new Date(a.content_offset_seconds) - new Date(b.content_offset_seconds))
                         setMessages(sortedMessages)
                     }
                 ).catch(reason => {
