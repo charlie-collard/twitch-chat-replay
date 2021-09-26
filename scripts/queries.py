@@ -4,7 +4,7 @@ TABLES = [
     """
     create table if not exists commenters (
         id integer primary key autoincrement,
-        twitchID text not null unique,
+        twitchUserID text not null unique,
         displayName text not null,
         name text not null,
         bio text,
@@ -17,8 +17,8 @@ TABLES = [
     """
     create table if not exists content (
         id integer primary key autoincrement,
-        twitchID text not null unique,
-        userID text not null,
+        twitchContentID text not null unique,
+        twitchUserID text not null,
         username text not null,
         title text not null,
         description text not null,
@@ -36,11 +36,10 @@ TABLES = [
     """
     create table if not exists comments (
         id integer primary key autoincrement,
-        twitchID text not null,
         commenterID integer not null,
-        channelID text not null,
-        contentID text not null,
-        twitchContentID text not null,
+        contentID integer not null,
+        twitchCommentID text not null,
+        twitchChannelID text not null,
         contentOffsetSeconds integer not null,
         body text not null,
         fragments text not null,
@@ -61,9 +60,9 @@ INDEXES = [
     "create index if not exists idx_comments_content_id on comments (contentID);",
     "create index if not exists idx_comments_commenter_id_body on comments (commenterID, body);",
     "create index if not exists idx_comments_commenter_id_created_at on comments (commenterID, createdAt);",
-    "create index if not exists idx_commenters_twitch_id on commenters (twitchID);",
+    "create index if not exists idx_commenters_twitch_user_id on commenters (twitchUserID);",
     "create index if not exists idx_commenters_name on commenters (name);",
-    "create index if not exists idx_content_twitch_id on content (twitchID);",
+    "create index if not exists idx_content_twitch_content_id on content (twitchContentID);",
 ]
 
 VIEWS = [
@@ -78,7 +77,7 @@ VIEWS = [
 
 UPSERT_COMMENTER = """
 insert into commenters (
-    twitchID,
+    twitchUserID,
     displayName,
     name,
     bio,
@@ -87,7 +86,7 @@ insert into commenters (
     createdAt,
     updatedAt
 ) values (
-    :twitchID,
+    :twitchUserID,
     :displayName,
     :name,
     :bio,
@@ -96,7 +95,7 @@ insert into commenters (
     datetime(:createdAt),
     datetime(:updatedAt)
 )
-on conflict (twitchID) do update set
+on conflict (twitchUserID) do update set
     displayName=:displayName,
     name=:name,
     bio=:bio,
@@ -109,8 +108,8 @@ where datetime(:updatedAt) > updatedAt;
 
 INSERT_CONTENT = """
 insert into content (
-    twitchID,
-    userID,
+    twitchContentID,
+    twitchUserID,
     username,
     title,
     description,
@@ -124,8 +123,8 @@ insert into content (
     createdAt,
     publishedAt
 ) values (
-    :twitchID,
-    :userID,
+    :twitchContentID,
+    :twitchUserID,
     :username,
     :title,
     :description,
@@ -143,11 +142,10 @@ insert into content (
 
 INSERT_COMMENT = """
 insert into comments (
-    twitchID,
     commenterID,
-    channelID,
     contentID,
-    twitchContentID,
+    twitchCommentID,
+    twitchChannelID,
     contentOffsetSeconds,
     body,
     fragments,
@@ -159,11 +157,10 @@ insert into comments (
     createdAt,
     updatedAt
 ) values (
-    :twitchID,
     :commenterID,
-    :channelID,
     :contentID,
-    :twitchContentID,
+    :twitchCommentID,
+    :twitchChannelID,
     :contentOffsetSeconds,
     :body,
     :fragments,

@@ -17,7 +17,7 @@ def convert_commenter(commenter):
     if commenter is None:
         return None
     return {
-        "twitchID": commenter["_id"],
+        "twitchUserID": commenter["_id"],
         "displayName": commenter["display_name"],
         "name": commenter["name"],
         "bio": commenter["bio"],
@@ -29,8 +29,8 @@ def convert_commenter(commenter):
 
 def convert_content(content):
     return {
-        "twitchID": content["id"],
-        "userID": content["user_id"],
+        "twitchContentID": content["id"],
+        "twitchUserID": content["user_id"],
         "username": content["user_name"],
         "title": content["title"],
         "description": content["description"],
@@ -47,11 +47,10 @@ def convert_content(content):
 
 def convert_comment(comment, commenterID, contentID):
     return {
-        "twitchID": comment["_id"],
         "commenterID": commenterID,
-        "channelID": comment["channel_id"],
         "contentID": contentID,
-        "twitchContentID": comment["content_id"],
+        "twitchCommentID": comment["_id"],
+        "twitchChannelID": comment["channel_id"],
         "contentOffsetSeconds": comment["content_offset_seconds"],
         "body": comment["message"]["body"],
         "fragments": json.dumps(comment["message"].get("fragments") or []),
@@ -70,7 +69,7 @@ with sqlite3.connect("nl-chat.db") as connection:
         connection.execute(create_table)
 
     cur = connection.cursor()
-    cur.execute("select twitchID from content;")
+    cur.execute("select twitchContentID from content;")
     content_in_db = set(map(lambda x: x[0], cur.fetchall()))
     content_on_filesystem = set(map(lambda x: re.match(r"sky-videos/(\d+)\.json\.gz", x).groups()[0], glob.glob("sky-videos/*.gz")))
     files = sorted(list(content_on_filesystem - content_in_db), key=lambda x: -int(x))
@@ -85,7 +84,7 @@ with sqlite3.connect("nl-chat.db") as connection:
         for j, comment in enumerate(data["comments"]):
             if commenter := convert_commenter(comment["commenter"]):
                 cur.execute(UPSERT_COMMENTER, commenter)
-                cur.execute("select id from commenters where twitchID = :twitchID;", commenter)
+                cur.execute("select id from commenters where twitchUserID = :twitchUserID;", commenter)
                 (commenter_id,) = cur.fetchone()
                 cur.execute(INSERT_COMMENT, convert_comment(comment, commenter_id, content_id))
         connection.commit()
