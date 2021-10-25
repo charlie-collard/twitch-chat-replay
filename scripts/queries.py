@@ -66,11 +66,20 @@ INDEXES = [
 ]
 
 VIEWS = [
-    "drop view if exists withNames;",
+    "drop view if exists together;",
+    "drop view if exists temp;",
     """
-    create view withNames (name, body, createdAt, contentOffsetSeconds) as
-    select commenters.displayName, comments.body, comments.createdAt, comments.contentOffsetSeconds
-    from comments join commenters on commenterID = commenters.id;
+    create view together (displayName, name, body, createdAt, contentOffsetSeconds, title, twitchContentID, commenterID) as
+    select commenters.displayName, commenters.name, comments.body, comments.createdAt, comments.contentOffsetSeconds, content.title, content.twitchContentID, comments.commenterID
+    from comments
+    join commenters on commenterID = commenters.id
+    join content on contentID = content.id;
+    """,
+    """
+    create view temp (displayName, name, body, createdAt, contentOffsetSeconds, commenterID) as
+    select commenters.displayName, commenters.name, comments.body, comments.createdAt, comments.contentOffsetSeconds, comments.commenterID
+    from comments
+    join commenters on commenterID = commenters.id
     """
 ]
 
