@@ -31,7 +31,7 @@ jobs:
         if: steps.should-run.outputs.should_run == 'true'
         uses: actions/github-script@v4
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.AUTO_MERGE_DEPENDABOT_PR }}
           script: |
             github.issues.createComment({
               issue_number: context.issue.number,
