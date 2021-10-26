@@ -3,7 +3,7 @@ name: Push to dockerhub
 on:
   push:
     branches:
-      - master
+      - main
 
 env:
   IMAGE_NAME: chacoll/twitch-chat-replay:latest
