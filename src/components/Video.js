@@ -35,13 +35,16 @@ export const Video: FC<VideoProps> = ({videoId, onReady, onSelectVideo, onPlayba
                 onStateChange={onStateChange}
             />
         }
-        return <form className="url-input-form" onSubmit={setVideoId}>
-            <label>
-                Youtube URL:
-                <input type="text" name="youtubeId"/>
-            </label>
-            <input type="submit" value="Submit" />
-        </form>
+        return <>
+            <a className="source-code-link" href="https://github.com/bspammer/twitch-chat-replay" target="_blank" rel="noreferrer">View source on GitHub</a>
+            <form className="url-input-form" onSubmit={setVideoId}>
+                <label>
+                    Youtube URL:
+                    <input type="text" name="youtubeId"/>
+                </label>
+                <input type="submit" value="Submit" />
+            </form>
+        </>
     }
 
     return (
