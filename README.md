@@ -1,8 +1,8 @@
 # Twitch Chat Replay
 
-A static site that recreates twitch chat next to a youtube video, hosted at https://clickityclack.co.uk
+A static React app that recreates twitch chat next to a youtube video, hosted at https://clickityclack.co.uk
 
-## Running the site locally
+## Running the app locally
 
 First install dependencies:
 
