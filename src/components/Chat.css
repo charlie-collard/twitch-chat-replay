@@ -28,13 +28,13 @@
     font-size: 1.5em;
     border-radius: 50%;
     border-style: solid;
-    opacity: 30%;
+    opacity: 0.3;
     padding: 2px;
     transform: scaleY(0.60);
 }
 
 .resetButton:hover {
-    opacity: 100%;
+    opacity: 1;
     color: red;
     cursor: pointer;
 }
