@@ -140,7 +140,7 @@ const Chat: FC<ChatProps> = ({chatMessages, resetFunction}) => {
     }, [bttvMapper])
 
     return <>
-        <div className="resetButton" onClick={resetFunction}>X</div>
+        <div className="resetButton" onClick={() => resetFunction()}>X</div>
         <div>
             {chatMessages.map(message => (
                 <p key={message._id} className="chatMessage">{formatMessage(message)}</p>
