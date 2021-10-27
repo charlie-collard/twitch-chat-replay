@@ -38,6 +38,7 @@
 .chat-selection-button {
     background-color: white;
     font-size: 0.9em;
+    cursor: pointer;
 }
 
 .chat-selection-button:nth-child(1) {

@@ -42,7 +42,7 @@ export const Video: FC<VideoProps> = ({videoId, onReady, onSelectVideo, onPlayba
                     Youtube URL:
                     <input type="text" name="youtubeId"/>
                 </label>
-                <input type="submit" value="Submit" />
+                <input className="submit-button" type="submit" value="Submit" />
             </form>
         </>
     }
