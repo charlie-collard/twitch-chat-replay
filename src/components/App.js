@@ -75,6 +75,18 @@ function App() {
         setLastPlayEventTime(new Date())
     }
 
+    const resetAll = () => {
+        setVideoId(null);
+        setMessages(null);
+        setMessagesToRender(null);
+        setCurrentMessageIndex(0);
+        setPlaybackRate(1);
+        setChatDelay(0);
+        setChatEnabled(false);
+        setFunnyMoments([]);
+        window.history.pushState("home", "Twitch Chat Replay", "/")
+    }
+
     const onReady = (event) => {
         setVideoPlayer(event.target)
     }
@@ -213,7 +225,7 @@ function App() {
                 />
             </div>
             <div className="chat-container">
-                {messages && <Chat chatMessages={messagesToRender}/>}
+                {messages && <Chat resetFunction={resetAll} chatMessages={messagesToRender}/>}
                 {!messages && <ChatSelector onSelectKnownJson={onSelectKnownJson} onUploadCustomJson={onUploadCustomJson}/>}
             </div>
         </div>
