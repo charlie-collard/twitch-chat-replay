@@ -13,7 +13,7 @@
     color: white;
     display: flex;
     flex-direction: column;
-    overflow: scroll;
+    overflow: hidden;
     font-size: 13.8125px;
     font-family: "Inter", "Roobert", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 400;
@@ -22,6 +22,7 @@
 
 .player-container {
     height: 100vh;
+    overflow: hidden;
     flex-grow: 100;
     border: none;
     display: flex;
