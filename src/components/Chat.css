@@ -31,6 +31,7 @@
     opacity: 0.3;
     padding: 2px;
     transform: scaleY(0.60);
+    z-index: 4;
 }
 
 .resetButton:hover {
