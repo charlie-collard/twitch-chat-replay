@@ -78,7 +78,7 @@ function App() {
     const resetAll = () => {
         setVideoId(null);
         setMessages(null);
-        setMessagesToRender(null);
+        setMessagesToRender([]);
         setCurrentMessageIndex(0);
         setPlaybackRate(1);
         setChatDelay(0);
