@@ -1,4 +1,4 @@
-import './Video.css'
+import "./Video.css"
 import YouTube from "react-youtube"
 import {FC} from "react"
 import {setQueryParam} from "../utils/queryParams"
@@ -26,6 +26,7 @@ export const Video: FC<VideoProps> = ({videoId, onReady, onSelectVideo, onPlayba
 
     const getVideoBody = () => {
         if (videoId) {
+            // @ts-ignore
             return <YouTube
                 containerClassName="video"
                 opts={{playerVars: {autoplay: 1}}}
