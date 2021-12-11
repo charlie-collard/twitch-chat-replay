@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    overflow: hidden;
 }
 
 .chat-container {
@@ -13,7 +14,8 @@
     color: white;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
     font-size: 13.8125px;
     font-family: "Inter", "Roobert", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 400;
