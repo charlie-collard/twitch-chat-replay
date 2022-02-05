@@ -1,6 +1,7 @@
 on:
+  workflow_dispatch:
   schedule:
-    - cron:  '30 17 * * *'
+    - cron:  '11 12 * * *'
 
 jobs:
   update-bttv:
