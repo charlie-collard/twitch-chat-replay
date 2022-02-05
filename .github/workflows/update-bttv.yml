@@ -1,3 +1,4 @@
+name: Update BTTV emotes daily
 on:
   workflow_dispatch:
   schedule:
@@ -20,8 +21,6 @@ jobs:
           new_nl_hash=$(sha256sum /tmp/nl.json)
 
           [ new_global_hash = current_global_hash ] && [ new_nl_hash = current_nl_hash ] && exit 0
-
-          apt install jq
 
           echo -n new_global_hash > public/content/bttv/current-global-hash
           echo -n new_nl_hash > public/content/bttv/current-nl-hash
