@@ -10,6 +10,8 @@ jobs:
     steps:
       - name: Check out this repo
         uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.AUTO_MERGE_DEPENDABOT_PR }}
 
       - name: Update BTTV
         run: |
