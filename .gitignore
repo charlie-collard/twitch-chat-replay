@@ -23,7 +23,8 @@ yarn-debug.log*
 yarn-error.log*
 
 .eslintcache
-public/content
+public/content/funny-moments/
+public/content/videos/
 
 # Ignore produced database files
 *.db

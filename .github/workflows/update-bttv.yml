@@ -1,0 +1,35 @@
+on:
+  schedule:
+    - cron:  '30 17 * * *'
+
+jobs:
+  update-bttv:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out this repo
+        uses: actions/checkout@v2
+
+      - name: Update BTTV
+        run: |
+          wget --output-document /tmp/global.json https://api.betterttv.net/3/cached/emotes/global || exit 1
+          wget --output-document /tmp/nl.json https://api.betterttv.net/3/cached/users/twitch/14371185 || exit 1
+          current_global_hash=$(cat public/content/bttv/current-global-hash)
+          current_nl_hash=$(cat public/content/bttv/current-nl-hash)
+          new_global_hash=$(sha256sum /tmp/global.json)
+          new_nl_hash=$(sha256sum /tmp/nl.json)
+
+          [ new_global_hash = current_global_hash ] && [ new_nl_hash = current_nl_hash ] && exit 0
+
+          apt install jq
+
+          echo -n new_global_hash > public/content/bttv/current-global-hash
+          echo -n new_nl_hash > public/content/bttv/current-nl-hash
+
+          jq --arg global "$(cat /tmp/global.json)" --arg nl "$(cat /tmp/nl.json)" --arg date "$(date +%Y-%m-%d)" '.[$date] = {global: ($global | fromjson), northernlion: ($nl | fromjson)}' public/content/bttv/emotes.json > /tmp/updated-bttv-emotes.json
+          mv /tmp/updated-bttv-emotes.json public/content/bttv/emotes.json
+
+          git config user.name "Github"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git commit -m "Updated BTTV emotes.json"
+          git push

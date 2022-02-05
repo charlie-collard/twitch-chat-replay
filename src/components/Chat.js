@@ -133,6 +133,7 @@ const Chat: FC<ChatProps> = ({chatMessages, resetFunction}) => {
                 allEmotes.forEach((emote) => {
                     resultMap[emote.code] = emote.id
                 })
+                // For old vods, where LUL was a BTTV emote.
                 resultMap["LUL"] = resultMap["LuL"]
                 setBttvMapper(resultMap)
             })
