@@ -5,11 +5,13 @@ import {useCallback, useEffect, useState} from "react"
 import ChatSelector from "./ChatSelector"
 import {getQueryParam, setQueryParam} from "../utils/queryParams"
 import YouTube from "react-youtube"
+import allBttvEmotes from "../data/bttv/emotes.json"
 
 function App() {
     const [messages, setMessages] = useState(null)
     const [videoId, setVideoId] = useState(null)
     const [messagesToRender, setMessagesToRender] = useState([])
+    const [currentVodBttvEmotes, setCurrentVodBttvEmotes] = useState(null)
     const [currentMessageIndex, setCurrentMessageIndex] = useState(0)
     const [mediaStartTime, setMediaStartTime] = useState(new Date())
     const [chatEnabled, setChatEnabled] = useState(false)
@@ -79,6 +81,7 @@ function App() {
         setVideoId(null);
         setMessages(null);
         setMessagesToRender([]);
+        setCurrentVodBttvEmotes(null)
         setCurrentMessageIndex(0);
         setPlaybackRate(1);
         setChatDelay(0);
@@ -116,14 +119,28 @@ function App() {
         resetChat()
     }
 
-    const onSelectKnownJson = (summary) => {
+    const findCorrectBttvEmotesForVod = (created_at) => {
+        const {global, northernlion: {sharedEmotes}} = allBttvEmotes[(Object.keys(allBttvEmotes).sort().filter((bttvDate) => created_at >= bttvDate))[0]]
+
+        const allEmotes = global.concat(sharedEmotes)
+        const resultMap = {}
+        allEmotes.forEach((emote) => {
+            resultMap[emote.code] = emote.id
+        })
+        // For old vods, where LUL was a BTTV emote.
+        resultMap["LUL"] = resultMap["LuL"]
+        return resultMap
+    }
+
+    const onSelectKnownVod = (summary) => {
         setQueryParam("twitchId", summary.id)
         fetchDataForVideo(summary.id)
     }
 
-    const onUploadCustomJson = (json) => {
+    const onUploadCustomVod = (json) => {
         const sortedMessages = json.comments.sort((a, b) => new Date(a.created_at) - new Date(b.created_at))
         setMessages(sortedMessages)
+        setCurrentVodBttvEmotes(sortedMessages[0] ? findCorrectBttvEmotesForVod(sortedMessages[0].created_at) : [])
     }
 
     const onSelectVideo = (youtubeId) => {
@@ -141,6 +158,7 @@ function App() {
                 response.json().then(m => {
                         const sortedMessages = m.comments.sort((a, b) => new Date(a.content_offset_seconds) - new Date(b.content_offset_seconds))
                         setMessages(sortedMessages)
+                        setCurrentVodBttvEmotes(sortedMessages[0] ? findCorrectBttvEmotesForVod(sortedMessages[0].created_at) : [])
                     }
                 ).catch(reason => {
                     console.log("Converting comments to json failed: " + reason)
@@ -225,8 +243,8 @@ function App() {
                 />
             </div>
             <div className="chat-container">
-                {messages && <Chat resetFunction={resetAll} chatMessages={messagesToRender}/>}
-                {!messages && <ChatSelector onSelectKnownJson={onSelectKnownJson} onUploadCustomJson={onUploadCustomJson}/>}
+                {messages && <Chat resetFunction={resetAll} chatMessages={messagesToRender} bttvEmotes={currentVodBttvEmotes}/>}
+                {!messages && <ChatSelector onSelectKnownJson={onSelectKnownVod} onUploadCustomJson={onUploadCustomVod}/>}
             </div>
         </div>
     )

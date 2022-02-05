@@ -17,18 +17,18 @@ jobs:
         run: |
           wget --output-document /tmp/global.json https://api.betterttv.net/3/cached/emotes/global || exit 1
           wget --output-document /tmp/nl.json https://api.betterttv.net/3/cached/users/twitch/14371185 || exit 1
-          current_global_hash=$(cat public/content/bttv/current-global-hash)
-          current_nl_hash=$(cat public/content/bttv/current-nl-hash)
+          current_global_hash=$(cat src/data/bttv/current-global-hash)
+          current_nl_hash=$(cat src/data/bttv/current-nl-hash)
           new_global_hash=$(sha256sum /tmp/global.json | head -c64)
           new_nl_hash=$(sha256sum /tmp/nl.json | head -c64)
 
           [ $new_global_hash = $current_global_hash ] && [ $new_nl_hash = $current_nl_hash ] && exit 0
 
-          echo -n $new_global_hash > public/content/bttv/current-global-hash
-          echo -n $new_nl_hash > public/content/bttv/current-nl-hash
+          echo -n $new_global_hash > src/data/bttv/current-global-hash
+          echo -n $new_nl_hash > src/data/bttv/current-nl-hash
 
-          jq --arg global "$(cat /tmp/global.json)" --arg nl "$(cat /tmp/nl.json)" --arg date "$(date +%Y-%m-%d)" '.[$date] = {global: ($global | fromjson), northernlion: ($nl | fromjson)}' public/content/bttv/emotes.json > /tmp/updated-bttv-emotes.json
-          mv /tmp/updated-bttv-emotes.json public/content/bttv/emotes.json
+          jq --arg global "$(cat /tmp/global.json)" --arg nl "$(cat /tmp/nl.json)" --arg date "$(date +%Y-%m-%d)" '.[$date] = {global: ($global | fromjson), northernlion: ($nl | fromjson)}' src/data/bttv/emotes.json > /tmp/updated-bttv-emotes.json
+          mv /tmp/updated-bttv-emotes.json src/data/bttv/emotes.json
 
           git config user.name "Github"
           git config user.email "actions@users.noreply.github.com"

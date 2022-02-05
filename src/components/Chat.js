@@ -1,5 +1,5 @@
 import './Chat.css'
-import React, {FC, useEffect, useRef, useState} from 'react'
+import React, {FC, useEffect, useRef} from 'react'
 import {colors} from "../utils/colors"
 
 
@@ -27,18 +27,22 @@ type ChatMessage = {
     }
 }
 
-type ChatProps = {
-    chatMessages: ChatMessage[]
+type Emote = {
+    code: string
 }
 
-const Chat: FC<ChatProps> = ({chatMessages, resetFunction}) => {
+type ChatProps = {
+    chatMessages: ChatMessage[],
+    bttvEmotes: Emote[],
+    resetFunction: Function
+}
+
+const Chat: FC<ChatProps> = ({chatMessages, bttvEmotes, resetFunction}) => {
     const predictionBlueUrl = "https://static-cdn.jtvnw.net/badges/v1/e33d8b46-f63b-4e67-996d-4a7dcec0ad33/1"
     const predictionPinkUrl = "https://static-cdn.jtvnw.net/badges/v1/4b76d5f2-91cc-4400-adf2-908a1e6cfd1e/1"
     const twitchStaffUrl = "https://static-cdn.jtvnw.net/badges/v1/d97c37bd-a6f5-4c38-8f57-4e4bef88af34/1"
     const moderatorUrl = "https://static-cdn.jtvnw.net/badges/v1/3267646d-33f0-4b17-b3df-f923a41db1d0/1"
     const subscriberUrl = "https://static-cdn.jtvnw.net/badges/v1/5571b5a7-51ae-4ee4-a1b6-a25975c95dd7/1"
-
-    const [bttvMapper, setBttvMapper] = useState(null)
 
     const messagesEndRef = useRef(null)
 
@@ -66,12 +70,12 @@ const Chat: FC<ChatProps> = ({chatMessages, resetFunction}) => {
         const words = fragment.text.split(" ")
         return <span key={i + "text"}>
             {words.map((word, j) => {
-                if (bttvMapper && bttvMapper[word]) {
+                if (bttvEmotes[word]) {
                     return <span key={i.toString() + "-" + j.toString() + word + "bttv"}>
                         <img
                             alt={word}
                             className="emoticon"
-                            src={`https://cdn.betterttv.net/emote/${bttvMapper[word]}/1x`}
+                            src={`https://cdn.betterttv.net/emote/${bttvEmotes[word]}/1x`}
                         />
                         <span> </span>
                     </span>
@@ -111,34 +115,6 @@ const Chat: FC<ChatProps> = ({chatMessages, resetFunction}) => {
     }
 
     useEffect(scrollToBottom, [chatMessages])
-
-    const fetchBttvEmotes = function (url) {
-        return fetch(url)
-            .then((result) => {
-                return result.json().then((json) => {
-                    return json
-                })
-            })
-    }
-
-    useEffect(() => {
-        if (!bttvMapper) {
-            const allDone = Promise.all([
-                fetchBttvEmotes("https://api.betterttv.net/3/cached/emotes/global"),
-                fetchBttvEmotes("https://api.betterttv.net/3/cached/users/twitch/14371185")
-            ])
-            allDone.then(([globalEmotes, nlEmotes]) => {
-                const allEmotes = globalEmotes.concat(nlEmotes.sharedEmotes)
-                const resultMap = {}
-                allEmotes.forEach((emote) => {
-                    resultMap[emote.code] = emote.id
-                })
-                // For old vods, where LUL was a BTTV emote.
-                resultMap["LUL"] = resultMap["LuL"]
-                setBttvMapper(resultMap)
-            })
-        }
-    }, [bttvMapper])
 
     return <>
         <div className="resetButton" onClick={() => resetFunction()}>X</div>
