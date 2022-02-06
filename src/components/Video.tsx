@@ -14,11 +14,11 @@ type VideoProps = {
 }
 
 export const Video: FC<VideoProps> = ({videoId, onReady, onSelectVideo, onPlaybackRateChange, onStateChange}) => {
-    const setVideoId = (event) => {
+    const setVideoId = (event: any) => {
         event.preventDefault()
         const entered = event.target.youtubeId.value
-        if (entered && youtubeRegex.test(entered)) {
-            const youtubeId = youtubeRegex.exec(entered)[1]
+        const [, youtubeId] = youtubeRegex.exec(entered || "") || []
+        if (youtubeId) {
             setQueryParam("youtubeId", youtubeId)
             onSelectVideo(youtubeId)
         }
