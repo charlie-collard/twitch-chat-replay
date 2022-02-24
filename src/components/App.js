@@ -148,39 +148,39 @@ function App() {
     }
 
     const fetchDataForVideo = useCallback((twitchId) => {
+        const fetchVideoJson = (twitchId) => {
+            fetch("/content/videos/" + twitchId + ".json")
+                .then(response => {
+                    response.json().then(m => {
+                            const sortedMessages = m.comments.sort((a, b) => new Date(a.content_offset_seconds) - new Date(b.content_offset_seconds))
+                            setMessages(sortedMessages)
+                            setCurrentVodBttvEmotes(sortedMessages[0] ? findCorrectBttvEmotesForVod(sortedMessages[0].created_at) : [])
+                        }
+                    ).catch(reason => {
+                        console.log("Converting comments to json failed: " + reason)
+                    })
+                }).catch(reason => {
+                console.log("Fetching comments failed: " + reason)
+                }
+            )
+        }
+
+        const fetchFunnyMomentJson = function (twitchId) {
+            fetch("/content/funny-moments/" + twitchId + ".json")
+                .then(response => {
+                    response.json().then(funnyMoments => {
+                        setFunnyMoments(funnyMoments.sort((a, b) => a-b))
+                    }).catch(reason => {
+                        console.log("Converting funny moments to json failed: " + reason)
+                    })
+                }).catch(reason => {
+                console.log("Fetching funny moments failed: " + reason)
+            })
+        }
+
         fetchVideoJson(twitchId)
         fetchFunnyMomentJson(twitchId)
     }, [])
-
-    const fetchVideoJson = (twitchId) => {
-        fetch("/content/videos/" + twitchId + ".json")
-            .then(response => {
-                response.json().then(m => {
-                        const sortedMessages = m.comments.sort((a, b) => new Date(a.content_offset_seconds) - new Date(b.content_offset_seconds))
-                        setMessages(sortedMessages)
-                        setCurrentVodBttvEmotes(sortedMessages[0] ? findCorrectBttvEmotesForVod(sortedMessages[0].created_at) : [])
-                    }
-                ).catch(reason => {
-                    console.log("Converting comments to json failed: " + reason)
-                })
-            }).catch(reason => {
-                console.log("Fetching comments failed: " + reason)
-            }
-        )
-    }
-
-    const fetchFunnyMomentJson = function (twitchId) {
-        fetch("/content/funny-moments/" + twitchId + ".json")
-            .then(response => {
-                response.json().then(funnyMoments => {
-                    setFunnyMoments(funnyMoments.sort((a, b) => a-b))
-                }).catch(reason => {
-                    console.log("Converting funny moments to json failed: " + reason)
-                })
-            }).catch(reason => {
-            console.log("Fetching funny moments failed: " + reason)
-        })
-    }
 
     useEffect(() => {
         if (messages) {
