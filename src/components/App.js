@@ -120,7 +120,13 @@ function App() {
     }
 
     const findCorrectBttvEmotesForVod = (created_at) => {
-        const {global, northernlion: {sharedEmotes}} = allBttvEmotes[(Object.keys(allBttvEmotes).sort().filter((bttvDate) => created_at >= bttvDate))[0]]
+        const bttvDate = Object.keys(allBttvEmotes).sort()
+            // Dates before or on the vod creation date
+            .filter((bttvDate) => bttvDate < created_at)
+            // The biggest date
+            .reduce((date1, date2) => date1 > date2 ? date1 : date2, "0");
+
+        const {global, northernlion: {sharedEmotes}} = allBttvEmotes[bttvDate]
 
         const allEmotes = global.concat(sharedEmotes)
         const resultMap = {}
