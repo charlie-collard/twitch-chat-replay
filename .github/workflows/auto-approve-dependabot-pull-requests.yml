@@ -8,11 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     if: github.actor == 'dependabot[bot]'
     steps:
-      - name: Fetch Dependabot metadata
-        id: dependabot-metadata
-        uses: dependabot/fetch-metadata@v1.1.1
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Approve Pull Request
         uses: hmarr/auto-approve-action@5d04a5ca6da9aeb8ca9f31a5239b96fc3e003029
         with:
