@@ -243,9 +243,9 @@ function App() {
                 <Video
                     videoId={videoId}
                     onSelectVideo={onSelectVideo}
-                    onReady={onReady}
                     onPlaybackRateChange={onPlaybackRateChange}
                     onStateChange={onStateChange}
+                    onReady={onReady}
                 />
             </div>
             <div className="chat-container">

@@ -1,5 +1,5 @@
 import "./Video.css"
-import YouTube, {YouTubeEvent} from "react-youtube"
+import YouTube from "react-youtube"
 import {FC} from "react"
 import {setQueryParam} from "../utils/queryParams"
 
@@ -7,13 +7,13 @@ const youtubeRegex = /.*v=([a-zA-Z0-9_-]{11})&?/
 
 type VideoProps = {
     videoId: string,
+    onReady: Function,
     onSelectVideo: Function,
-    onReady: (event: YouTubeEvent) => void,
-    onPlaybackRateChange: (event: YouTubeEvent) => void,
-    onStateChange: (event: YouTubeEvent) => void,
+    onPlaybackRateChange: Function,
+    onStateChange: Function,
 }
 
-export const Video: FC<VideoProps> = ({videoId, onSelectVideo, onReady, onPlaybackRateChange, onStateChange}) => {
+export const Video: FC<VideoProps> = ({videoId, onReady, onSelectVideo, onPlaybackRateChange, onStateChange}) => {
     const setVideoId = (event: any) => {
         event.preventDefault()
         const entered = event.target.youtubeId.value
@@ -26,8 +26,9 @@ export const Video: FC<VideoProps> = ({videoId, onSelectVideo, onReady, onPlayba
 
     const getVideoBody = () => {
         if (videoId) {
+            // @ts-ignore
             return <YouTube
-                className="video"
+                containerClassName="video"
                 opts={{playerVars: {autoplay: 1}}}
                 videoId={videoId}
                 onReady={onReady}
