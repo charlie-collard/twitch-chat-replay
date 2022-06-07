@@ -4305,5 +4305,654 @@
         }
       ]
     }
+  },
+  "2022-06-07": {
+    "global": [
+      {
+        "id": "54fa8f1401e468494b85b537",
+        "code": ":tf:",
+        "imageType": "png",
+        "userId": "5561169bd6b9d206222a8c19"
+      },
+      {
+        "id": "54fa8fce01e468494b85b53c",
+        "code": "CiGrip",
+        "imageType": "png",
+        "userId": "5561169bd6b9d206222a8c19"
+      },
+      {
+        "id": "54fa903b01e468494b85b53f",
+        "code": "DatSauce",
+        "imageType": "png",
+        "userId": "5561169bd6b9d206222a8c19"
+      },
+      {
+        "id": "54fa909b01e468494b85b542",
+        "code": "ForeverAlone",
+        "imageType": "png",
+        "userId": "5561169bd6b9d206222a8c19"
+      },
+      {
+        "id": "54fa90ba01e468494b85b543",
+        "code": "GabeN",
+        "imageType": "png",
+        "userId": "5561169bd6b9d206222a8c19"
+      },
+      {
+        "id": "54fa90f201e468494b85b545",
+        "code": "HailHelix",
+        "imageType": "png",
+        "userId": "5561169bd6b9d206222a8c19"
+      },
+      {
+        "id": "54fa932201e468494b85b555",
+        "code": "ShoopDaWhoop",
+        "imageType": "png",
+        "userId": "5561169bd6b9d206222a8c19"
+      },
+      {
+        "id": "54fab45f633595ca4c713abc",
+        "code": "M&Mjc",
+        "imageType": "png",
+        "userId": "5561169bd6b9d206222a8c19"
+      },
+      {
+        "id": "54fab7d2633595ca4c713abf",
+        "code": "bttvNice",
+        "imageType": "png",
+        "userId": "5561169bd6b9d206222a8c19"
+      },
+      {
+        "id": "54fa935601e468494b85b557",
+        "code": "TwaT",
+        "imageType": "png",
+        "userId": "5561169bd6b9d206222a8c19"
+      },
+      {
+        "id": "54fa99b601e468494b85b55d",
+        "code": "WatChuSay",
+        "imageType": "png",
+        "userId": "5561169bd6b9d206222a8c19"
+      },
+      {
+        "id": "566ca11a65dbbdab32ec0558",
+        "code": "tehPoleCat",
+        "imageType": "png",
+        "userId": "5561169bd6b9d206222a8c19"
+      },
+      {
+        "id": "566ca1a365dbbdab32ec055b",
+        "code": "AngelThump",
+        "imageType": "png",
+        "userId": "5561169bd6b9d206222a8c19"
+      },
+      {
+        "id": "54fbefeb01abde735115de5b",
+        "code": "TaxiBro",
+        "imageType": "png",
+        "userId": "5561169bd6b9d206222a8c19"
+      },
+      {
+        "id": "54fbf00a01abde735115de5c",
+        "code": "BroBalt",
+        "imageType": "png",
+        "userId": "5561169bd6b9d206222a8c19"
+      },
+      {
+        "id": "54fbf09c01abde735115de61",
+        "code": "CandianRage",
+        "imageType": "png",
+        "userId": "5561169bd6b9d206222a8c19"
+      },
+      {
+        "id": "55028cd2135896936880fdd7",
+        "code": "D:",
+        "imageType": "png",
+        "userId": "5561169bd6b9d206222a8c19"
+      },
+      {
+        "id": "550352766f86a5b26c281ba2",
+        "code": "VisLaud",
+        "imageType": "png",
+        "userId": "5561169bd6b9d206222a8c19"
+      },
+      {
+        "id": "550b344bff8ecee922d2a3c1",
+        "code": "KaRappa",
+        "imageType": "png",
+        "userId": "5561169bd6b9d206222a8c19"
+      },
+      {
+        "id": "566ca00f65dbbdab32ec0544",
+        "code": "FishMoley",
+        "imageType": "png",
+        "userId": "5561169bd6b9d206222a8c19"
+      },
+      {
+        "id": "566ca02865dbbdab32ec0547",
+        "code": "Hhhehehe",
+        "imageType": "png",
+        "userId": "5561169bd6b9d206222a8c19"
+      },
+      {
+        "id": "566ca04265dbbdab32ec054a",
+        "code": "KKona",
+        "imageType": "png",
+        "userId": "5561169bd6b9d206222a8c19"
+      },
+      {
+        "id": "566ca09365dbbdab32ec0555",
+        "code": "PoleDoge",
+        "imageType": "png",
+        "userId": "5561169bd6b9d206222a8c19"
+      },
+      {
+        "id": "553b48a21f145f087fc15ca6",
+        "code": "sosGame",
+        "imageType": "png",
+        "userId": "5561169bd6b9d206222a8c19"
+      },
+      {
+        "id": "55471c2789d53f2d12781713",
+        "code": "CruW",
+        "imageType": "png",
+        "userId": "5561169bd6b9d206222a8c19"
+      },
+      {
+        "id": "555015b77676617e17dd2e8e",
+        "code": "RarePepe",
+        "imageType": "png",
+        "userId": "54f93e618edd5fcd455f213f"
+      },
+      {
+        "id": "555981336ba1901877765555",
+        "code": "haHAA",
+        "imageType": "png",
+        "userId": "54f93e3e8edd5fcd455f213d"
+      },
+      {
+        "id": "55b6524154eefd53777b2580",
+        "code": "FeelsBirthdayMan",
+        "imageType": "png",
+        "userId": "5561169bd6b9d206222a8c19"
+      },
+      {
+        "id": "55f324c47f08be9f0a63cce0",
+        "code": "RonSmug",
+        "imageType": "png",
+        "userId": "5561169bd6b9d206222a8c19"
+      },
+      {
+        "id": "560577560874de34757d2dc0",
+        "code": "KappaCool",
+        "imageType": "png",
+        "userId": "5561169bd6b9d206222a8c19"
+      },
+      {
+        "id": "566c9fc265dbbdab32ec053b",
+        "code": "FeelsBadMan",
+        "imageType": "png",
+        "userId": "5561169bd6b9d206222a8c19"
+      },
+      {
+        "id": "566c9f3b65dbbdab32ec052e",
+        "code": "bUrself",
+        "imageType": "png",
+        "userId": "5561169bd6b9d206222a8c19"
+      },
+      {
+        "id": "566c9f6365dbbdab32ec0532",
+        "code": "ConcernDoge",
+        "imageType": "png",
+        "userId": "5561169bd6b9d206222a8c19"
+      },
+      {
+        "id": "566c9fde65dbbdab32ec053e",
+        "code": "FeelsGoodMan",
+        "imageType": "png",
+        "userId": "5561169bd6b9d206222a8c19"
+      },
+      {
+        "id": "566c9ff365dbbdab32ec0541",
+        "code": "FireSpeed",
+        "imageType": "png",
+        "userId": "5561169bd6b9d206222a8c19"
+      },
+      {
+        "id": "566ca06065dbbdab32ec054e",
+        "code": "NaM",
+        "imageType": "png",
+        "userId": "5561169bd6b9d206222a8c19"
+      },
+      {
+        "id": "566ca38765dbbdab32ec0560",
+        "code": "SourPls",
+        "imageType": "gif",
+        "userId": "5561169bd6b9d206222a8c19"
+      },
+      {
+        "id": "567b00c61ddbe1786688a633",
+        "code": "LuL",
+        "imageType": "png",
+        "userId": "54f93e618edd5fcd455f213f"
+      },
+      {
+        "id": "56901914991f200c34ffa656",
+        "code": "SaltyCorn",
+        "imageType": "png",
+        "userId": "5561169bd6b9d206222a8c19"
+      },
+      {
+        "id": "56e9f494fff3cc5c35e5287e",
+        "code": "monkaS",
+        "imageType": "png",
+        "userId": "55bfba180baa41467919aabf"
+      },
+      {
+        "id": "56f5be00d48006ba34f530a4",
+        "code": "VapeNation",
+        "imageType": "png",
+        "userId": "55583bc00c72ab1d77d8b9b7"
+      },
+      {
+        "id": "56fa09f18eff3b595e93ac26",
+        "code": "ariW",
+        "imageType": "png",
+        "userId": "54ee2465b822020506c52a52"
+      },
+      {
+        "id": "5709ab688eff3b595e93c595",
+        "code": "notsquishY",
+        "imageType": "png",
+        "userId": "54ee2465b822020506c52a52"
+      },
+      {
+        "id": "5733ff12e72c3c0814233e20",
+        "code": "FeelsAmazingMan",
+        "imageType": "png",
+        "userId": "5561169bd6b9d206222a8c19"
+      },
+      {
+        "id": "573d38b50ffbf6cc5cc38dc9",
+        "code": "DuckerZ",
+        "imageType": "png",
+        "userId": "5561169bd6b9d206222a8c19"
+      },
+      {
+        "id": "59cf182fcbe2693d59d7bf46",
+        "code": "SqShy",
+        "imageType": "png",
+        "userId": "54ee2465b822020506c52a52"
+      },
+      {
+        "id": "58d2e73058d8950a875ad027",
+        "code": "Wowee",
+        "imageType": "png",
+        "userId": "5561169bd6b9d206222a8c19"
+      },
+      {
+        "id": "5dc36a8db537d747e37ac187",
+        "code": "WubTF",
+        "imageType": "png",
+        "userId": "54f93e3e8edd5fcd455f213d"
+      },
+      {
+        "id": "5e76d2ab8c0f5c3723a9a87d",
+        "code": "cvR",
+        "imageType": "png",
+        "userId": "54ee2465b822020506c52a52"
+      },
+      {
+        "id": "5e76d2d2d112fc372574d222",
+        "code": "cvL",
+        "imageType": "png",
+        "userId": "54ee2465b822020506c52a52"
+      },
+      {
+        "id": "5e76d338d6581c3724c0f0b2",
+        "code": "cvHazmat",
+        "imageType": "png",
+        "userId": "54ee2465b822020506c52a52"
+      },
+      {
+        "id": "5e76d399d6581c3724c0f0b8",
+        "code": "cvMask",
+        "imageType": "png",
+        "userId": "54ee2465b822020506c52a52"
+      },
+      {
+        "id": "5ffdf28dc96152314ad63960",
+        "code": "DogChamp",
+        "imageType": "png",
+        "userId": "54f92c8c34fde4ae450d8d26"
+      }
+    ],
+    "northernlion": {
+      "id": "5ab41511435903474ef324df",
+      "bots": [],
+      "avatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/6e593335-c2f3-4227-bc0d-34634472cf0f-profile_image-300x300.png",
+      "channelEmotes": [],
+      "sharedEmotes": [
+        {
+          "id": "58ae8407ff7b7276f8e594f2",
+          "code": "POGGERS",
+          "imageType": "png",
+          "user": {
+            "id": "57ea01a4665bcff56f0b64da",
+            "name": "to_ot",
+            "displayName": "tO_Ot",
+            "providerId": "133315887"
+          }
+        },
+        {
+          "id": "5ad9ec8c51d4120ea3918391",
+          "code": "EZclap",
+          "imageType": "gif",
+          "user": {
+            "id": "57a90502c8c6392b52034af4",
+            "name": "yakk69",
+            "displayName": "yakk69",
+            "providerId": "124404868"
+          }
+        },
+        {
+          "id": "59f27b3f4ebd8047f54dee29",
+          "code": "PepeHands",
+          "imageType": "png",
+          "user": {
+            "id": "55ec44da2538a92d53dca61a",
+            "name": "p3ntaz",
+            "displayName": "P3NTAZ",
+            "providerId": "29790268"
+          }
+        },
+        {
+          "id": "5f4a7e5faa6fe06bfb5f4a56",
+          "code": "RyukaJam",
+          "imageType": "gif",
+          "user": {
+            "id": "5b774d3308950d565d88cba9",
+            "name": "xeneron",
+            "displayName": "Xeneron",
+            "providerId": "26377079"
+          }
+        },
+        {
+          "id": "5e0fa9d40550d42106b8a489",
+          "code": "Sadge",
+          "imageType": "png",
+          "user": {
+            "id": "59712324eaab4f3320e6ccc9",
+            "name": "redshell",
+            "displayName": "Redshell",
+            "providerId": "157440062"
+          }
+        },
+        {
+          "id": "5f43037db2efd65d77e8a88f",
+          "code": "ratJAM",
+          "imageType": "gif",
+          "user": {
+            "id": "565af62218d1dbe358624fd6",
+            "name": "daledo_",
+            "displayName": "daledo_",
+            "providerId": "53534866"
+          }
+        },
+        {
+          "id": "6070429339b5010444cfbe78",
+          "code": "FunkChamp",
+          "imageType": "png",
+          "user": {
+            "id": "606f10f5209b3403d727a675",
+            "name": "fkjbros",
+            "displayName": "FKJBros",
+            "providerId": "618842160"
+          }
+        },
+        {
+          "id": "5e3026505ea23e51ed8c6617",
+          "code": "peepoG",
+          "imageType": "png",
+          "user": {
+            "id": "557cce9e9363ee4f6af7105e",
+            "name": "guit88man",
+            "displayName": "guit88man",
+            "providerId": "25604128"
+          }
+        },
+        {
+          "id": "5f2eacea65fe924464ef8f84",
+          "code": "Cereal",
+          "imageType": "png",
+          "user": {
+            "id": "55bf6ece0baa41467919aa7f",
+            "name": "benana_phone",
+            "displayName": "Benana_phone",
+            "providerId": "66396479"
+          }
+        },
+        {
+          "id": "60cae734f8b3f62601c3f0b0",
+          "code": "Copium",
+          "imageType": "png",
+          "user": {
+            "id": "56b55d71723039ac630a4d0a",
+            "name": "equadisuk",
+            "displayName": "EquadisUK",
+            "providerId": "113568534"
+          }
+        },
+        {
+          "id": "5f4f4fa23769246c0320de37",
+          "code": "Madge",
+          "imageType": "png",
+          "user": {
+            "id": "56eb11ea3ec4cc661ab32c5b",
+            "name": "h3rrro",
+            "displayName": "H3RRRO",
+            "providerId": "51876063"
+          }
+        },
+        {
+          "id": "61315560af28e956864b9849",
+          "code": "POPPERS",
+          "imageType": "png",
+          "user": {
+            "id": "607f7a0bf5bafe03c7b2cf96",
+            "name": "evanbenz",
+            "displayName": "EvanBenz",
+            "providerId": "98461412"
+          }
+        },
+        {
+          "id": "61314cb7af28e956864b96e3",
+          "code": "PUNCHERS",
+          "imageType": "gif",
+          "user": {
+            "id": "607f7a0bf5bafe03c7b2cf96",
+            "name": "evanbenz",
+            "displayName": "EvanBenz",
+            "providerId": "98461412"
+          }
+        },
+        {
+          "id": "613bddc14b0ce9183035aea8",
+          "code": "NODDERS",
+          "imageType": "gif",
+          "user": {
+            "id": "5cb1264f8520fb586c11b3f1",
+            "name": "suzster",
+            "displayName": "suzster",
+            "providerId": "171228299"
+          }
+        },
+        {
+          "id": "6169eb1d054a252a431f3af7",
+          "code": "WICKED",
+          "imageType": "png",
+          "user": {
+            "id": "607f7a0bf5bafe03c7b2cf96",
+            "name": "evanbenz",
+            "displayName": "EvanBenz",
+            "providerId": "98461412"
+          }
+        },
+        {
+          "id": "6196d26254f3344f8806382c",
+          "code": "sleepoG",
+          "imageType": "png",
+          "user": {
+            "id": "578447a3d0af621c034d0cca",
+            "name": "skelly_jelly",
+            "displayName": "skelly_jelly",
+            "providerId": "48747269"
+          }
+        },
+        {
+          "id": "60cd2cfb8ed8b373e4216130",
+          "code": "COCKA",
+          "imageType": "gif",
+          "user": {
+            "id": "5f067b04a2ac62053036641d",
+            "name": "eveoart",
+            "displayName": "EveoArt",
+            "providerId": "162011416"
+          }
+        },
+        {
+          "id": "60d872d78ed8b373e421a4db",
+          "code": "WidePeepoHappy",
+          "imageType": "png",
+          "user": {
+            "id": "5f6fac0f088f5c0b0f470093",
+            "name": "mamaekali",
+            "displayName": "MamaeKali",
+            "providerId": "167014523"
+          }
+        },
+        {
+          "id": "5d324913ff6ed36801311fd2",
+          "code": "peepoLeave",
+          "imageType": "gif",
+          "user": {
+            "id": "5c5354a3009a2e73916b2803",
+            "name": "default5ettings",
+            "displayName": "Default5ettings",
+            "providerId": "88272315"
+          }
+        },
+        {
+          "id": "619f5b61b50549e7e500d6e0",
+          "code": "peepoTalk",
+          "imageType": "gif",
+          "user": {
+            "id": "5faaee1942cf82644d874af5",
+            "name": "tjan",
+            "displayName": "Tjan",
+            "providerId": "257385024"
+          }
+        },
+        {
+          "id": "619928e554f3344f88068ac1",
+          "code": "KEKWait",
+          "imageType": "png",
+          "user": {
+            "id": "60d0f8958adc4a73a1d05eb5",
+            "name": "chumieychum",
+            "displayName": "ChumIeyChum",
+            "providerId": "673307956"
+          }
+        },
+        {
+          "id": "5d20a55de1cfde376e532972",
+          "code": "weirdChamp",
+          "imageType": "png",
+          "user": {
+            "id": "595cfa2b3400d339a35b1540",
+            "name": "itscraic",
+            "displayName": "ItsCraic",
+            "providerId": "144527726"
+          }
+        },
+        {
+          "id": "5ed0fd17f54be95e2a835054",
+          "code": "monkaSTEER",
+          "imageType": "gif",
+          "user": {
+            "id": "5eb58b8eec17d81685a44653",
+            "name": "i__unno",
+            "displayName": "i__unno",
+            "providerId": "169709989"
+          }
+        },
+        {
+          "id": "5d922afbc0652668c9e52ead",
+          "code": "peepoArrive",
+          "imageType": "gif",
+          "user": {
+            "id": "591e66a42f456546af55144d",
+            "name": "sundizzle",
+            "displayName": "sundizzle",
+            "providerId": "35848089"
+          }
+        },
+        {
+          "id": "5ff827395ef7d10c7912c106",
+          "code": "Pog",
+          "imageType": "png",
+          "user": {
+            "id": "57c4db8e2294aca14ccb8c28",
+            "name": "teyn",
+            "displayName": "Teyn",
+            "providerId": "133114467"
+          }
+        },
+        {
+          "id": "604fcc69306b602acc59d94a",
+          "code": "jakeS",
+          "imageType": "gif",
+          "user": {
+            "id": "5f8d73fe6f583802e3893024",
+            "name": "drewabcs",
+            "displayName": "drewabcs",
+            "providerId": "92446562"
+          }
+        },
+        {
+          "id": "62469c3e3c6f14b68844146b",
+          "code": "Clueless",
+          "imageType": "png",
+          "user": {
+            "id": "5f8b8963710f8302f0c8808c",
+            "name": "zingerz",
+            "displayName": "Zingerz",
+            "providerId": "39004665"
+          }
+        },
+        {
+          "id": "61d84f7e06fd6a9f5bdfbc9b",
+          "code": "PauseChamp",
+          "imageType": "png",
+          "user": {
+            "id": "5b448edf9ee23439217aaacf",
+            "name": "sennyk4",
+            "displayName": "sennyk4",
+            "providerId": "146110596"
+          }
+        },
+        {
+          "id": "5ffae10a346b880825ab2065",
+          "code": "monkaGIGAftRobertDowneyJr",
+          "imageType": "gif",
+          "user": {
+            "id": "5a227ca95ebe202db3f9d9cd",
+            "name": "ricultima",
+            "displayName": "RicUltima",
+            "providerId": "77104634"
+          }
+        }
+      ]
+    }
   }
 }
