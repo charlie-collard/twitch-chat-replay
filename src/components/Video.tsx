@@ -3,7 +3,7 @@ import YouTube, {YouTubeEvent} from "react-youtube"
 import {FC} from "react"
 import {setQueryParam} from "../utils/queryParams"
 
-const youtubeRegex = /.*v=([a-zA-Z0-9_-]{11})&?/
+const youtubeRegex = /.*((v=)|(youtu.be\/))([a-zA-Z0-9_-]{11})&?/
 
 type VideoProps = {
     videoId: string,
@@ -17,7 +17,7 @@ export const Video: FC<VideoProps> = ({videoId, onSelectVideo, onReady, onPlayba
     const setVideoId = (event: any) => {
         event.preventDefault()
         const entered = event.target.youtubeId.value
-        const [, youtubeId] = youtubeRegex.exec(entered || "") || []
+        const [, , , , youtubeId] = youtubeRegex.exec(entered || "") || []
         if (youtubeId) {
             setQueryParam("youtubeId", youtubeId)
             onSelectVideo(youtubeId)
