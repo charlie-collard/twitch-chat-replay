@@ -90,7 +90,7 @@ const Chat: FC<ChatProps> = ({chatMessages, bttvEmotes, resetFunction}) => {
                 if (bttvEmotes[word]) {
                     const className = "emoticon" + (modifiers[previousWord] ?? "")
 
-                    return <span key={i.toString() + "-" + j.toString() + word + "bttv"}>
+                    return <span key={`${i}-${j}-${word}-bttv`}>
                         <img
                             alt={word}
                             className={className}
@@ -104,7 +104,9 @@ const Chat: FC<ChatProps> = ({chatMessages, bttvEmotes, resetFunction}) => {
                         <span> </span>
                     </span>
                 }
-                return <span key={i.toString() + "-" + j.toString() + word + "normal"}>{word + " "}</span>
+                return <span key={`${i}-${j}-${word}-normal`}>
+                    {word + " "}
+                </span>
             })}
         </span>
     }
