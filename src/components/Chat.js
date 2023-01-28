@@ -71,10 +71,13 @@ const Chat: FC<ChatProps> = ({chatMessages, bttvEmotes, resetFunction}) => {
         return <span key={i + "text"}>
             {words.map((word, j) => {
                 if (bttvEmotes[word]) {
+                    const previousWord = j === 0 ? null : words[j-1]
+                    let classes = "emoticon"
+                    classes += previousWord === "w!" ? " wide-modifier" : ""
                     return <span key={i.toString() + "-" + j.toString() + word + "bttv"}>
                         <img
                             alt={word}
-                            className="emoticon"
+                            className={classes}
                             src={`https://cdn.betterttv.net/emote/${bttvEmotes[word]}/1x`}
                         />
                         <span> </span>
