@@ -95,6 +95,11 @@ const Chat: FC<ChatProps> = ({chatMessages, bttvEmotes, resetFunction}) => {
                             alt={word}
                             className={className}
                             src={`https://cdn.betterttv.net/emote/${bttvEmotes[word]}/1x`}
+                            srcSet={[
+                                `https://cdn.betterttv.net/emote/${bttvEmotes[word]}/1x 1x`,
+                                `https://cdn.betterttv.net/emote/${bttvEmotes[word]}/2x 2x`,
+                                `https://cdn.betterttv.net/emote/${bttvEmotes[word]}/3x 3x`
+                            ].join(",")}
                         />
                         <span> </span>
                     </span>
