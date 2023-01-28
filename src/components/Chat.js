@@ -68,17 +68,19 @@ const Chat: FC<ChatProps> = ({chatMessages, bttvEmotes, resetFunction}) => {
             />
         }
         const words = fragment.text.split(" ")
+
+        // Gathered from https://github.com/night/betterttv/blob/ad5247ee36e82f1aadd539175f706785ee6a4e8e/src/modules/chat/index.js#L26-L31
+        const modifiers = {
+            "w!": " modifier-wide",
+            "v!": " modifier-vertical",
+            "h!": " modifier-horizontal",
+            "z!": " modifier-zero-space"
+        };
+
         return <span key={i + "text"}>
             {words.map((word, j) => {
                 const previousWord = words[j-1] ?? null
                 const nextWord = words[j+1] ?? null
-                // Gathered from https://github.com/night/betterttv/blob/ad5247ee36e82f1aadd539175f706785ee6a4e8e/src/modules/chat/index.js#L26-L31
-                const modifiers = {
-                    "w!": " modifier-wide",
-                    "v!": " modifier-vertical",
-                    "h!": " modifier-horizontal",
-                    "z!": " modifier-zero-space"
-                };
 
                 // Don't display a modifier if it affects an emote
                 if (modifiers[word] && bttvEmotes[nextWord]) {
