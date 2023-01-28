@@ -34,5 +34,5 @@ jobs:
         run: |
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > privkey.key
           chmod 400 privkey.key
-          ssh -o StrictHostKeyChecking=no -i privkey.key charlie@clickityclack.co.uk "~/workspace/twitch-chat-replay/restart-server.sh &>/dev/null"
+          ssh -o StrictHostKeyChecking=no -i privkey.key deployer@clickityclack.co.uk "sudo systemctl restart twitch-chat-replay"
           rm privkey.key
