@@ -65,6 +65,11 @@ const Chat: FC<ChatProps> = ({chatMessages, bttvEmotes, resetFunction}) => {
                 alt={fragment.text}
                 className="emoticon"
                 src={`https://static-cdn.jtvnw.net/emoticons/v1/${emoticonId}/1.0`}
+                srcSet={[
+                    `https://static-cdn.jtvnw.net/emoticons/v1/${emoticonId}/1.0 1x`,
+                    `https://static-cdn.jtvnw.net/emoticons/v1/${emoticonId}/2.0 2x`,
+                    `https://static-cdn.jtvnw.net/emoticons/v1/${emoticonId}/3.0 4x`
+                ].join(",")}
             />
         }
         const words = fragment.text.split(" ")
