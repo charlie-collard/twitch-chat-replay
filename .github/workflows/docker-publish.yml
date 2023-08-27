@@ -27,7 +27,7 @@ jobs:
 
       - name: Push to DockerHub
         run: |
-          docker login --username chacoll --password "${{ secrets.DOCKER_HUB_PASSWORD }}"
+          echo "${{ secrets.DOCKER_HUB_PASSWORD }}" | docker login --username chacoll --password-stdin
           docker push $IMAGE_NAME
 
       - name: Restart app on server
