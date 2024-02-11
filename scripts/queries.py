@@ -67,20 +67,14 @@ INDEXES = [
 
 VIEWS = [
     "drop view if exists together;",
-    "drop view if exists temp;",
     """
     create view together (displayName, name, body, createdAt, contentOffsetSeconds, title, twitchContentID, commenterID) as
     select commenters.displayName, commenters.name, comments.body, comments.createdAt, comments.contentOffsetSeconds, content.title, content.twitchContentID, comments.commenterID
     from comments
     join commenters on commenterID = commenters.id
-    join content on contentID = content.id;
+    join content on contentID = content.id
+    where content.type = 'archive';
     """,
-    """
-    create view temp (displayName, name, body, createdAt, contentOffsetSeconds, commenterID) as
-    select commenters.displayName, commenters.name, comments.body, comments.createdAt, comments.contentOffsetSeconds, comments.commenterID
-    from comments
-    join commenters on commenterID = commenters.id
-    """
 ]
 
 
