@@ -84475,5 +84475,1673 @@
         }
       ]
     }
+  },
+  "2024-03-14": {
+    "global": [
+      {
+        "id": "54fa8f1401e468494b85b537",
+        "code": ":tf:",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false
+      },
+      {
+        "id": "54fa8fce01e468494b85b53c",
+        "code": "CiGrip",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false
+      },
+      {
+        "id": "54fa903b01e468494b85b53f",
+        "code": "DatSauce",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false
+      },
+      {
+        "id": "54fa909b01e468494b85b542",
+        "code": "ForeverAlone",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false
+      },
+      {
+        "id": "54fa90ba01e468494b85b543",
+        "code": "GabeN",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false
+      },
+      {
+        "id": "54fa90f201e468494b85b545",
+        "code": "HailHelix",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false
+      },
+      {
+        "id": "54fa932201e468494b85b555",
+        "code": "ShoopDaWhoop",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false
+      },
+      {
+        "id": "54fab45f633595ca4c713abc",
+        "code": "M&Mjc",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false,
+        "width": 36,
+        "height": 30
+      },
+      {
+        "id": "54fab7d2633595ca4c713abf",
+        "code": "bttvNice",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false,
+        "width": 42,
+        "height": 28
+      },
+      {
+        "id": "54fa935601e468494b85b557",
+        "code": "TwaT",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false
+      },
+      {
+        "id": "54fa99b601e468494b85b55d",
+        "code": "WatChuSay",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false
+      },
+      {
+        "id": "566ca11a65dbbdab32ec0558",
+        "code": "tehPoleCat",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false,
+        "width": 21,
+        "height": 28
+      },
+      {
+        "id": "566ca1a365dbbdab32ec055b",
+        "code": "AngelThump",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false,
+        "width": 84,
+        "height": 28
+      },
+      {
+        "id": "54fbefeb01abde735115de5b",
+        "code": "TaxiBro",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false,
+        "width": 87,
+        "height": 30
+      },
+      {
+        "id": "54fbf00a01abde735115de5c",
+        "code": "BroBalt",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false,
+        "width": 46,
+        "height": 30
+      },
+      {
+        "id": "54fbf09c01abde735115de61",
+        "code": "CandianRage",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false
+      },
+      {
+        "id": "55028cd2135896936880fdd7",
+        "code": "D:",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false
+      },
+      {
+        "id": "550352766f86a5b26c281ba2",
+        "code": "VisLaud",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false
+      },
+      {
+        "id": "550b344bff8ecee922d2a3c1",
+        "code": "KaRappa",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false
+      },
+      {
+        "id": "566ca00f65dbbdab32ec0544",
+        "code": "FishMoley",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false,
+        "width": 56,
+        "height": 34
+      },
+      {
+        "id": "566ca02865dbbdab32ec0547",
+        "code": "Hhhehehe",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false
+      },
+      {
+        "id": "566ca04265dbbdab32ec054a",
+        "code": "KKona",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false,
+        "width": 25,
+        "height": 34
+      },
+      {
+        "id": "566ca09365dbbdab32ec0555",
+        "code": "PoleDoge",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false
+      },
+      {
+        "id": "553b48a21f145f087fc15ca6",
+        "code": "sosGame",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false
+      },
+      {
+        "id": "55471c2789d53f2d12781713",
+        "code": "CruW",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false
+      },
+      {
+        "id": "555015b77676617e17dd2e8e",
+        "code": "RarePepe",
+        "imageType": "png",
+        "animated": false,
+        "userId": "54f93e618edd5fcd455f213f",
+        "modifier": false
+      },
+      {
+        "id": "555981336ba1901877765555",
+        "code": "haHAA",
+        "imageType": "png",
+        "animated": false,
+        "userId": "54f93e3e8edd5fcd455f213d",
+        "modifier": false
+      },
+      {
+        "id": "55b6524154eefd53777b2580",
+        "code": "FeelsBirthdayMan",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false,
+        "width": 19,
+        "height": 28
+      },
+      {
+        "id": "55f324c47f08be9f0a63cce0",
+        "code": "RonSmug",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false,
+        "width": 21,
+        "height": 28
+      },
+      {
+        "id": "560577560874de34757d2dc0",
+        "code": "KappaCool",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false,
+        "width": 22,
+        "height": 28
+      },
+      {
+        "id": "566c9fc265dbbdab32ec053b",
+        "code": "FeelsBadMan",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false
+      },
+      {
+        "id": "566c9f3b65dbbdab32ec052e",
+        "code": "bUrself",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false
+      },
+      {
+        "id": "566c9f6365dbbdab32ec0532",
+        "code": "ConcernDoge",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false,
+        "width": 25,
+        "height": 28
+      },
+      {
+        "id": "566c9fde65dbbdab32ec053e",
+        "code": "FeelsGoodMan",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false
+      },
+      {
+        "id": "566c9ff365dbbdab32ec0541",
+        "code": "FireSpeed",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false,
+        "width": 53,
+        "height": 28
+      },
+      {
+        "id": "566ca06065dbbdab32ec054e",
+        "code": "NaM",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false,
+        "width": 38,
+        "height": 40
+      },
+      {
+        "id": "566ca38765dbbdab32ec0560",
+        "code": "SourPls",
+        "imageType": "gif",
+        "animated": true,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false
+      },
+      {
+        "id": "566dde0e65dbbdab32ec068f",
+        "code": "FeelsSnowMan",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false,
+        "width": 31,
+        "height": 30
+      },
+      {
+        "id": "566decae65dbbdab32ec0699",
+        "code": "FeelsSnowyMan",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false,
+        "width": 31,
+        "height": 30
+      },
+      {
+        "id": "567b00c61ddbe1786688a633",
+        "code": "LuL",
+        "imageType": "png",
+        "animated": false,
+        "userId": "54f93e618edd5fcd455f213f",
+        "modifier": false
+      },
+      {
+        "id": "56901914991f200c34ffa656",
+        "code": "SaltyCorn",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false,
+        "width": 28,
+        "height": 30
+      },
+      {
+        "id": "56e9f494fff3cc5c35e5287e",
+        "code": "monkaS",
+        "imageType": "png",
+        "animated": false,
+        "userId": "55bfba180baa41467919aabf",
+        "modifier": false
+      },
+      {
+        "id": "56f5be00d48006ba34f530a4",
+        "code": "VapeNation",
+        "imageType": "png",
+        "animated": false,
+        "userId": "55583bc00c72ab1d77d8b9b7",
+        "modifier": false
+      },
+      {
+        "id": "56fa09f18eff3b595e93ac26",
+        "code": "ariW",
+        "imageType": "png",
+        "animated": false,
+        "userId": "54ee2465b822020506c52a52",
+        "modifier": false
+      },
+      {
+        "id": "5709ab688eff3b595e93c595",
+        "code": "notsquishY",
+        "imageType": "png",
+        "animated": false,
+        "userId": "54ee2465b822020506c52a52",
+        "modifier": false,
+        "width": 24,
+        "height": 28
+      },
+      {
+        "id": "5733ff12e72c3c0814233e20",
+        "code": "FeelsAmazingMan",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false
+      },
+      {
+        "id": "573d38b50ffbf6cc5cc38dc9",
+        "code": "DuckerZ",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false,
+        "width": 37,
+        "height": 28
+      },
+      {
+        "id": "580e438942170bfd57189866",
+        "code": "FeelsPumpkinMan",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false,
+        "width": 28,
+        "height": 30
+      },
+      {
+        "id": "59cf182fcbe2693d59d7bf46",
+        "code": "SqShy",
+        "imageType": "png",
+        "animated": false,
+        "userId": "54ee2465b822020506c52a52",
+        "modifier": false
+      },
+      {
+        "id": "58d2e73058d8950a875ad027",
+        "code": "Wowee",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": false
+      },
+      {
+        "id": "5dc36a8db537d747e37ac187",
+        "code": "WubTF",
+        "imageType": "png",
+        "animated": false,
+        "userId": "54f93e3e8edd5fcd455f213d",
+        "modifier": false
+      },
+      {
+        "id": "5e76d2ab8c0f5c3723a9a87d",
+        "code": "cvR",
+        "imageType": "png",
+        "animated": false,
+        "userId": "54ee2465b822020506c52a52",
+        "modifier": false
+      },
+      {
+        "id": "5e76d2d2d112fc372574d222",
+        "code": "cvL",
+        "imageType": "png",
+        "animated": false,
+        "userId": "54ee2465b822020506c52a52",
+        "modifier": false
+      },
+      {
+        "id": "5e76d338d6581c3724c0f0b2",
+        "code": "cvHazmat",
+        "imageType": "png",
+        "animated": false,
+        "userId": "54ee2465b822020506c52a52",
+        "modifier": false
+      },
+      {
+        "id": "5e76d399d6581c3724c0f0b8",
+        "code": "cvMask",
+        "imageType": "png",
+        "animated": false,
+        "userId": "54ee2465b822020506c52a52",
+        "modifier": false
+      },
+      {
+        "id": "5ffdf28dc96152314ad63960",
+        "code": "DogChamp",
+        "imageType": "png",
+        "animated": false,
+        "userId": "54f92c8c34fde4ae450d8d26",
+        "modifier": false
+      },
+      {
+        "id": "6468f7acaee1f7f47567708e",
+        "code": "c!",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": true
+      },
+      {
+        "id": "6468f845aee1f7f47567709b",
+        "code": "h!",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": true
+      },
+      {
+        "id": "6468f869aee1f7f4756770a8",
+        "code": "l!",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": true
+      },
+      {
+        "id": "6468f883aee1f7f4756770b5",
+        "code": "r!",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": true
+      },
+      {
+        "id": "6468f89caee1f7f4756770c2",
+        "code": "v!",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": true
+      },
+      {
+        "id": "6468f8d1aee1f7f4756770cf",
+        "code": "z!",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": true
+      },
+      {
+        "id": "64e3b31920cb0d25d950a9f9",
+        "code": "w!",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": true
+      },
+      {
+        "id": "65cbe7dbaed093b2eaf87c65",
+        "code": "p!",
+        "imageType": "png",
+        "animated": false,
+        "userId": "5561169bd6b9d206222a8c19",
+        "modifier": true
+      }
+    ],
+    "northernlion": {
+      "id": "5ab41511435903474ef324df",
+      "bots": [],
+      "avatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/6e593335-c2f3-4227-bc0d-34634472cf0f-profile_image-300x300.png",
+      "channelEmotes": [],
+      "sharedEmotes": [
+        {
+          "id": "58ae8407ff7b7276f8e594f2",
+          "code": "POGGERS",
+          "imageType": "png",
+          "animated": false,
+          "user": {
+            "id": "57ea01a4665bcff56f0b64da",
+            "name": "to_ot",
+            "displayName": "tO_Ot",
+            "providerId": "133315887"
+          }
+        },
+        {
+          "id": "5ad9ec8c51d4120ea3918391",
+          "code": "EZclap",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "57a90502c8c6392b52034af4",
+            "name": "yakk69",
+            "displayName": "yakk69",
+            "providerId": "124404868"
+          }
+        },
+        {
+          "id": "59f27b3f4ebd8047f54dee29",
+          "code": "PepeHands",
+          "imageType": "png",
+          "animated": false,
+          "user": {
+            "id": "55ec44da2538a92d53dca61a",
+            "name": "p3ntaz",
+            "displayName": "P3NTAZ",
+            "providerId": "29790268"
+          }
+        },
+        {
+          "id": "5f4a7e5faa6fe06bfb5f4a56",
+          "code": "RyukaJam",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "5b774d3308950d565d88cba9",
+            "name": "xeneron",
+            "displayName": "Xeneron",
+            "providerId": "26377079"
+          }
+        },
+        {
+          "id": "5e0fa9d40550d42106b8a489",
+          "code": "Sadge",
+          "imageType": "png",
+          "animated": false,
+          "user": {
+            "id": "59712324eaab4f3320e6ccc9",
+            "name": "redshell",
+            "displayName": "Redshell",
+            "providerId": "157440062"
+          }
+        },
+        {
+          "id": "5f43037db2efd65d77e8a88f",
+          "code": "ratJAM",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "565af62218d1dbe358624fd6",
+            "name": "daledo_",
+            "displayName": "daledo_",
+            "providerId": "53534866"
+          }
+        },
+        {
+          "id": "6070429339b5010444cfbe78",
+          "code": "FunkChamp",
+          "imageType": "png",
+          "animated": false,
+          "user": {
+            "id": "606f10f5209b3403d727a675",
+            "name": "fkjbros",
+            "displayName": "FKJBros",
+            "providerId": "618842160"
+          }
+        },
+        {
+          "id": "5e3026505ea23e51ed8c6617",
+          "code": "peepoG",
+          "imageType": "png",
+          "animated": false,
+          "user": {
+            "id": "557cce9e9363ee4f6af7105e",
+            "name": "guit88man",
+            "displayName": "guit88man",
+            "providerId": "25604128"
+          }
+        },
+        {
+          "id": "5f2eacea65fe924464ef8f84",
+          "code": "Cereal",
+          "imageType": "png",
+          "animated": false,
+          "user": {
+            "id": "55bf6ece0baa41467919aa7f",
+            "name": "benana_phone",
+            "displayName": "Benana_phone",
+            "providerId": "66396479"
+          }
+        },
+        {
+          "id": "60cae734f8b3f62601c3f0b0",
+          "code": "Copium",
+          "imageType": "png",
+          "animated": false,
+          "user": {
+            "id": "56b55d71723039ac630a4d0a",
+            "name": "equadisuk",
+            "displayName": "EquadisUK",
+            "providerId": "113568534"
+          }
+        },
+        {
+          "id": "5f4f4fa23769246c0320de37",
+          "code": "Madge",
+          "imageType": "png",
+          "animated": false,
+          "user": {
+            "id": "56eb11ea3ec4cc661ab32c5b",
+            "name": "h3rrro",
+            "displayName": "H3RRRO",
+            "providerId": "51876063"
+          }
+        },
+        {
+          "id": "61315560af28e956864b9849",
+          "code": "POPPERS",
+          "imageType": "png",
+          "animated": false,
+          "user": {
+            "id": "607f7a0bf5bafe03c7b2cf96",
+            "name": "evanbenz",
+            "displayName": "EvanBenz",
+            "providerId": "98461412"
+          }
+        },
+        {
+          "id": "61314cb7af28e956864b96e3",
+          "code": "PUNCHERS",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "607f7a0bf5bafe03c7b2cf96",
+            "name": "evanbenz",
+            "displayName": "EvanBenz",
+            "providerId": "98461412"
+          }
+        },
+        {
+          "id": "613bddc14b0ce9183035aea8",
+          "code": "NODDERS",
+          "imageType": "gif",
+          "animated": true,
+          "width": 28,
+          "height": 27,
+          "user": {
+            "id": "5cb1264f8520fb586c11b3f1",
+            "name": "suzster",
+            "displayName": "suzster",
+            "providerId": "171228299"
+          }
+        },
+        {
+          "id": "6169eb1d054a252a431f3af7",
+          "code": "WICKED",
+          "imageType": "png",
+          "animated": false,
+          "user": {
+            "id": "607f7a0bf5bafe03c7b2cf96",
+            "name": "evanbenz",
+            "displayName": "EvanBenz",
+            "providerId": "98461412"
+          }
+        },
+        {
+          "id": "6196d26254f3344f8806382c",
+          "code": "sleepoG",
+          "imageType": "png",
+          "animated": false,
+          "user": {
+            "id": "578447a3d0af621c034d0cca",
+            "name": "skelly_jelly",
+            "displayName": "skelly_jelly",
+            "providerId": "48747269"
+          }
+        },
+        {
+          "id": "5d324913ff6ed36801311fd2",
+          "code": "peepoLeave",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "5c5354a3009a2e73916b2803",
+            "name": "default5ettings",
+            "displayName": "Default5ettings",
+            "providerId": "88272315"
+          }
+        },
+        {
+          "id": "619f5b61b50549e7e500d6e0",
+          "code": "peepoTalk",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "5faaee1942cf82644d874af5",
+            "name": "tjan",
+            "displayName": "Tjan",
+            "providerId": "257385024"
+          }
+        },
+        {
+          "id": "619928e554f3344f88068ac1",
+          "code": "KEKWait",
+          "imageType": "png",
+          "animated": false,
+          "user": {
+            "id": "60d0f8958adc4a73a1d05eb5",
+            "name": "chumleychum",
+            "displayName": "ChumleyChum",
+            "providerId": "673307956"
+          }
+        },
+        {
+          "id": "5d20a55de1cfde376e532972",
+          "code": "weirdChamp",
+          "imageType": "png",
+          "animated": false,
+          "user": {
+            "id": "595cfa2b3400d339a35b1540",
+            "name": "itscraic",
+            "displayName": "ItsCraic",
+            "providerId": "144527726"
+          }
+        },
+        {
+          "id": "5ed0fd17f54be95e2a835054",
+          "code": "monkaSTEER",
+          "imageType": "gif",
+          "animated": true,
+          "width": 28,
+          "height": 25,
+          "user": {
+            "id": "5eb58b8eec17d81685a44653",
+            "name": "i__unno",
+            "displayName": "i__unno",
+            "providerId": "169709989"
+          }
+        },
+        {
+          "id": "5d922afbc0652668c9e52ead",
+          "code": "peepoArrive",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "591e66a42f456546af55144d",
+            "name": "sundizzle",
+            "displayName": "sundizzle",
+            "providerId": "35848089"
+          }
+        },
+        {
+          "id": "5ff827395ef7d10c7912c106",
+          "code": "Pog",
+          "imageType": "png",
+          "animated": false,
+          "user": {
+            "id": "57c4db8e2294aca14ccb8c28",
+            "name": "teyn",
+            "displayName": "Teyn",
+            "providerId": "133114467"
+          }
+        },
+        {
+          "id": "604fcc69306b602acc59d94a",
+          "code": "jakeS",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "5f8d73fe6f583802e3893024",
+            "name": "drewabcs",
+            "displayName": "drewabcs",
+            "providerId": "92446562"
+          }
+        },
+        {
+          "id": "62469c3e3c6f14b68844146b",
+          "code": "Clueless",
+          "imageType": "png",
+          "animated": false,
+          "user": {
+            "id": "5f8b8963710f8302f0c8808c",
+            "name": "zingerz",
+            "displayName": "Zingerz",
+            "providerId": "39004665"
+          }
+        },
+        {
+          "id": "5ffae10a346b880825ab2065",
+          "code": "monkaGIGAftRobertDowneyJr",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "5a227ca95ebe202db3f9d9cd",
+            "name": "ricultima",
+            "displayName": "RicUltima",
+            "providerId": "77104634"
+          }
+        },
+        {
+          "id": "5f3ef6123212445d6fb49f1a",
+          "code": "Prayge",
+          "imageType": "png",
+          "animated": false,
+          "user": {
+            "id": "5efdf89a19a5bd0524ebd23e",
+            "name": "czharu",
+            "displayName": "Czharu",
+            "providerId": "171598278"
+          }
+        },
+        {
+          "id": "612740bbaf28e956864a2ced",
+          "code": "SHEESH",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "5b56b4121d95e011168e3105",
+            "name": "seanathan1",
+            "displayName": "seanathan1",
+            "providerId": "121929127"
+          }
+        },
+        {
+          "id": "5fa1f87e1b017902db15aedd",
+          "code": "Tssk",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "5ceec296cd8880447c3b0467",
+            "name": "mik7",
+            "displayName": "mik7",
+            "providerId": "438281108"
+          }
+        },
+        {
+          "id": "6220c51b06fd6a9f5be613b4",
+          "code": "HUHH",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "5e122a3a3267f72103fd5f86",
+            "name": "benjy",
+            "displayName": "Benjy",
+            "providerId": "267123083"
+          }
+        },
+        {
+          "id": "61ce1d04c8cc7f36d52b0f40",
+          "code": "BabblePls",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "556242cfea4b240122cbc486",
+            "name": "endsgamer",
+            "displayName": "endsgamer",
+            "providerId": "9235596"
+          }
+        },
+        {
+          "id": "6300fb5cecbd418154246d1a",
+          "code": "monkaGIGAftRyanGary",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "629f7b84bb1080645bb6271e",
+            "name": "ghostmoptv",
+            "displayName": "ghostmoptv",
+            "providerId": "23388717"
+          }
+        },
+        {
+          "id": "6151c623b63cc97ee6d39040",
+          "code": "Aware",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "5f3ea477b2efd65d77e866be",
+            "name": "komodo1337",
+            "displayName": "KOMODO1337",
+            "providerId": "419017257"
+          }
+        },
+        {
+          "id": "62f3e305ecbd41815423c99f",
+          "code": "PointAndLaugh",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "5f5e9dcce6f15f6bf4581b00",
+            "name": "quackposting",
+            "displayName": "quackposting",
+            "providerId": "133949404"
+          }
+        },
+        {
+          "id": "5f631d7ed7160803d8958f37",
+          "code": "walterShocked",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "5af5fc5efb603331061d7be4",
+            "name": "ronlno",
+            "displayName": "ronLno",
+            "providerId": "216042341"
+          }
+        },
+        {
+          "id": "5d9be805d2458468c1f4dbb3",
+          "code": "peepoLeave",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "56127843e3a809e61f746b04",
+            "name": "aodplays",
+            "displayName": "AoDplays",
+            "providerId": "43873111"
+          }
+        },
+        {
+          "id": "6228bfe606fd6a9f5be69c39",
+          "code": "VIBE",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "5bce07b241e65a5ecc8e03d7",
+            "name": "maikeru",
+            "displayName": "Maikeru",
+            "providerId": "30176715"
+          }
+        },
+        {
+          "id": "5f4fc5dc3769246c0320e3db",
+          "code": "POGCRAZY",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "5703d8c0100d39ab3455205b",
+            "name": "nakomaru",
+            "displayName": "nakomaru",
+            "providerId": "31680774"
+          }
+        },
+        {
+          "id": "5fd1610acbd462462d56cd7d",
+          "code": "NOOO",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "5f4005024510395d822c1dd5",
+            "name": "receprical",
+            "displayName": "Receprical",
+            "providerId": "554976956"
+          }
+        },
+        {
+          "id": "62efb047ecbd4181542392d0",
+          "code": "Jupijej",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "59a58a74c765ac30a43b627b",
+            "name": "stachura1_2",
+            "displayName": "Stachura1_2",
+            "providerId": "54643746"
+          }
+        },
+        {
+          "id": "634fa2149bb828a9f0d3fede",
+          "code": "WhoAsked",
+          "imageType": "gif",
+          "animated": true,
+          "width": 51,
+          "height": 28,
+          "user": {
+            "id": "626a8b40bb1080645b0f3cfb",
+            "name": "arhamsaa",
+            "displayName": "ArhamSAA",
+            "providerId": "223818164"
+          }
+        },
+        {
+          "id": "6335df67ee60425d31b6c73c",
+          "code": "POGCRAZYftRyanGary",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "570a9b1c8a9fd9d834094d6b",
+            "name": "doratheexploder",
+            "displayName": "DoraTheExploder",
+            "providerId": "32626306"
+          }
+        },
+        {
+          "id": "6072c12539b5010444cfd137",
+          "code": "LETSGO",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "5e7b8622d112fc37257513fd",
+            "name": "puddingai",
+            "displayName": "プリンアイ",
+            "providerId": "63954675"
+          }
+        },
+        {
+          "id": "63453ea1e6cf26500b430f01",
+          "code": "AintNoWay",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "5cf5939667398f2d6a1f88e0",
+            "name": "gooselifter",
+            "displayName": "GooseLifter",
+            "providerId": "62853556"
+          }
+        },
+        {
+          "id": "61fe167506fd6a9f5be37078",
+          "code": "Charmander",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "61fda796bb1080645bf4dd6f",
+            "name": "arcade_renegade",
+            "displayName": "Arcade_Renegade",
+            "providerId": "87774807"
+          }
+        },
+        {
+          "id": "6011b5cc4e3ab965ef75dec0",
+          "code": "Morpheus",
+          "imageType": "png",
+          "animated": false,
+          "user": {
+            "id": "57c3d4aa1ee627934c3136e9",
+            "name": "zaxxorr",
+            "displayName": "ZaXXoRR",
+            "providerId": "76479450"
+          }
+        },
+        {
+          "id": "6217d0d506fd6a9f5be57d7f",
+          "code": "IASKED",
+          "imageType": "png",
+          "animated": false,
+          "user": {
+            "id": "608945cd209b3403d729618e",
+            "name": "elvotexx",
+            "displayName": "Elvotexx",
+            "providerId": "99505304"
+          }
+        },
+        {
+          "id": "609753d339b5010444d0e33e",
+          "code": "COCKA",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "5f8df1e21b017902db146528",
+            "name": "thatcox",
+            "displayName": "thatcox",
+            "providerId": "418740715"
+          }
+        },
+        {
+          "id": "60999abe39b5010444d0f264",
+          "code": "JesusBeBallin",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "5b1dd6aeb12cbe50b1a7a655",
+            "name": "zomballr",
+            "displayName": "zomballr",
+            "providerId": "86173302"
+          }
+        },
+        {
+          "id": "5ea831f074046462f768097a",
+          "code": "KEKW",
+          "imageType": "png",
+          "animated": false,
+          "user": {
+            "id": "5c38b275baa7ba09c9cfa3ef",
+            "name": "adlertv",
+            "displayName": "AdlerTV",
+            "providerId": "32437716"
+          }
+        },
+        {
+          "id": "625100153c6f14b68844c3b9",
+          "code": "ICANT",
+          "imageType": "png",
+          "animated": false,
+          "user": {
+            "id": "5abc6856ce8b331081f8dde2",
+            "name": "jaxcosmos",
+            "displayName": "JaxCosmos",
+            "providerId": "80211035"
+          }
+        },
+        {
+          "id": "5f7cd9b0e9c9344a8f352930",
+          "code": "WITCHIES",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "5cf35ab067398f2d6a1f6bb3",
+            "name": "dang3r_edits",
+            "displayName": "dang3r_edits",
+            "providerId": "51079816"
+          }
+        },
+        {
+          "id": "639a852991ab7f35abdf8e95",
+          "code": "hesBALD",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "629f7b84bb1080645bb6271e",
+            "name": "ghostmoptv",
+            "displayName": "ghostmoptv",
+            "providerId": "23388717"
+          }
+        },
+        {
+          "id": "618c77311f8ff7628e6d5b8f",
+          "code": "Chatting",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "60afc628d199c625b5d1d0a1",
+            "name": "brownieldz",
+            "displayName": "brownieldz",
+            "providerId": "209109801"
+          }
+        },
+        {
+          "id": "63b7556f92686dedce34e5c0",
+          "code": "lionSoyRight",
+          "imageType": "png",
+          "animated": false,
+          "user": {
+            "id": "63b74b102c6b4f84489308ef",
+            "name": "swirle13",
+            "displayName": "swirle13",
+            "providerId": "48034308"
+          }
+        },
+        {
+          "id": "63b857f092686dedce34f4e7",
+          "code": "lionSoyLeft",
+          "imageType": "png",
+          "animated": false,
+          "user": {
+            "id": "602509b9cf49eb2dca3186b3",
+            "name": "u_watanabe",
+            "displayName": "u_watanabe",
+            "providerId": "426619534"
+          }
+        },
+        {
+          "id": "6066beb6a407570b72f298fd",
+          "code": "RIPBOZO",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "5cc126f1dc03ac3a528429c5",
+            "name": "staticshaq34",
+            "displayName": "StaticShaq34",
+            "providerId": "77845047"
+          }
+        },
+        {
+          "id": "606e1fedfba15a03df2ca232",
+          "code": "Crungo",
+          "imageType": "png",
+          "animated": false,
+          "user": {
+            "id": "558c7208b86d24a72a221f04",
+            "name": "margot",
+            "displayName": "margot",
+            "providerId": "66536037"
+          }
+        },
+        {
+          "id": "62f0acb3ecbd41815423a0f5",
+          "code": "DIESOFCRINGE",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "5a1eeafb25daea068c7b0518",
+            "name": "xilverstreamer95",
+            "displayName": "xilverstreamer95",
+            "providerId": "152749643"
+          }
+        },
+        {
+          "id": "5fea210de85053351218fa3d",
+          "code": "IASKED",
+          "imageType": "png",
+          "animated": false,
+          "user": {
+            "id": "5f412d48afb6965d6e7c56d2",
+            "name": "robo02wwe",
+            "displayName": "Robo02WWE",
+            "providerId": "428174505"
+          }
+        },
+        {
+          "id": "63dda5d9dc781fe9bd169045",
+          "code": "NONTARGET",
+          "imageType": "gif",
+          "animated": true,
+          "width": 84,
+          "height": 28,
+          "user": {
+            "id": "55ac496d133385202db9b5fc",
+            "name": "sparkyman",
+            "displayName": "sparkyman",
+            "providerId": "87818370"
+          }
+        },
+        {
+          "id": "622daae306fd6a9f5be6f54a",
+          "code": "FLASHBANG",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "5a649a61da387e7d52b1cc0e",
+            "name": "nyakawaiiidesu",
+            "displayName": "nyaKawaiiiDesu",
+            "providerId": "60745797"
+          }
+        },
+        {
+          "id": "5fc4094dcac2fb4621e476bb",
+          "code": "lionJustice",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "5efc9e0f79645a0dec35c26a",
+            "name": "jessyabeb",
+            "displayName": "jessyabeb",
+            "providerId": "450804206"
+          }
+        },
+        {
+          "id": "5efcd82551e3910deed68751",
+          "code": "DonoWall",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "5b45dea49733463289f14327",
+            "name": "wakeuprumi",
+            "displayName": "wakeuprumi",
+            "providerId": "45547582"
+          }
+        },
+        {
+          "id": "640fc68c746c2603905a132b",
+          "code": "Joel",
+          "imageType": "gif",
+          "animated": true,
+          "width": 84,
+          "height": 28,
+          "user": {
+            "id": "633f560541c685c616e10671",
+            "name": "anibally",
+            "displayName": "Anibally",
+            "providerId": "134649163"
+          }
+        },
+        {
+          "id": "638e41dfb9076d0aaebe032b",
+          "code": "peepoHockey",
+          "imageType": "png",
+          "animated": false,
+          "user": {
+            "id": "638e3c492c6b4f84487b20d3",
+            "name": "vade__retro_",
+            "displayName": "vade__retro_",
+            "providerId": "610386624"
+          }
+        },
+        {
+          "id": "64528e4697d0bd6a79e96aba",
+          "code": "TTTPog",
+          "imageType": "png",
+          "animated": false,
+          "user": {
+            "id": "5efc9e0f79645a0dec35c26a",
+            "name": "jessyabeb",
+            "displayName": "jessyabeb",
+            "providerId": "450804206"
+          }
+        },
+        {
+          "id": "64528e8c97d0bd6a79e96acc",
+          "code": "TTTCalv",
+          "imageType": "png",
+          "animated": false,
+          "user": {
+            "id": "5efc9e0f79645a0dec35c26a",
+            "name": "jessyabeb",
+            "displayName": "jessyabeb",
+            "providerId": "450804206"
+          }
+        },
+        {
+          "id": "645924aad81cdcc4215e63ca",
+          "code": "peppaTalk",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "629f7b84bb1080645bb6271e",
+            "name": "ghostmoptv",
+            "displayName": "ghostmoptv",
+            "providerId": "23388717"
+          }
+        },
+        {
+          "id": "6359372eed98a03da0cdd7df",
+          "code": "Looking",
+          "imageType": "png",
+          "animated": false,
+          "user": {
+            "id": "561e9b665b137be2061831d3",
+            "name": "en_djinn",
+            "displayName": "En_Djinn",
+            "providerId": "68504294"
+          }
+        },
+        {
+          "id": "62264bb606fd6a9f5be67488",
+          "code": "Life",
+          "imageType": "png",
+          "animated": false,
+          "user": {
+            "id": "5fdcd8adf534b23487476a85",
+            "name": "surius",
+            "displayName": "Surius",
+            "providerId": "488999017"
+          }
+        },
+        {
+          "id": "64930e1f037935fcea6af3e3",
+          "code": "downVote",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "556a5ee8aecbee6b1bd38620",
+            "name": "michaelalfox",
+            "displayName": "michaelalfox",
+            "providerId": "19336638"
+          }
+        },
+        {
+          "id": "6300211aecbd4181542464cb",
+          "code": "LookUp",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "5b4c37c2a0357239526664d1",
+            "name": "heatwave69",
+            "displayName": "Heatwave69",
+            "providerId": "166154618"
+          }
+        },
+        {
+          "id": "602c46beee839b1e5ec6d3bf",
+          "code": "Sure",
+          "imageType": "png",
+          "animated": false,
+          "user": {
+            "id": "5ba8cdcff17b9f6ab0f3d73a",
+            "name": "kniteort",
+            "displayName": "Kniteort",
+            "providerId": "98637757"
+          }
+        },
+        {
+          "id": "64935b44037935fcea6af908",
+          "code": "peepoYELL",
+          "imageType": "png",
+          "animated": false,
+          "user": {
+            "id": "6081e9d8d5e73603d527523f",
+            "name": "round_birb",
+            "displayName": "Round_Birb",
+            "providerId": "168462231"
+          }
+        },
+        {
+          "id": "6136ff2aaf28e956864c570c",
+          "code": "JesusBeGolfin",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "5ad015c701285218bd0eddae",
+            "name": "its_dtk",
+            "displayName": "its_DTK",
+            "providerId": "122372359"
+          }
+        },
+        {
+          "id": "62dc4320d991a3e26c131f4b",
+          "code": "Listening",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "608eaccf64433003f11402d2",
+            "name": "spekstwo",
+            "displayName": "spekstwo",
+            "providerId": "254552482"
+          }
+        },
+        {
+          "id": "6465a77637a906f91ded1e91",
+          "code": "Slayyy",
+          "imageType": "png",
+          "animated": false,
+          "width": 40,
+          "height": 28,
+          "user": {
+            "id": "5b4fd7ad8576ce7474e74d90",
+            "name": "ludwig",
+            "displayName": "ludwig",
+            "providerId": "40934651"
+          }
+        },
+        {
+          "id": "5f4393b1afb6965d6e7c79c3",
+          "code": "crazyHamburger",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "5f37f610afb6965d6e7bc7cf",
+            "name": "itsmeyodaa",
+            "displayName": "ItsMeYodaa",
+            "providerId": "567260586"
+          }
+        },
+        {
+          "id": "63caf6292b18a0bbb2daddf5",
+          "code": "Classic",
+          "imageType": "gif",
+          "animated": true,
+          "width": 32,
+          "height": 28,
+          "user": {
+            "id": "5f23b61065fe924464eeec98",
+            "name": "izeeh",
+            "displayName": "iZeeh",
+            "providerId": "210261439"
+          }
+        },
+        {
+          "id": "63cc15773303b8b7e5449eec",
+          "code": "NOWAYING",
+          "imageType": "gif",
+          "animated": true,
+          "width": 55,
+          "height": 28,
+          "user": {
+            "id": "60b03b2d3269dd25c3b16e1e",
+            "name": "dumptruckdylan",
+            "displayName": "dumptruckdylan",
+            "providerId": "617841547"
+          }
+        },
+        {
+          "id": "64399922edcb06e838e32321",
+          "code": "NOWAYING",
+          "imageType": "png",
+          "animated": false,
+          "user": {
+            "id": "643998d986b1b680af8a059b",
+            "name": "mehhedii",
+            "displayName": "mehhedii",
+            "providerId": "443072877"
+          }
+        },
+        {
+          "id": "6570d62de5203b37a4a874ee",
+          "code": "yippieLion",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "5f5045c268d9d86c020db475",
+            "name": "asardonicsailor",
+            "displayName": "asardonicsailor",
+            "providerId": "411364876"
+          }
+        },
+        {
+          "id": "63dee6b7dc781fe9bd16a516",
+          "code": "oliviaYup",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "5fd9909ef0c55834926918eb",
+            "name": "heyromibunny",
+            "displayName": "heyromibunny",
+            "providerId": "474501091"
+          }
+        },
+        {
+          "id": "6518b687fc204fb5a94ca81d",
+          "code": "CAUGHT",
+          "imageType": "png",
+          "animated": false,
+          "width": 53,
+          "height": 28,
+          "user": {
+            "id": "59a21a66a962df3f6186e800",
+            "name": "akumzz",
+            "displayName": "Akumzz",
+            "providerId": "114822156"
+          }
+        },
+        {
+          "id": "65ce65139403cca2a1099901",
+          "code": "AYAYATSUJIGIRI",
+          "imageType": "gif",
+          "animated": true,
+          "width": 45,
+          "height": 28,
+          "user": {
+            "id": "602509b9cf49eb2dca3186b3",
+            "name": "u_watanabe",
+            "displayName": "u_watanabe",
+            "providerId": "426619534"
+          }
+        },
+        {
+          "id": "65554b5be047f20d72a4a13c",
+          "code": "baldLife",
+          "imageType": "png",
+          "animated": false,
+          "user": {
+            "id": "602509b9cf49eb2dca3186b3",
+            "name": "u_watanabe",
+            "displayName": "u_watanabe",
+            "providerId": "426619534"
+          }
+        },
+        {
+          "id": "65d6744c81be93be810251aa",
+          "code": "Nope",
+          "imageType": "gif",
+          "animated": true,
+          "width": 33,
+          "height": 28,
+          "user": {
+            "id": "629f7b84bb1080645bb6271e",
+            "name": "ghostmoptv",
+            "displayName": "ghostmoptv",
+            "providerId": "23388717"
+          }
+        },
+        {
+          "id": "65de79dd4aa2d3c5570b2c5c",
+          "code": "MULT",
+          "imageType": "gif",
+          "animated": true,
+          "width": 40,
+          "height": 28,
+          "user": {
+            "id": "629f7b84bb1080645bb6271e",
+            "name": "ghostmoptv",
+            "displayName": "ghostmoptv",
+            "providerId": "23388717"
+          }
+        },
+        {
+          "id": "65efd9918c5481289ab52e51",
+          "code": "LOCKEDOUT",
+          "imageType": "gif",
+          "animated": true,
+          "user": {
+            "id": "629f7b84bb1080645bb6271e",
+            "name": "ghostmoptv",
+            "displayName": "ghostmoptv",
+            "providerId": "23388717"
+          }
+        }
+      ]
+    }
   }
 }
