@@ -36,7 +36,7 @@ export const Video: FC<VideoProps> = ({videoId, onSelectVideo, onReady, onPlayba
             />
         }
         return <>
-            <a className="source-code-link" href="https://github.com/bspammer/twitch-chat-replay" target="_blank" rel="noreferrer">View source on GitHub</a>
+            <a className="source-code-link" href="https://github.com/charlie-collard/twitch-chat-replay" target="_blank" rel="noreferrer">View source on GitHub</a>
             <form className="url-input-form" onSubmit={setVideoId}>
                 <label>
                     Youtube URL:
