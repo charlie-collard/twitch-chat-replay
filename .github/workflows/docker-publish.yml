@@ -29,10 +29,3 @@ jobs:
         run: |
           echo "${{ secrets.DOCKER_HUB_PASSWORD }}" | docker login --username chacoll --password-stdin
           docker push $IMAGE_NAME
-
-      - name: Restart app on server
-        run: |
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > privkey.key
-          chmod 400 privkey.key
-          ssh -o StrictHostKeyChecking=no -i privkey.key deployer@clickityclack.co.uk "sudo systemctl restart twitch-chat-replay"
-          rm privkey.key
