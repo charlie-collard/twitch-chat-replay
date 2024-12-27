@@ -12,7 +12,10 @@
     padding-top: 2px;
     font-size: 1em;
     text-align: center;
-    width: 50%;
+    min-width: fit-content;
+    @media (max-width: 800px) {
+        width: 50%;
+    }
 }
 
 .search-form {

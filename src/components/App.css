@@ -21,6 +21,14 @@
     font-family: "Inter", "Roobert", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 400;
     padding-right: 7px;
+
+    @media (min-width: 801px) {
+        .search-form{
+            min-width: 200px;
+            width: 33vw;
+            max-width: 350px;
+        }
+    }
 }
 
 .player-container {
@@ -31,6 +39,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.player-container:has(.url-input-form){
+    min-width: 66vw;
 }
 
 .player-container iframe {
@@ -67,6 +79,16 @@
         max-height: 100%;
         z-index: 999;
     }
+
+    .player-container:has(.url-input-form){
+        @media (orientation: portrait) {
+            height: 100%;
+        }
+        label input{
+            width: 100%;
+        }
+    }
+
     @media (orientation: portrait) {
         .player-container {
             width: 100%;
@@ -93,10 +115,17 @@
         transform: translateX(-50%);
         z-index: 99;
         height: 100%;
+        box-sizing: border-box;
     }
 
     .chat-container:has(.search-form){
         max-height: 50dvh;
+    }
+
+    @media(orientation: landscape) {
+        .chat-container:has(.search-form){
+            max-height: 100dvh;
+        }
     }
 
     .chat-container > div:nth-child(2) {
@@ -110,6 +139,14 @@
     }
 }
 
+@media (min-width: 801px) {
+    .player-container{
+        width:66vw;
+    }
+}
+input[name="youtubeId"]{
+    width: 100%;
+}
 /*Floating Chat*/
 @media (orientation:landscape) AND (max-width: 800px)  {
     .App{

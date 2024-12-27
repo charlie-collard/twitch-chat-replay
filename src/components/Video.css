@@ -39,7 +39,7 @@
 @media(max-width:800px){
 
     .url-input-form{
-        width: 80vw;
+        height: 100%;
     }
     .url-input-form input{
         font-size: 1.6rem;
