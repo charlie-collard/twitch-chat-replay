@@ -54,7 +54,7 @@ const Chat: FC<ChatProps> = ({chatMessages, bttvEmotes, resetFunction}) => {
         //Makes sure as much as chat can be seen as possible on mobile.
         const videoContainer = document.querySelector(".player-container");
         const chatContainer = document.querySelector(".chat-container");
-        let mobileBreakpoint = window.matchMedia("(max-width: 800px)");
+        let mobileBreakpoint = window.matchMedia("(max-width: 800px) AND (orientation: portrait)");
         if(mobileBreakpoint.matches){
             chatContainer.style.height = `calc(100dvh - ${videoContainer.clientHeight}px)`;
         }else{

@@ -9,7 +9,8 @@
 
 .chat-container {
     height: 100vh;
-    min-width: 350px;
+    min-width: 200px;
+    width: 33vw;
     max-width: 350px;
     color: white;
     display: flex;
@@ -57,31 +58,34 @@
         min-height: unset;
         align-items: unset;
         height: 100dvh;
-        flex-direction: column;
         position: relative;
     }
-    
+
     .player-container {
         flex-grow: unset;
         height: fit-content;
-        max-height: 50vh;
+        max-height: 100%;
         z-index: 999;
+    }
+    @media (orientation: portrait) {
+        .player-container {
+            width: 100%;
+            max-height: 50vh;
+        }
     }
     /* Video is in the iframe but might as well try to target it */
     .player-container iframe,.player video{
         object-fit: contain;
     }
-    
+
     .player-container iframe {
         height: 100%;
         aspect-ratio: 16/9;
     }
+
     .chat-container {
         width: 100%;
         max-width: 100%;
-        /* vh is fallback for old browsers that don't like dvh */
-        height: 48vh;
-        height: 48dvh;
         margin: auto;
         position: absolute;
         bottom: 0;
@@ -106,12 +110,27 @@
     }
 }
 
-@media(min-width:801px){
+/*Floating Chat*/
+@media (orientation:landscape) AND (max-width: 800px)  {
     .App{
-        align-items: unset;
+        flex-direction: row;
+        align-items: center;
     }
+
     .chat-container{
-        /* Overriding JS cause its simpler than setting up an resize observer */
-        height: 100% !important; 
+        z-index: 999;
+        left: unset;
+        right: 0;
+        width: 33vw;
+        transform: none;
+        min-width: unset;
+        background: rgba(0,0,0,.5);
+    }
+
+    /*save space on small screens*/
+    p.chatMessage{
+        span:first-child{
+            display: none;
+        }
     }
 }
