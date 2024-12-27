@@ -40,9 +40,10 @@
 }
 
 .resetButton {
-    position: absolute;
+    position: sticky;
     top: 4px;
-    right: 10px;
+    left: 100%;
+    width: fit-content;
     font-size: 1.5em;
     border-radius: 50%;
     border-style: solid;

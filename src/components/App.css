@@ -9,7 +9,8 @@
 
 .chat-container {
     height: 100vh;
-    min-width: 350px;
+    min-width: 200px;
+    width: 33vw;
     max-width: 350px;
     color: white;
     display: flex;
@@ -20,6 +21,14 @@
     font-family: "Inter", "Roobert", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 400;
     padding-right: 7px;
+
+    @media (min-width: 801px) {
+        .search-form{
+            min-width: 200px;
+            width: 33vw;
+            max-width: 350px;
+        }
+    }
 }
 
 .player-container {
@@ -30,6 +39,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.player-container:has(.url-input-form){
+    min-width: 66vw;
 }
 
 .player-container iframe {
@@ -48,4 +61,113 @@
     padding-left: 5px;
     padding-right: 5px;
     border-radius: 5px;
+}
+
+/* Mobile styles */
+
+@media(max-width:800px){
+    .App{
+        min-height: unset;
+        align-items: unset;
+        height: 100dvh;
+        position: relative;
+    }
+
+    .player-container {
+        flex-grow: unset;
+        height: fit-content;
+        max-height: 100%;
+        z-index: 999;
+    }
+
+    .player-container:has(.url-input-form){
+        @media (orientation: portrait) {
+            height: 100%;
+        }
+        label input{
+            width: 100%;
+        }
+    }
+
+    @media (orientation: portrait) {
+        .player-container {
+            width: 100%;
+            max-height: 50vh;
+        }
+    }
+    /* Video is in the iframe but might as well try to target it */
+    .player-container iframe,.player video{
+        object-fit: contain;
+    }
+
+    .player-container iframe {
+        height: 100%;
+        aspect-ratio: 16/9;
+    }
+
+    .chat-container {
+        width: 100%;
+        max-width: 100%;
+        margin: auto;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 99;
+        height: 100%;
+        box-sizing: border-box;
+    }
+
+    .chat-container:has(.search-form){
+        max-height: 50dvh;
+    }
+
+    @media(orientation: landscape) {
+        .chat-container:has(.search-form){
+            max-height: 100dvh;
+        }
+    }
+
+    .chat-container > div:nth-child(2) {
+        position: absolute;
+        width: 98%;
+        bottom: 10px;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 100%;
+    }
+}
+
+@media (min-width: 801px) {
+    .player-container{
+        width:66vw;
+    }
+}
+input[name="youtubeId"]{
+    width: 100%;
+}
+/*Floating Chat*/
+@media (orientation:landscape) AND (max-width: 800px)  {
+    .App{
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .chat-container{
+        z-index: 999;
+        left: unset;
+        right: 0;
+        width: 33vw;
+        transform: none;
+        min-width: unset;
+        background: rgba(0,0,0,.5);
+    }
+
+    /*save space on small screens*/
+    p.chatMessage{
+        span:first-child{
+            display: none;
+        }
+    }
 }
