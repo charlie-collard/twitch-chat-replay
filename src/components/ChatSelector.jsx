@@ -1,14 +1,16 @@
 import './ChatSelector.css'
-import React, {FC, useState, useEffect} from 'react'
+import React, {useState, useEffect} from 'react'
 
-type ChatSelectorProps = {
-    onSelectKnownJson: Function,
-    onUploadCustomJson: Function
+
+//Doing it this way makes my IDE happy since we are not using typescript
+const  ChatSelectorProps = {
+    onSelectKnownJson: ()=>{},
+    onUploadCustomJson: ()=>{}
 }
 
 const SEARCH_PROMPT = "Search for NL vods here!";
 
-const ChatSelector: FC<ChatSelectorProps> = ({onSelectKnownJson, onUploadCustomJson}) => {
+const ChatSelector = ({onSelectKnownJson, onUploadCustomJson}) => {
     const [currentFilter, setCurrentFilter] = useState("")
     const [summaries, setSummaries] = useState()
 

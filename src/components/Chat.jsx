@@ -1,43 +1,43 @@
 import './Chat.css'
-import React, {FC, useEffect, useRef} from 'react'
+import React, {useEffect, useRef} from 'react'
 import {colors} from "../utils/colors"
 
-
-type Fragment = {
-    text: string,
+//Doing it this way makes my IDE happy since we are not using typescript files
+ const Fragment = {
+    text: '',
     emoticon: {
-        emoticon_id: string
+        emoticon_id: ''
     }
 }
 
-type ChatMessage = {
-    _id: string,
-    content_offset_seconds: number,
+ const ChatMessage = {
+    _id: '',
+    content_offset_seconds: 0,
     commenter: {
-        display_name: string
+        display_name: ''
     },
     message: {
-        body: string,
-        user_color: string,
-        fragments: Fragment[],
+        body: '',
+        user_color: '',
+        fragments: [],
         user_badges: {
-            _id: string,
-            version: string
-        }[],
+            _id: '',
+            version: ''
+        },
     }
 }
 
-type Emote = {
-    code: string
+ const Emote = {
+    code: ''
 }
 
-type ChatProps = {
-    chatMessages: ChatMessage[],
-    bttvEmotes: Emote[],
+ const ChatProps = {
+    chatMessages: [],
+    bttvEmotes: Emote,
     resetFunction: Function
 }
 
-const Chat: FC<ChatProps> = ({chatMessages, bttvEmotes, resetFunction}) => {
+const Chat = ({chatMessages, bttvEmotes, resetFunction}) => {
     const predictionBlueUrl = "https://static-cdn.jtvnw.net/badges/v1/e33d8b46-f63b-4e67-996d-4a7dcec0ad33/1"
     const predictionPinkUrl = "https://static-cdn.jtvnw.net/badges/v1/4b76d5f2-91cc-4400-adf2-908a1e6cfd1e/1"
     const twitchStaffUrl = "https://static-cdn.jtvnw.net/badges/v1/d97c37bd-a6f5-4c38-8f57-4e4bef88af34/1"

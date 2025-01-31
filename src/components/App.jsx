@@ -94,12 +94,12 @@ function App() {
         setVideoPlayer(event.target)
     }
 
-    const onPlay = (event) => {
+    const onPlay = () => {
         setChatEnabled(true)
         resetChat()
     }
 
-    const onPause = (event) => {
+    const onPause = () => {
         setChatEnabled(false)
     }
 
@@ -129,7 +129,7 @@ function App() {
         const {global, northernlion: {sharedEmotes}} = allBttvEmotes[bttvDate]
 
         const allEmotes = global.concat(sharedEmotes)
-        const resultMap = {}
+        const resultMap = []
         allEmotes.forEach((emote) => {
             resultMap[emote.code] = emote.id
         })
